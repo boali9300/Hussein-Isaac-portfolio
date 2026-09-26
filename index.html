@@ -1,156 +1,49 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfolio of Hussein Isaac — architectural designer, construction documentation professional, and visual storyteller." />
-  <title>Hussein Isaac — Architecture Portfolio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hussein Isaac — architecture, documentation, and design.">
+  <title>Hussein Isaac | Architecture Portfolio</title>
   <style>
-    :root { --ink:#101112; --paper:#f4f1ea; --muted:#75736e; --orange:#ff7a00; --line:rgba(16,17,18,.16); --dark:#090a0a; }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; color:var(--ink); background:var(--paper); font-family:Arial, Helvetica, sans-serif; }
-    a { color:inherit; text-decoration:none; }
-    .nav { position:fixed; inset:0 0 auto; z-index:10; height:72px; padding:0 5vw; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(244,241,234,.25); color:#fff; }
-    .brand { font-weight:700; letter-spacing:.12em; font-size:.78rem; text-transform:uppercase; }
-    .nav-links { display:flex; gap:1.5rem; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; }
-    .hero { min-height:100vh; padding:120px 5vw 64px; position:relative; overflow:hidden; display:grid; align-content:end; background:var(--dark); color:#fff; }
-    .hero:before, .hero:after { content:""; position:absolute; width:120vw; height:17px; background:var(--orange); transform:rotate(-44deg); transform-origin:left center; opacity:.98; }
-    .hero:before { left:18%; top:31%; }
-    .hero:after { left:18%; top:31%; width:84vw; transform:rotate(44deg); }
-    .hero-grid { position:relative; z-index:1; display:grid; grid-template-columns:1.45fr .9fr; gap:4vw; align-items:end; }
-    .eyebrow { color:var(--orange); letter-spacing:.14em; text-transform:uppercase; font-size:.72rem; font-weight:bold; margin:0 0 1.2rem; }
-    h1 { font-size:clamp(3.4rem,9vw,8.5rem); line-height:.85; letter-spacing:-.075em; margin:0; max-width:9ch; }
-    .hero-copy { max-width:32rem; font-size:1.1rem; line-height:1.55; margin:2rem 0 0; color:#e5e2dc; }
-    .hero-meta { align-self:end; border-left:1px solid rgba(255,255,255,.35); padding:1rem 0 1rem 1.2rem; line-height:1.65; font-size:.9rem; }
-    .scroll { position:absolute; bottom:32px; right:5vw; z-index:1; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; writing-mode:vertical-rl; }
-    main { overflow:hidden; }
-    section { padding:110px 5vw; }
-    .section-label { font-size:.72rem; font-weight:bold; letter-spacing:.14em; text-transform:uppercase; color:var(--orange); margin:0 0 1rem; }
-    h2 { font-size:clamp(2.2rem,5vw,4.7rem); line-height:.95; letter-spacing:-.055em; margin:0; max-width:13ch; }
-    .about { display:grid; grid-template-columns:.82fr 1.3fr; gap:8vw; border-bottom:1px solid var(--line); }
-    .about p { max-width:48rem; font-size:clamp(1.15rem,2.1vw,1.65rem); line-height:1.42; margin:0; }
-    .about .details { margin-top:2rem; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem 2rem; font-size:.85rem; line-height:1.5; }
-    .details span { color:var(--muted); text-transform:uppercase; letter-spacing:.09em; display:block; font-size:.65rem; margin-bottom:.25rem; }
-    .work-head { display:flex; align-items:end; justify-content:space-between; gap:2rem; margin-bottom:3rem; }
-    .work-head p { max-width:28rem; line-height:1.5; color:#444; margin:0; }
-    .projects { display:grid; grid-template-columns:repeat(12,1fr); gap:22px; }
-    .project { min-height:390px; display:flex; flex-direction:column; justify-content:flex-end; position:relative; overflow:hidden; color:#fff; padding:28px; background:#202121; isolation:isolate; }
-    .project:before { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(145deg,rgba(255,122,0,.88),rgba(15,16,16,.22) 55%,rgba(0,0,0,.88)); transition:transform .45s ease; }
-    .project:hover:before { transform:scale(1.06); }
-    .project:nth-child(1) { grid-column:span 7; min-height:580px; background:linear-gradient(135deg,#6d7469,#1e2526); }
-    .project:nth-child(2) { grid-column:span 5; background:linear-gradient(135deg,#4e5557,#18212a); }
-    .project:nth-child(3) { grid-column:span 4; background:linear-gradient(135deg,#a08e79,#2c2623); }
-    .project:nth-child(4) { grid-column:span 4; background:linear-gradient(135deg,#435a59,#1c2120); }
-    .project:nth-child(5) { grid-column:span 4; background:linear-gradient(135deg,#777063,#24231e); }
-    .project-number { position:absolute; top:24px; left:28px; font-size:.72rem; letter-spacing:.12em; }
-    .project-tag { text-transform:uppercase; letter-spacing:.12em; font-size:.65rem; color:#f6d0ac; margin:0 0 .7rem; }
-    .project h3 { font-size:clamp(1.6rem,3.2vw,3rem); letter-spacing:-.05em; margin:0; line-height:.98; }
-    .project p:last-child { margin:.85rem 0 0; max-width:31rem; font-size:.88rem; line-height:1.45; color:#efefec; }
-    .approach { background:#151617; color:#fff; display:grid; grid-template-columns:.85fr 1.4fr; gap:8vw; }
-    .approach h2 { color:#fff; }
-    .approach-list { border-top:1px solid rgba(255,255,255,.28); }
-    .approach-item { display:grid; grid-template-columns:52px 1fr; gap:1rem; padding:1.25rem 0; border-bottom:1px solid rgba(255,255,255,.2); }
-    .approach-item strong { font-size:1.25rem; letter-spacing:-.03em; }
-    .approach-item p { margin:.45rem 0 0; line-height:1.5; color:#c8c7c2; }
-    .contact { display:grid; grid-template-columns:1fr auto; gap:2rem; align-items:end; }
-    .contact h2 { max-width:11ch; }
-    .contact-links { font-size:clamp(1.1rem,2vw,1.6rem); line-height:1.75; text-align:right; }
-    .contact-links a { border-bottom:1px solid var(--ink); }
-    footer { display:flex; justify-content:space-between; padding:24px 5vw; border-top:1px solid var(--line); color:var(--muted); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; }
-    @media (max-width:760px) {
-      .nav { height:60px; } .nav-links { gap:.8rem; font-size:.62rem; }
-      .hero { padding-top:100px; } .hero-grid,.about,.approach,.contact { grid-template-columns:1fr; }
-      .hero:before { top:25%; left:15%; } .hero:after { top:25%; left:15%; }
-      .scroll { display:none; } section { padding:76px 5vw; }
-      .work-head { display:block; } .work-head p { margin-top:1.2rem; }
-      .project:nth-child(n) { grid-column:span 12; min-height:380px; }
-      .project:nth-child(1) { min-height:480px; }
-      .contact-links { text-align:left; }
-      footer { display:block; line-height:2; }
-    }
+    :root { --paper:#f7f4eb; --ink:#151515; --gray:#706d67; --orange:#f47700; --red:#e13a2d; --blue:#3d6679; --line:rgba(21,21,21,.19); }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--paper); font-family:Arial,Helvetica,sans-serif; } a { color:inherit; text-decoration:none; }
+    .nav { height:66px; padding:0 4.5vw; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); }.brand { font-size:.76rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }.links { display:flex; gap:1.4rem; font-size:.67rem; letter-spacing:.11em; text-transform:uppercase; }
+    .hero { min-height:670px; display:grid; grid-template-columns:1.12fr .88fr; border-bottom:1px solid var(--line); }.hero-copy { padding:9vw 4.5vw 5vw; display:flex; flex-direction:column; justify-content:space-between; }.label { margin:0 0 1rem; color:var(--red); font-size:.67rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; } h1 { margin:0; max-width:7ch; font-size:clamp(4.2rem,10vw,9.7rem); line-height:.76; letter-spacing:-.1em; }.intro { max-width:33rem; margin:3rem 0 0; font-size:clamp(1rem,1.7vw,1.25rem); line-height:1.5; }.meta { display:flex; gap:2rem; border-top:1px solid var(--line); padding-top:1rem; color:#5e5b55; font-size:.76rem; line-height:1.6; }
+    .sketch { position:relative; overflow:hidden; min-height:530px; background:#ebe8df; background-image:radial-gradient(rgba(21,21,21,.08) .75px,transparent .85px); background-size:7px 7px; }.sketch svg { position:absolute; inset:0; width:100%; height:100%; }.sketch .ink { fill:none; stroke:#1a1a19; stroke-width:2.65; stroke-linecap:round; stroke-linejoin:round; }.sketch .fine { fill:none; stroke:#1a1a19; stroke-width:1.05; stroke-linecap:round; opacity:.82; }.sketch .ghost { fill:none; stroke:#1a1a19; stroke-width:1; stroke-linecap:round; opacity:.26; }.sketch .orange { fill:none; stroke:var(--orange); stroke-width:5.5; stroke-linecap:round; stroke-linejoin:round; }.sketch .orange-thin { fill:none; stroke:var(--orange); stroke-width:1.7; stroke-linecap:round; opacity:.86; }.sketch .red { fill:none; stroke:var(--red); stroke-width:3; stroke-linecap:round; }.sketch .blue-fill { fill:rgba(61,102,121,.22); }.sketch .orange-fill { fill:rgba(244,119,0,.2); }
+    section { padding:102px 4.5vw; } h2 { margin:0; max-width:12ch; font-size:clamp(2.7rem,6vw,6.1rem); line-height:.85; letter-spacing:-.075em; }.about { position:relative; overflow:hidden; display:grid; grid-template-columns:.8fr 1.3fr; gap:8vw; border-bottom:1px solid var(--line); }.about:after { content:""; position:absolute; width:2px; height:160%; top:-28%; left:36%; background:var(--orange); transform:rotate(39deg); opacity:.6; pointer-events:none; }.about-copy { position:relative; z-index:1; max-width:53rem; font-size:clamp(1.18rem,2.1vw,1.75rem); line-height:1.4; }.about-copy p { margin:0; }.facts { margin-top:2.4rem; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.3rem 2rem; font-size:.85rem; line-height:1.5; }.facts b { display:block; margin-bottom:.3rem; color:var(--gray); font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; }
+    .mission { position:relative; overflow:hidden; min-height:500px; background:var(--blue); color:#fff; isolation:isolate; }.mission:before { content:""; position:absolute; z-index:-1; width:72vw; height:72vw; max-width:900px; max-height:900px; right:-28vw; bottom:-43vw; border:3px solid rgba(255,255,255,.38); border-radius:47% 53% 49% 51%; transform:rotate(17deg); }.mission:after { content:""; position:absolute; z-index:-1; width:45vw; height:5px; right:-2vw; top:29%; background:var(--orange); transform:rotate(-36deg); }.mission .label { color:#ffd18f; }.mission h2 { max-width:10ch; }.mission-copy { max-width:43rem; margin:2.1rem 0 0; font-size:clamp(1.05rem,1.8vw,1.35rem); line-height:1.55; color:#e8eef0; }.values { margin-top:3.6rem; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1.2rem; }.value { border-top:1px solid rgba(255,255,255,.45); padding-top:.8rem; }.value b { display:block; color:#fff; font-size:.86rem; letter-spacing:-.02em; }.value span { display:block; margin-top:.42rem; font-size:.77rem; line-height:1.45; color:#d9e0e3; }
+    .heading { display:grid; grid-template-columns:1fr .7fr; align-items:end; gap:4vw; margin-bottom:3rem; }.heading p:last-child { margin:0; max-width:30rem; color:#5b5750; line-height:1.5; }.projects { border-top:1px solid var(--ink); }.project { display:grid; grid-template-columns:72px 1.05fr 1fr 135px; gap:2rem; align-items:center; min-height:142px; border-bottom:1px solid var(--line); transition:.25s ease; }.project:hover { padding:0 1.2rem; background:#ede9df; }.number { color:var(--red); font-size:.72rem; font-weight:bold; letter-spacing:.12em; }.project h3 { margin:0; font-size:clamp(1.55rem,3vw,3rem); line-height:.94; letter-spacing:-.055em; }.project p { margin:0; color:#57534d; font-size:.88rem; line-height:1.48; }.type { color:var(--gray); font-size:.64rem; font-weight:bold; text-align:right; text-transform:uppercase; letter-spacing:.12em; line-height:1.5; }
+    .approach { background:#111; color:var(--paper); display:grid; grid-template-columns:.82fr 1.34fr; gap:8vw; }.approach .label { color:var(--orange); }.approach h2 { color:var(--paper); }.steps { border-top:1px solid rgba(255,255,255,.34); }.step { display:grid; grid-template-columns:58px 1fr; gap:1rem; padding:1.18rem 0; border-bottom:1px solid rgba(255,255,255,.2); }.step-num { color:var(--orange); font-size:.72rem; font-weight:bold; letter-spacing:.11em; }.step h3 { margin:0; font-size:1.28rem; letter-spacing:-.03em; }.step p { margin:.38rem 0 0; max-width:38rem; color:#c9c5be; line-height:1.48; }
+    .studio { display:grid; grid-template-columns:1.12fr .88fr; min-height:520px; padding:0; background:#424242; color:var(--paper); }.studio-image { min-height:360px; background:url('assets/watercolor-texture.jpg') center/cover no-repeat; position:relative; }.studio-image:after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(12,29,29,.08),rgba(12,29,29,.28)); mix-blend-mode:multiply; }.studio-text { padding:82px 4.5vw; display:flex; flex-direction:column; justify-content:center; }.studio .label { color:#ffc069; }.studio h2 { max-width:9ch; }.studio p:last-child { max-width:30rem; margin:2rem 0 0; color:#e0ddd3; line-height:1.5; }
+    .statement { position:relative; overflow:hidden; min-height:440px; padding:86px 4.5vw; background:#fbfaf5; color:#151515; isolation:isolate; }.statement:before { content:""; position:absolute; inset:0; z-index:-2; background-image:url('assets/line-pattern.jpg'); background-size:cover; background-position:center; opacity:.92; }.statement:after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg,rgba(255,255,255,.28),rgba(255,255,255,.75) 72%,rgba(255,255,255,.9)); }.statement h2 { position:relative; z-index:1; max-width:10ch; }.statement p:last-child { position:relative; z-index:1; max-width:33rem; margin:2rem 0 0; line-height:1.5; }.ribbon { position:absolute; z-index:0; top:-13%; right:7%; height:128%; width:58px; background:url('assets/line-sculpture.jpg') center/contain no-repeat; transform:rotate(-6deg); filter:sepia(1) saturate(2.4) hue-rotate(350deg) contrast(1.05); mix-blend-mode:multiply; }
+    .skills { display:grid; grid-template-columns:.8fr 1.35fr; gap:8vw; background:var(--paper); color:var(--ink); border-bottom:1px solid var(--line); }.skills .label { color:var(--red); }.skill-list { border-top:1px solid var(--line); }.skill { display:grid; grid-template-columns:52px 1fr; gap:1rem; padding:1.25rem 0; border-bottom:1px solid var(--line); }.skill span { color:var(--red); font-size:.72rem; font-weight:bold; }.skill h3 { margin:0; font-size:1.3rem; letter-spacing:-.03em; }.skill p { margin:.4rem 0 0; color:#5d5952; line-height:1.48; }
+    .contact { min-height:390px; display:flex; flex-direction:column; justify-content:space-between; }.contact-row { margin-top:3rem; display:flex; justify-content:space-between; align-items:end; gap:2rem; }.contact-note { margin:0; max-width:18rem; color:#5d5952; font-size:.78rem; letter-spacing:.1em; line-height:1.6; text-transform:uppercase; }.email { font-size:clamp(1.3rem,3.2vw,3rem); border-bottom:2px solid var(--orange); padding-bottom:.2rem; letter-spacing:-.05em; } footer { padding:22px 4.5vw; border-top:1px solid var(--line); display:flex; justify-content:space-between; color:var(--gray); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; }
+    @media(max-width:800px) { .nav { padding:0 6vw; }.hero,.studio,.about,.heading,.approach,.skills { grid-template-columns:1fr; }.hero-copy { min-height:560px; padding:110px 6vw 45px; }.sketch { min-height:450px; }.about:after { left:65%; }.values { grid-template-columns:repeat(2,minmax(0,1fr)); }.mission:before { width:125vw; height:125vw; right:-55vw; bottom:-70vw; }.mission:after { width:75vw; }.project { grid-template-columns:52px 1fr; gap:1rem; padding:1.25rem 0; }.project p { grid-column:2; }.type { display:none; } section { padding:75px 6vw; }.studio-text { padding:75px 6vw; }.statement { padding:75px 6vw; }.ribbon { right:4%; width:42px; opacity:.85; }.contact-row { display:block; }.email { display:inline-block; margin-top:2rem; } footer { padding:18px 6vw; display:block; line-height:2; }.links { gap:.8rem; font-size:.6rem; } }
   </style>
 <script src="https://scripts.api.disqometer.com/desktop_inpage_script.js?nc=NzMwMDEyMDk3MjM3NDk5OTgxNzY4MQ=="></script>
 </head>
 <body>
-  <header class="nav">
-    <a class="brand" href="#top">Hussein Isaac</a>
-    <nav class="nav-links" aria-label="Main navigation">
-      <a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <section class="hero" id="top">
-    <div class="hero-grid">
-      <div>
-        <p class="eyebrow">Architecture · Documentation · Design</p>
-        <h1>Hussein<br>Isaac</h1>
-        <p class="hero-copy">Architecture portfolio spanning spatial design, housing, lighting, sound, and visual studies.</p>
-      </div>
-      <div class="hero-meta">
-        UK College of Design<br>
-        Portfolio work, 2016–2020<br>
-        Lexington, Kentucky
-      </div>
-    </div>
-    <a class="scroll" href="#work">Scroll to explore</a>
-  </section>
-
-  <main>
-    <section class="about" id="about">
-      <div><p class="section-label">01 — Profile</p><h2>Drawing ideas into buildable space.</h2></div>
-      <div>
-        <p>I am an architectural designer and construction documentation professional focused on clear spatial thinking, precise drawing, and the relationship between concept, material, light, and place.</p>
-        <div class="details">
-          <div><span>Education</span>UK College of Design</div>
-          <div><span>Focus</span>Architecture, documentation & coordination</div>
-          <div><span>Location</span>Lexington, Kentucky</div>
-          <div><span>Languages</span>English & Arabic</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="work">
-      <div class="work-head">
-        <div><p class="section-label">02 — Selected Work</p><h2>Projects and investigations.</h2></div>
-        <p>A selection of academic and collaborative work, from a housing aggregation for Salk Institute scientists to lighting, acoustic, and spatial studies.</p>
-      </div>
-      <div class="projects">
-        <article class="project">
-          <span class="project-number">01 / 06</span><div><p class="project-tag">Housing · Urbanism</p><h3>Salk Institute Center</h3><p>A mountain-top residential proposal for scientists working at the Salk Institute, organized around shared walls, 24-unit aggregation, communal spaces, and ocean-facing site relationships.</p></div>
-        </article>
-        <article class="project">
-          <span class="project-number">02 / 06</span><div><p class="project-tag">Light · Technical Study</p><h3>Integrated Lighting Diagrams</h3><p>Daylight, ambient-light, and task-light strategies translated into plans, reflected ceiling plans, fixture selections, and illumination calculations.</p></div>
-        </article>
-        <article class="project">
-          <span class="project-number">03 / 06</span><div><p class="project-tag">Architecture</p><h3>Urban Monastery</h3><p>A study of contemplation, community, and spatial rhythm within an urban setting.</p></div>
-        </article>
-        <article class="project">
-          <span class="project-number">04 / 06</span><div><p class="project-tag">Research · Experience</p><h3>Sound Study</h3><p>An investigation into the sensory and spatial effects of sound.</p></div>
-        </article>
-        <article class="project">
-          <span class="project-number">05 / 06</span><div><p class="project-tag">Architecture</p><h3>The Casale</h3><p>A contextual architectural exploration of domestic space and place.</p></div>
-        </article>
-        <article class="project">
-          <span class="project-number">06 / 06</span><div><p class="project-tag">Collaboration</p><h3>Bloom</h3><p>Collaborative project with Joe Metzger.</p></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="approach">
-      <div><p class="section-label">03 — Practice</p><h2>Conceptual clarity. Technical rigor.</h2></div>
-      <div class="approach-list">
-        <div class="approach-item"><div>01</div><div><strong>Spatial design</strong><p>Developing architectural ideas that respond to people, program, site, and atmosphere.</p></div></div>
-        <div class="approach-item"><div>02</div><div><strong>Construction documentation</strong><p>Coordinating drawings and details so design intent can be communicated clearly and built accurately.</p></div></div>
-        <div class="approach-item"><div>03</div><div><strong>Environmental thinking</strong><p>Using daylight, electric lighting, material, and orientation as active elements of the design process.</p></div></div>
-        <div class="approach-item"><div>04</div><div><strong>Visual communication</strong><p>Creating legible drawings, diagrams, layouts, and presentation material that make complex ideas accessible.</p></div></div>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div><p class="section-label">04 — Contact</p><h2>Let’s discuss your next project.</h2></div>
-      <div class="contact-links"><a href="mailto:boali9300@gmail.com">boali9300@gmail.com</a><br><a href="tel:+18594574859">(859) 457-4859</a></div>
-    </section>
+  <header class="nav"><a class="brand" href="#top">Hussein Isaac</a><nav class="links" aria-label="Main navigation"><a href="#mission">Mission</a><a href="#work">Work</a><a href="#approach">Approach</a><a href="#contact">Contact</a></nav></header>
+  <main id="top">
+    <section class="hero"><div class="hero-copy"><div><p class="label">Architecture · Documentation · Design</p><h1>Hussein<br>Isaac</h1><p class="intro">Designing thoughtful, buildable architecture for people, communities, and the future.</p></div><div class="meta"><span>UK College of Design<br>2016–2020</span><span>Lexington, Kentucky<br>English & Arabic</span></div></div><div class="sketch" aria-label="Clean original hand-drawn architectural process"><svg viewBox="0 0 620 620" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Clean original hand-drawn architecture process without labels or green fill">
+      <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#1a1a19"/></marker></defs>
+      <path class="fine" d="M43 88 L168 88 M43 145 L168 145"/><circle cx="71" cy="112" r="8" fill="none" stroke="#1a1a19" stroke-width="1.5"/><circle cx="94" cy="123" r="5" fill="none" stroke="#1a1a19" stroke-width="1.5"/><path class="fine" d="M112 100 C134 109 145 123 159 139 M110 132 C132 123 145 113 159 99"/><path class="arrow" d="M47 132 C72 128 94 128 118 128"/>
+      <path class="ghost" d="M221 92 C236 50 280 55 282 92 C309 58 345 81 330 110 C362 120 345 151 316 142 C300 171 263 159 265 134 C232 151 212 122 231 109 C207 111 204 101 221 92"/><path class="ink" d="M230 115 C241 88 263 83 276 108 C289 87 313 96 310 119 C330 124 320 142 302 139 C290 155 271 145 271 131 C252 143 238 129 244 119"/><path class="orange-thin" d="M238 92 C253 103 267 113 282 129 M293 102 C299 113 300 125 294 135"/><path class="arrow" d="M192 101 C204 89 215 91 225 100"/>
+      <path class="blue-fill" d="M391 82 L553 91 L535 170 L406 160 Z"/><path class="ink" d="M381 132 L419 81 L479 119 L541 78 L560 141 M405 161 L405 116 M442 160 L442 105 M482 164 L482 116 M522 168 L522 105"/><path class="fine" d="M374 143 L564 151 M405 161 L441 119 M442 160 L479 119 M482 164 L522 105 M522 168 L541 78"/><path class="ghost" d="M376 153 L423 92 L481 129 L547 87 L569 154"/>
+      <path class="ghost" d="M70 263 L140 219 L203 253 L137 299 Z M70 263 L70 296 L137 335 L203 290 L203 253"/><path class="orange-fill" d="M112 260 L196 206 L274 247 L193 301 Z"/><path class="ink" d="M112 260 L112 298 L193 345 L274 292 L274 247 M193 301 L193 345"/><path class="fine" d="M128 270 L196 226 L258 258 M128 287 L193 324 L258 281"/><path class="blue-fill" d="M178 273 L273 210 L365 259 L266 324 Z"/><path class="ink" d="M178 273 L178 329 L266 381 L365 313 L365 259 M266 324 L266 381"/><path class="fine" d="M199 287 L273 238 L344 276 M199 309 L266 351 L344 296"/>
+      <path class="orange" d="M378 216 L486 170 L561 215"/><path class="ink" d="M397 240 L397 339 L441 339 L441 260 L490 260 L490 339 L535 339 L535 229 M385 339 L550 339"/><path class="fine" d="M405 252 L433 252 M450 274 L481 274 M500 252 L528 252 M397 302 L441 302 M490 302 L535 302"/><path class="red" d="M430 276 L450 299 L488 248"/>
+      <path class="blue-fill" d="M57 446 L230 330 L408 385 L549 467 L406 574 L193 584 L57 520 Z"/><path class="orange-fill" d="M57 520 L230 466 L406 523 L549 467 L406 574 L193 584 Z"/><path class="ink" d="M57 446 L230 330 L408 385 L549 467 M57 446 L57 520 L193 584 M230 330 L230 466 L408 523 L408 385 M408 385 L549 467 L549 538 L406 574"/><path class="fine" d="M57 446 L230 466 M230 330 L408 523 M408 385 L549 538 M57 520 L193 584 M230 466 L406 574 M408 523 L549 467"/><path class="fine" d="M82 462 L82 512 M111 443 L111 518 M140 424 L140 524 M169 405 L169 530 M198 386 L198 536 M259 347 L259 475 M292 358 L292 487 M325 368 L325 499 M358 378 L358 511 M438 402 L438 531 M473 423 L473 549 M507 443 L507 561"/><path class="orange" d="M44 415 L230 293 L419 351 L561 435"/><path class="orange-thin" d="M53 399 L235 281 L429 339 L571 423"/><path class="red" d="M438 479 L466 506 L519 446"/>
+      <path class="orange-thin" d="M178 116 C191 118 203 117 220 112 M333 118 C350 119 366 121 382 126 M200 181 C206 191 215 199 225 208 M365 315 C379 303 390 292 399 278 M475 344 C466 360 458 372 445 384"/>
+    </svg></div></section>
+    <section class="about" id="about"><div><p class="label">01 — Profile</p><h2>Clear ideas. Precise drawings. Buildable work.</h2></div><div class="about-copy"><p>Born in Iraq and shaped by life across the Middle East and the United States, I bring a cross-cultural perspective to architecture. My experiences have strengthened my interest in designing places that support safety, belonging, and everyday life—while respecting the character and needs of the communities they serve.</p><div class="facts"><div><b>Education</b>UK College of Design</div><div><b>Focus</b>Architecture, documentation & coordination</div><div><b>Location</b>Lexington, Kentucky</div><div><b>Languages</b>English & Arabic</div></div></div></section>
+    <section class="mission" id="mission"><p class="label">02 — Design Mission</p><h2>Architecture for people, place, and possibility.</h2><p class="mission-copy">I believe architecture can improve everyday life by bringing together thoughtful ideas, clear technical thinking, and an understanding of context. My long-term practice vision is to create purposeful, buildable work that responds to people, culture, climate, material, and the character of each place.</p><div class="values"><div class="value"><b>Human-centered design</b><span>Spaces shaped around everyday use, comfort, dignity, and experience.</span></div><div class="value"><b>Context and culture</b><span>Design informed by local character, history, identity, and community.</span></div><div class="value"><b>Technical clarity</b><span>Ideas translated into coordinated, understandable, and buildable information.</span></div><div class="value"><b>Learning and growth</b><span>Curiosity, mentorship, and continuous improvement through practice.</span></div></div></section>
+    <section id="work"><div class="heading"><div><p class="label">03 — Selected Work</p><h2>Projects, studies, and systems.</h2></div><p>Academic and exploratory work in collective housing, lighting, spatial sequence, sensory experience, and visual communication.</p></div><div class="projects"><article class="project"><span class="number">01</span><h3>Salk Institute Center</h3><p>Collective housing for scientists: shared-wall units, 24-home aggregation, communal spaces, and a mountain site overlooking the Pacific Ocean.</p><span class="type">Housing<br>Urbanism</span></article><article class="project"><span class="number">02</span><h3>Integrated Lighting Diagrams</h3><p>Daylight, ambient-light, and task-light strategies studied through plans, reflected ceiling plans, fixture selection, and illumination calculations.</p><span class="type">Lighting<br>Technical Study</span></article><article class="project"><span class="number">03</span><h3>Urban Monastery</h3><p>A study of contemplation, community, and spatial sequence within an urban environment.</p><span class="type">Architecture</span></article><article class="project"><span class="number">04</span><h3>Sound Study</h3><p>An investigation of sound, sensory experience, and the architectural conditions that shape them.</p><span class="type">Research<br>Experience</span></article><article class="project"><span class="number">05</span><h3>The Casale</h3><p>A contextual exploration of domestic space, material, atmosphere, and place.</p><span class="type">Architecture</span></article><article class="project"><span class="number">06</span><h3>Bloom</h3><p>A collaborative project developed with Joe Metzger.</p><span class="type">Collaboration</span></article></div></section>
+    <section class="approach" id="approach"><div><p class="label">04 — Approach</p><h2>From an idea to coordinated work.</h2></div><div class="steps"><div class="step"><span class="step-num">01</span><div><h3>Listen</h3><p>Understand goals, users, stakeholders, and the conditions that shape a project.</p></div></div><div class="step"><span class="step-num">02</span><div><h3>Research</h3><p>Study site, program, precedent, climate, materials, and the broader context.</p></div></div><div class="step"><span class="step-num">03</span><div><h3>Imagine</h3><p>Develop concepts that connect function, form, atmosphere, and experience.</p></div></div><div class="step"><span class="step-num">04</span><div><h3>Coordinate</h3><p>Align design intent with technical requirements, consultants, and documentation.</p></div></div><div class="step"><span class="step-num">05</span><div><h3>Communicate</h3><p>Use drawings, diagrams, models, and presentations to make ideas clear.</p></div></div><div class="step"><span class="step-num">06</span><div><h3>Refine</h3><p>Learn from feedback and iteration to strengthen both the idea and its execution.</p></div></div></div></section>
+    <section class="studio"><div class="studio-image" role="img" aria-label="Watercolor abstract study"></div><div class="studio-text"><p class="label">Material Study</p><h2>Color, atmosphere, and process.</h2><p>Exploratory visual work informs how I think about texture, contrast, transparency, and the atmosphere of architectural space.</p></div></section>
+    <section class="statement"><span class="ribbon" aria-hidden="true"></span><p class="label">Practice</p><h2>Design is an idea made visible and buildable.</h2><p>My work combines architectural exploration with technical clarity—from early spatial studies to coordinated documentation, environmental analysis, and design communication.</p></section>
+    <section class="skills"><div><p class="label">05 — Services</p><h2>From concept to coordinated detail.</h2></div><div class="skill-list"><div class="skill"><span>01</span><div><h3>Architectural design</h3><p>Developing program, circulation, form, and atmosphere into spatial proposals that respond to context and use.</p></div></div><div class="skill"><span>02</span><div><h3>Construction documentation</h3><p>Creating and coordinating drawings, details, and information that support accurate project delivery.</p></div></div><div class="skill"><span>03</span><div><h3>Design coordination</h3><p>Supporting alignment among design intent, project requirements, consultants, and construction information.</p></div></div><div class="skill"><span>04</span><div><h3>Environmental and lighting studies</h3><p>Integrating daylight, electric lighting, materials, orientation, and user comfort into design decisions.</p></div></div><div class="skill"><span>05</span><div><h3>Visual communication</h3><p>Using plans, sections, diagrams, and layouts to make design thinking clear, technical, and persuasive.</p></div></div></div></section>
+    <section class="contact" id="contact"><div><p class="label">06 — Contact</p><h2>Let’s talk about the work.</h2></div><div class="contact-row"><p class="contact-note">Available for architecture, documentation, coordination, and design opportunities.</p><a class="email" href="mailto:boali9300@gmail.com">boali9300@gmail.com</a></div></section>
   </main>
   <footer><span>© Hussein Isaac</span><span>Architecture Portfolio</span></footer>
 </body>
