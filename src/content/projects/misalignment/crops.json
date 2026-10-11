@@ -1,0 +1,709 @@
+{
+  "source": "_source/Misalignment.pdf",
+  "outDir": "images",
+  "crops": [
+    {
+      "name": "rotation-diagram.png",
+      "mode": "raster",
+      "page": 1,
+      "rect": [
+        70,
+        140,
+        745,
+        612
+      ],
+      "dpi": 220,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "floor-plan-cut.png",
+      "mode": "raster",
+      "page": 1,
+      "rect": [
+        125,
+        630,
+        655,
+        1190
+      ],
+      "dpi": 220,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "section-cuts.png",
+      "mode": "raster",
+      "page": 1,
+      "rect": [
+        28,
+        1220,
+        1120,
+        1655
+      ],
+      "dpi": 220,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "concept.png",
+      "mode": "raster",
+      "page": 1,
+      "rect": [
+        1300,
+        150,
+        2565,
+        872
+      ],
+      "dpi": 220,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "circulation.png",
+      "mode": "raster",
+      "page": 1,
+      "rect": [
+        1566,
+        931,
+        2302,
+        1667
+      ],
+      "dpi": 250,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "site-plan.png",
+      "mode": "vector",
+      "page": 2,
+      "rect": [
+        35,
+        144,
+        784,
+        893
+      ],
+      "dpi": 250,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "plan-first-floor.png",
+      "mode": "vector",
+      "page": 2,
+      "rect": [
+        922,
+        144,
+        1670,
+        893
+      ],
+      "dpi": 250,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "plan-second-floor.png",
+      "mode": "vector",
+      "page": 2,
+      "rect": [
+        1808,
+        144,
+        2557,
+        893
+      ],
+      "dpi": 250,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "section-a.png",
+      "mode": "vector",
+      "page": 2,
+      "rect": [
+        32,
+        1130,
+        786,
+        1470
+      ],
+      "dpi": 250,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "section-b.png",
+      "mode": "vector",
+      "page": 2,
+      "rect": [
+        918,
+        1130,
+        1672,
+        1470
+      ],
+      "dpi": 250,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "section-c.png",
+      "mode": "vector",
+      "page": 2,
+      "rect": [
+        1804,
+        1130,
+        2558,
+        1470
+      ],
+      "dpi": 250,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "elevation-north.png",
+      "mode": "vector",
+      "page": 3,
+      "rect": [
+        30,
+        300,
+        645,
+        660
+      ],
+      "dpi": 220,
+      "pad": 16
+    },
+    {
+      "name": "elevation-south.png",
+      "mode": "vector",
+      "page": 3,
+      "rect": [
+        670,
+        300,
+        1284,
+        660
+      ],
+      "dpi": 220,
+      "pad": 16
+    },
+    {
+      "name": "elevation-east.png",
+      "mode": "vector",
+      "page": 3,
+      "rect": [
+        1308,
+        300,
+        1922,
+        660
+      ],
+      "dpi": 220,
+      "pad": 16
+    },
+    {
+      "name": "elevation-west.png",
+      "mode": "vector",
+      "page": 3,
+      "rect": [
+        1946,
+        300,
+        2562,
+        660
+      ],
+      "dpi": 220,
+      "pad": 16
+    },
+    {
+      "name": "render-exterior.png",
+      "mode": "embedded",
+      "page": 3,
+      "image": 2,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "render-entrance.png",
+      "mode": "embedded",
+      "page": 3,
+      "image": 1,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "render-seminar.png",
+      "mode": "embedded",
+      "page": 4,
+      "image": 2,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "render-bathroom-exterior.png",
+      "mode": "embedded",
+      "page": 4,
+      "image": 1,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "render-archive-storage.png",
+      "mode": "embedded",
+      "page": 4,
+      "image": 4,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "render-living-room.png",
+      "mode": "embedded",
+      "page": 4,
+      "image": 3,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "render-kitchenette.png",
+      "mode": "embedded",
+      "page": 5,
+      "image": 2,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "render-bedroom.png",
+      "mode": "embedded",
+      "page": 5,
+      "image": 1,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "render-stair.png",
+      "mode": "embedded",
+      "page": 5,
+      "image": 4,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "render-reading-room.png",
+      "mode": "embedded",
+      "page": 5,
+      "image": 3,
+      "trim": false,
+      "color": true
+    }
+  ],
+  "_resolved": {
+    "rotation-diagram.png": {
+      "mode": "raster",
+      "page": 1,
+      "rect": [
+        70,
+        140,
+        745,
+        612
+      ],
+      "dpi": 220,
+      "output": [
+        1976,
+        1403
+      ],
+      "gray": false,
+      "bytes": 737695
+    },
+    "floor-plan-cut.png": {
+      "mode": "raster",
+      "page": 1,
+      "rect": [
+        125,
+        630,
+        655,
+        1190
+      ],
+      "dpi": 220,
+      "output": [
+        1562,
+        1679
+      ],
+      "gray": false,
+      "bytes": 814505
+    },
+    "section-cuts.png": {
+      "mode": "raster",
+      "page": 1,
+      "rect": [
+        28,
+        1220,
+        1120,
+        1655
+      ],
+      "dpi": 220,
+      "output": [
+        3304,
+        1307
+      ],
+      "gray": false,
+      "bytes": 1609718
+    },
+    "concept.png": {
+      "mode": "raster",
+      "page": 1,
+      "rect": [
+        1300,
+        150,
+        2565,
+        872
+      ],
+      "dpi": 220,
+      "output": [
+        3805,
+        2200
+      ],
+      "gray": false,
+      "bytes": 938274
+    },
+    "circulation.png": {
+      "mode": "raster",
+      "page": 1,
+      "rect": [
+        1566,
+        931,
+        2302,
+        1667
+      ],
+      "dpi": 250,
+      "output": [
+        2556,
+        2556
+      ],
+      "gray": false,
+      "bytes": 1146806
+    },
+    "site-plan.png": {
+      "mode": "vector",
+      "page": 2,
+      "rect": [
+        35,
+        144,
+        784,
+        893
+      ],
+      "dpi": 250,
+      "output": [
+        2601,
+        2601
+      ],
+      "gray": false,
+      "bytes": 1071250
+    },
+    "plan-first-floor.png": {
+      "mode": "vector",
+      "page": 2,
+      "rect": [
+        922,
+        144,
+        1670,
+        893
+      ],
+      "dpi": 250,
+      "output": [
+        2597,
+        2601
+      ],
+      "gray": false,
+      "bytes": 1217275
+    },
+    "plan-second-floor.png": {
+      "mode": "vector",
+      "page": 2,
+      "rect": [
+        1808,
+        144,
+        2557,
+        893
+      ],
+      "dpi": 250,
+      "output": [
+        2601,
+        2601
+      ],
+      "gray": false,
+      "bytes": 1159561
+    },
+    "section-a.png": {
+      "mode": "vector",
+      "page": 2,
+      "rect": [
+        32,
+        1130,
+        786,
+        1470
+      ],
+      "dpi": 250,
+      "output": [
+        2578,
+        1140
+      ],
+      "gray": false,
+      "bytes": 189702
+    },
+    "section-b.png": {
+      "mode": "vector",
+      "page": 2,
+      "rect": [
+        918,
+        1130,
+        1672,
+        1470
+      ],
+      "dpi": 250,
+      "output": [
+        2592,
+        1008
+      ],
+      "gray": false,
+      "bytes": 196478
+    },
+    "section-c.png": {
+      "mode": "vector",
+      "page": 2,
+      "rect": [
+        1804,
+        1130,
+        2558,
+        1470
+      ],
+      "dpi": 250,
+      "output": [
+        2591,
+        986
+      ],
+      "gray": false,
+      "bytes": 173751
+    },
+    "elevation-north.png": {
+      "mode": "vector",
+      "page": 3,
+      "rect": [
+        30,
+        300,
+        645,
+        660
+      ],
+      "dpi": 220,
+      "output": [
+        1865,
+        1057
+      ],
+      "gray": false,
+      "bytes": 89856
+    },
+    "elevation-south.png": {
+      "mode": "vector",
+      "page": 3,
+      "rect": [
+        670,
+        300,
+        1284,
+        660
+      ],
+      "dpi": 220,
+      "output": [
+        1859,
+        1054
+      ],
+      "gray": false,
+      "bytes": 126399
+    },
+    "elevation-east.png": {
+      "mode": "vector",
+      "page": 3,
+      "rect": [
+        1308,
+        300,
+        1922,
+        660
+      ],
+      "dpi": 220,
+      "output": [
+        1860,
+        1054
+      ],
+      "gray": false,
+      "bytes": 105634
+    },
+    "elevation-west.png": {
+      "mode": "vector",
+      "page": 3,
+      "rect": [
+        1946,
+        300,
+        2562,
+        660
+      ],
+      "dpi": 220,
+      "output": [
+        1860,
+        1054
+      ],
+      "gray": false,
+      "bytes": 115465
+    },
+    "render-exterior.png": {
+      "mode": "embedded",
+      "page": 3,
+      "image": 2,
+      "nativePx": [
+        1920,
+        1080
+      ],
+      "densityDpi": 111.3,
+      "output": [
+        1920,
+        1080
+      ],
+      "gray": false,
+      "bytes": 3111490
+    },
+    "render-entrance.png": {
+      "mode": "embedded",
+      "page": 3,
+      "image": 1,
+      "nativePx": [
+        1920,
+        1080
+      ],
+      "densityDpi": 111.3,
+      "output": [
+        1920,
+        1080
+      ],
+      "gray": false,
+      "bytes": 2321386
+    },
+    "render-seminar.png": {
+      "mode": "embedded",
+      "page": 4,
+      "image": 2,
+      "nativePx": [
+        1920,
+        1080
+      ],
+      "densityDpi": 111.3,
+      "output": [
+        1920,
+        1080
+      ],
+      "gray": false,
+      "bytes": 2520799
+    },
+    "render-bathroom-exterior.png": {
+      "mode": "embedded",
+      "page": 4,
+      "image": 1,
+      "nativePx": [
+        1920,
+        1080
+      ],
+      "densityDpi": 111.3,
+      "output": [
+        1920,
+        1080
+      ],
+      "gray": false,
+      "bytes": 2108145
+    },
+    "render-archive-storage.png": {
+      "mode": "embedded",
+      "page": 4,
+      "image": 4,
+      "nativePx": [
+        1920,
+        1080
+      ],
+      "densityDpi": 111.3,
+      "output": [
+        1920,
+        1080
+      ],
+      "gray": false,
+      "bytes": 2540884
+    },
+    "render-living-room.png": {
+      "mode": "embedded",
+      "page": 4,
+      "image": 3,
+      "nativePx": [
+        1920,
+        1080
+      ],
+      "densityDpi": 111.3,
+      "output": [
+        1920,
+        1080
+      ],
+      "gray": false,
+      "bytes": 1750441
+    },
+    "render-kitchenette.png": {
+      "mode": "embedded",
+      "page": 5,
+      "image": 2,
+      "nativePx": [
+        1920,
+        1080
+      ],
+      "densityDpi": 111.3,
+      "output": [
+        1920,
+        1080
+      ],
+      "gray": false,
+      "bytes": 2846289
+    },
+    "render-bedroom.png": {
+      "mode": "embedded",
+      "page": 5,
+      "image": 1,
+      "nativePx": [
+        1920,
+        1080
+      ],
+      "densityDpi": 111.3,
+      "output": [
+        1920,
+        1080
+      ],
+      "gray": false,
+      "bytes": 1709301
+    },
+    "render-stair.png": {
+      "mode": "embedded",
+      "page": 5,
+      "image": 4,
+      "nativePx": [
+        3000,
+        2000
+      ],
+      "densityDpi": 197.5,
+      "output": [
+        3000,
+        2000
+      ],
+      "gray": false,
+      "bytes": 5465447
+    },
+    "render-reading-room.png": {
+      "mode": "embedded",
+      "page": 5,
+      "image": 3,
+      "nativePx": [
+        1920,
+        1080
+      ],
+      "densityDpi": 111.3,
+      "output": [
+        1920,
+        1080
+      ],
+      "gray": false,
+      "bytes": 2096004
+    }
+  }
+}

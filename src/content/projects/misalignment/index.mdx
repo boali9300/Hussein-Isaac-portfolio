@@ -1,0 +1,136 @@
+---
+title: Misalignment
+summary: A spatial archive of rotated boxes — a public library and a private house whose deliberate misalignments open gaps for light, define circulation and separate public from private.
+type: Library + house
+categories: [Civic, Housing, Design research]
+cover: ./images/render-exterior.png
+coverAlt: Render of the archive's faceted concrete volumes rising among trees and planting, with a person on the stone path at the entrance.
+coverCaption: Exterior view — rendered
+level: graduate
+order: 2
+featured: false
+draft: false
+facts:
+  - { label: Course, value: 'ARC 659 — Spatial Archive' }
+  - { label: Instructor, value: 'Associate Professor Jason Scroggin' }
+  - { label: Program, value: 'Library (public): lobby, archive storage, seminar, reading room · House (private): living room, kitchenette, study, bedroom' }
+  - { label: Studies, value: 'Process and concept diagrams, circulation, plans, sections, elevations, renders' }
+---
+
+import Chapter from '../../../components/Chapter.astro';
+import Figure from '../../../components/Figure.astro';
+import FigureGrid from '../../../components/FigureGrid.astro';
+
+import rotationDiagram from './images/rotation-diagram.png';
+import floorPlanCut from './images/floor-plan-cut.png';
+import sectionCuts from './images/section-cuts.png';
+import concept from './images/concept.png';
+import circulation from './images/circulation.png';
+import sitePlan from './images/site-plan.png';
+import planFirst from './images/plan-first-floor.png';
+import planSecond from './images/plan-second-floor.png';
+import sectionA from './images/section-a.png';
+import sectionB from './images/section-b.png';
+import sectionC from './images/section-c.png';
+import elevNorth from './images/elevation-north.png';
+import elevSouth from './images/elevation-south.png';
+import elevEast from './images/elevation-east.png';
+import elevWest from './images/elevation-west.png';
+import renderEntrance from './images/render-entrance.png';
+import renderSeminar from './images/render-seminar.png';
+import renderBathroomExterior from './images/render-bathroom-exterior.png';
+import renderArchive from './images/render-archive-storage.png';
+import renderLiving from './images/render-living-room.png';
+import renderKitchenette from './images/render-kitchenette.png';
+import renderBedroom from './images/render-bedroom.png';
+import renderStair from './images/render-stair.png';
+import renderReading from './images/render-reading-room.png';
+
+export const half = '(min-width: 1440px) 640px, (min-width: 641px) 46vw, 100vw';
+
+<Chapter n="01" title="Process">
+  Made in ARC 659: Spatial Archive with Associate Professor Jason Scroggin. The intentional misalignment of the boxes
+  introduced several design elements. The gaps along their sides created opportunities to explore how light enters
+  the structure, and they inform circulation and the entry points to the site. The process diagram shows the steps
+  and the variety of rotations around the X, Y and Z axes. The plan and section cuts show how light enters the
+  building through the shifts and rotations of the boxes. The red highlights mark where the boxes intersect, and
+  removing parts of these intersections creates interesting spaces and spatial experiences within the enclosure.
+</Chapter>
+
+<Figure src={rotationDiagram} width="narrow" sizes="(min-width: 800px) 768px, 100vw" caption="Rotation around the Y, X and Z axes" alt="Three wireframe cubes, each rotated around a different axis with the rotated position in red, above three gridded cubes with the shifted face shaded pink." />
+
+<FigureGrid cols={2} template="2fr 3fr">
+  <Figure src={floorPlanCut} sizes={half} caption="Floor plan cut" alt="Plan cut through four rotated boxes, with the overlapping intersections shaded salmon and marked with red crosses where they are removed." />
+  <Figure src={sectionCuts} sizes={half} caption="Library and house section cuts" alt="Section cuts through the library and house boxes, with the salmon-shaded intersections and red crosses marking removed portions along a red cut line." />
+</FigureGrid>
+
+<Chapter n="02" title="Concept and circulation">
+  The archive divides into a public library and a private house, with a courtyard path between them. The library
+  gathers a lobby, archive storage, a seminar room, a second-floor reading room and a skylight; the house holds the
+  living room, kitchenette, study room and bedroom under its own skylight. The circulation diagram shows how the
+  misalignment separates public and private entrances and routes.
+</Chapter>
+
+<Figure src={concept} caption="Concept" alt="Exploded diagram of colored boxes: the house (private space) with skylight, bedroom and living room, kitchenette and study room at left; the courtyard path between; and the library (public space) with archive storage, skylight, lobby, second-floor reading room and seminar at right." />
+
+<Figure src={circulation} width="narrow" sizes="(min-width: 800px) 768px, 100vw" caption="Circulation diagram" alt="Plan with colored arrows: orange public routes to the library's main entrances, magenta routes up the stair, and a teal private route along the path to the house's main and back entrances." />
+
+<Chapter n="03" title="Plans and sections">
+  The site plan shows the rotated boxes along the stone path. On the first floor, the library holds archive
+  storage, a restroom and the seminar room, and the house holds the bedroom, living room, kitchenette and study
+  room. The reading room is on the second floor at 21'-3". Sections A, B and C cut through the overlapping boxes.
+</Chapter>
+
+<Figure src={sitePlan} width="narrow" sizes="(min-width: 800px) 768px, 100vw" caption="Site plan" alt="Site plan of rotated boxes on a dotted green ground, crossed by a cobbled path, with section markers A, B and C." />
+
+<FigureGrid cols={2}>
+  <Figure src={planFirst} sizes={half} caption="First floor plan" alt="First floor plan: the library with archive storage, restroom and seminar, and the house with bedroom, living room, kitchenette and study room, drawn with heavy walls in rotated outlines." />
+  <Figure src={planSecond} sizes={half} caption="Second floor plan" alt="Second floor plan: the reading room with lounge chairs, set within a rotated box over the library." />
+</FigureGrid>
+
+<Figure src={sectionA} caption="Section A" alt="Section A through tilted boxes, with the stair to the second level at 21 feet 3 inches, on a brown ground band." />
+
+<FigureGrid cols={2}>
+  <Figure src={sectionB} sizes={half} caption="Section B" alt="Section B through the overlapping boxes, with heavy cut walls and furnished rooms." />
+  <Figure src={sectionC} sizes={half} caption="Section C" alt="Section C through the house, with heavy cut walls forming peaked spaces over a living area." />
+</FigureGrid>
+
+<Chapter n="04" title="Elevations">
+  From every side, the stacked and rotated boxes read as one faceted mass.
+</Chapter>
+
+<FigureGrid cols={2}>
+  <Figure src={elevNorth} sizes={half} caption="North elevation" alt="North elevation line drawing of stacked rotated boxes on a base." />
+  <Figure src={elevSouth} sizes={half} caption="South elevation" alt="South elevation line drawing of the rotated boxes with a glazed entrance." />
+</FigureGrid>
+
+<FigureGrid cols={2}>
+  <Figure src={elevEast} sizes={half} caption="East elevation" alt="East elevation line drawing of the rotated boxes with small human figures for scale." />
+  <Figure src={elevWest} sizes={half} caption="West elevation" alt="West elevation line drawing of the rotated boxes with a glazed opening at right." />
+</FigureGrid>
+
+<Chapter n="05" title="Renders">
+  Inside, the gaps between the boxes bring in light and views, and frame the rooms.
+</Chapter>
+
+<Figure src={renderEntrance} kind="render" caption="Entrance" alt="Render of the entrance: tilted concrete walls frame an open court with a stair rising to the upper level and shelves beyond." />
+
+<FigureGrid cols={2}>
+  <Figure src={renderSeminar} kind="render" sizes={half} caption="Seminar" alt="Render of the seminar room: people around a table under tilted concrete walls, with a planted opening and a whiteboard." />
+  <Figure src={renderBathroomExterior} kind="render" sizes={half} caption="Bathroom / exterior view" alt="Render of the exterior where the faceted concrete boxes meet, opening at the base to the bathroom." />
+</FigureGrid>
+
+<FigureGrid cols={2}>
+  <Figure src={renderArchive} kind="render" sizes={half} caption="Archive storage" alt="Render of archive storage: white bookshelves under angled concrete planes, with people browsing." />
+  <Figure src={renderLiving} kind="render" sizes={half} caption="Living room" alt="Render looking into the living room between two concrete walls: a sofa, a low table and shelving." />
+</FigureGrid>
+
+<FigureGrid cols={2}>
+  <Figure src={renderKitchenette} kind="render" sizes={half} caption="Kitchenette" alt="Render of the kitchenette under a canted concrete volume, with a wood counter behind a white frame and trees around." />
+  <Figure src={renderBedroom} kind="render" sizes={half} caption="Bedroom" alt="Render of the bedroom in warm light, with a pendant lamp over the bed and a low window slot." />
+</FigureGrid>
+
+<FigureGrid cols={2}>
+  <Figure src={renderStair} kind="render" sizes={half} caption="Stair" alt="Render looking down into the stair hall, with flights of concrete stairs between tilted walls." />
+  <Figure src={renderReading} kind="render" sizes={half} caption="Reading room" alt="Render of the reading room: white lounge chairs and sofa under suspended cube lamps, with a warm light slot in the wall." />
+</FigureGrid>

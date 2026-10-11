@@ -20,8 +20,23 @@ export const pending = <T>(value: T, note?: string): Fact<T> => ({ value, confir
 /** Should this fact render in the current build? */
 export const shows = (fact?: Fact<unknown>) => !!fact && (fact.confirmed || REVIEW);
 
-/** Published projects, plus drafts in review mode, in display order. */
+export type Level = CollectionEntry<'projects'>['data']['level'];
+
+/** The bodies of work, in display order. */
+export const levels: { id: Level; label: string }[] = [
+  { id: 'graduate', label: 'Graduate work' },
+  { id: 'undergraduate', label: 'Undergraduate work' },
+];
+
+export const levelLabel = (level: Level) => levels.find((l) => l.id === level)!.label;
+
+/** Published projects, plus drafts in review mode, in display order (by level, then order). */
 export async function getProjects(): Promise<CollectionEntry<'projects'>[]> {
   const all = await getCollection('projects', ({ data }) => REVIEW || !data.draft);
-  return all.sort((a, b) => a.data.order - b.data.order);
+  const rank = (level: Level) => levels.findIndex((l) => l.id === level);
+  return all.sort((a, b) => rank(a.data.level) - rank(b.data.level) || a.data.order - b.data.order);
 }
+
+/** A project's 1-based position within its level. */
+export const numberInLevel = (projects: CollectionEntry<'projects'>[], project: CollectionEntry<'projects'>) =>
+  projects.filter((p) => p.data.level === project.data.level).indexOf(project) + 1;

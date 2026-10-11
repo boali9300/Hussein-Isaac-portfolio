@@ -1,0 +1,102 @@
+---
+title: Stahl House
+summary: A construction-document study of Pierre Koenig's Case Study House #22 — redrawing how the house was built, and how its structure, mechanical and plumbing systems fit the design.
+type: Case study · Construction documents
+categories: [Technical study, Housing]
+cover: ./images/render-night.png
+coverAlt: 'Night render of the Stahl House: the glass living room cantilevered over the hillside under a long flat roof, lit warmly from inside.'
+coverCaption: The Stahl House at night — rendered
+level: graduate
+order: 3
+featured: false
+draft: false
+facts:
+  - { label: Course, value: 'ARC 750 — Architectural Studio' }
+  - { label: Instructor, value: 'Gary Rohrbacher' }
+  - { label: Team, value: 'Leteta Badegama & Hussein Isaac' }
+  - { label: Building, value: 'Stahl House, Case Study House #22 — 1635 Woods Dr, Los Angeles, CA 90069' }
+  - { label: Studies, value: 'Site, floor, reflected ceiling and roof plans, elevations, building and wall sections, details, renders' }
+---
+
+import Chapter from '../../../components/Chapter.astro';
+import Figure from '../../../components/Figure.astro';
+import FigureGrid from '../../../components/FigureGrid.astro';
+
+import axon from './images/axon.png';
+import renderPool from './images/render-pool.png';
+import renderLiving from './images/render-living-room.png';
+import sitePlan from './images/site-plan.png';
+import planFirst from './images/plan-first-floor.png';
+import planRcp from './images/plan-rcp.png';
+import planRoof from './images/plan-roof.png';
+import elevNorth from './images/elevation-north.png';
+import elevSouth from './images/elevation-south.png';
+import elevEast from './images/elevation-east.png';
+import elevWest from './images/elevation-west.png';
+import section1 from './images/section-1.png';
+import section2 from './images/section-2.png';
+import wallSections from './images/wall-sections.png';
+import detailBeamColumn from './images/detail-beam-column.png';
+import detailFoundation from './images/detail-foundation.png';
+
+export const half = '(min-width: 1440px) 640px, (min-width: 641px) 46vw, 100vw';
+
+<Chapter n="01" title="Brief">
+  In the ARC 750 studio, taught by Gary Rohrbacher, students explore the many ways architectural thinking,
+  techniques and formats lead to outcomes across disciplines, scales and media. Working with Leteta Badegama, I was
+  assigned the Stahl House, Case Study House #22. We developed construction drawings to understand how the house
+  was built, and how its mechanical, plumbing and structural systems were integrated into the design.
+</Chapter>
+
+<Figure src={axon} caption="Axonometric — the house on its piles" alt="Axonometric line drawing of the L-shaped glass house around the pool, its concrete terrace carried over the slope on tall piles, with the furniture drawn in red behind the glazing." />
+
+<FigureGrid cols={2}>
+  <Figure src={renderPool} kind="render" sizes={half} caption="Pool and living wing" alt="Render across the pool to the glass living wing under its slatted roof edge, with the city at dusk beyond." />
+  <Figure src={renderLiving} kind="render" sizes={half} caption="View from the living room" alt="Render from inside the living room through sliding glass doors to the pool terrace and the Los Angeles skyline at dusk." />
+</FigureGrid>
+
+<Chapter n="02" title="Plans">
+  The L-shaped house wraps the pool. One wing holds the bedrooms, bathrooms and master closet; the other the
+  kitchen, dining and living rooms, which cantilever toward the view. The garage closes the end of the bedroom
+  wing.
+</Chapter>
+
+<FigureGrid cols={2}>
+  <Figure src={sitePlan} sizes={half} caption="Site plan" alt="Site plan: the L-shaped house and pool on the hillside lot below Woods Drive, with contours, trees and the property line." />
+  <Figure src={planFirst} sizes={half} caption="First floor plan" alt="First floor plan: garage, children's bedroom, master bedroom, closet and bathrooms in one wing; kitchen, dining room and living room in the other, around the swimming pool, with gridlines 1–5 and A–E." />
+</FigureGrid>
+
+<FigureGrid cols={2}>
+  <Figure src={planRcp} sizes={half} caption="Reflected ceiling plan" alt="Reflected ceiling plan of the L-shaped house, showing the ribbed metal deck, roof overhangs and light fixtures." />
+  <Figure src={planRoof} sizes={half} caption="Roof plan" alt="Roof plan of the L-shaped flat roof in grey, with drainage slopes, a skylight and gridlines." />
+</FigureGrid>
+
+<Chapter n="03" title="Elevations">
+  Steel frames on a 20-foot grid hold floor-to-ceiling glass and insulated metal panels under a thin, deep roof,
+  set on brick retaining walls above the footings and piles.
+</Chapter>
+
+<Figure src={elevNorth} caption="North elevation" alt="North elevation: a long run of insulated metal wall panels and a section of decorative block screen under the flat roof, with levels down to the bottom of the piles." />
+<Figure src={elevSouth} caption="South elevation" alt="South elevation: decorative block screens at left and floor-to-ceiling glazing with sliding doors across the rest of the house." />
+<Figure src={elevEast} caption="East elevation" alt="East elevation: floor-to-ceiling glass panels and a band of clerestory windows over a metal-paneled wall at right." />
+<Figure src={elevWest} caption="West elevation" alt="West elevation: a metal-paneled wall at left and glazed bays with sliding doors under the roof overhang." />
+
+<Chapter n="04" title="Sections and details">
+  The building sections and wall sections trace the assembly from roof to pile. The roof is a membrane over rigid
+  insulation, a concrete slab and metal deck, carried by W12×26 wide-flange beams on 5×3×5/16 steel angles. The
+  W8×36 columns stand on a 6" concrete floor. Along the pool, a cantilevered concrete grade beam carries the floor,
+  while the other walls sit on grade beams over 3'×3'×1' footings and 16" diameter piles reaching 24 feet down. The
+  details show the beam welded to the column, and the steel plate welded to the column and bolted to the grade
+  beam.
+</Chapter>
+
+<Figure src={section1} kind="render" caption="Building section — living room" alt="Building section through the living room against a hazy city view: sliding glass doors, the roof assembly labelled from membrane to metal deck, and the cantilevered concrete grade beam over the slope." />
+
+<Figure src={section2} caption="Building section — through gridlines D and E" alt="Building section showing the roof overhang on steel beams, the living space with chairs, and the floor slab on grade beams and footings stepping down the slope." />
+
+<Figure src={wallSections} caption="Wall sections" alt="Three wall sections: at the pool, with a cantilever concrete grade beam; at an insulated metal wall panel over a brick retaining wall, footing and pile; and at a window over a retaining wall." />
+
+<FigureGrid cols={2}>
+  <Figure src={detailBeamColumn} sizes={half} caption="Beam-to-column detail" alt="Detail of the W12x26 beam welded to the W8x36 column, with steel angles at 16 inches on center under the metal roof deck, and an aluminum mullion and glass panel." />
+  <Figure src={detailFoundation} sizes={half} caption="Foundation detail" alt="Foundation detail: the column's steel plate bolted to a grade beam on a 3 by 3 by 1 foot footing over a 16-inch pile, beside a brick retaining wall with gravel and the concrete slab." />
+</FigureGrid>

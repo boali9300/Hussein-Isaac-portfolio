@@ -1,0 +1,184 @@
+---
+title: The New Gaza
+summary: Graduate research on rebuilding Gaza with its people — a framework of community spaces around the damaged Al Omari Mosque that facilitates reconstruction instead of imposing a top-down master plan.
+type: Research & reconstruction
+categories: [Research, Civic, Urban design]
+cover: ./images/render-overview.png
+coverAlt: "Render of the proposal beside the Al Omari Mosque: a domed congregation space under radiating shade canopies with geometric screens, palm trees, and the mosque's arcades and minaret behind."
+coverCaption: Site overview — rendered
+heroImage: ./images/design-layout.png
+heroAlt: Proposed design layout around the Al Omari Mosque — a radial congregation space, storage, workshop and outdoor dining and park along Omar Mukhtar Street.
+heroCaption: The New Gaza — proposed design layout
+level: graduate
+order: 1
+highlight: Graduate research project
+featured: true
+draft: false
+facts:
+  - { label: Course, value: 'ARC 759 — Architectural Studio' }
+  - { label: Instructor, value: 'Anne Filson' }
+  - { label: Advisor, value: 'Seda Kayim' }
+  - { label: Site, value: 'The Al Omari Mosque and surrounding blocks, Omar Mukhtar Street, Gaza City' }
+  - { label: Program, value: 'Congregation space, playground, park and outdoor dining, workshop, storage' }
+  - { label: Studies, value: 'Site documentation and analysis, timeline, program and circulation diagrams, plans, sections, renders' }
+---
+
+import Chapter from '../../../components/Chapter.astro';
+import Figure from '../../../components/Figure.astro';
+import FigureGrid from '../../../components/FigureGrid.astro';
+
+import photoCourtyard from './images/photo-mosque-courtyard.png';
+import photoDestruction from './images/photo-destruction.png';
+import photoBefore from './images/photo-mosque-before.png';
+import siteLandmarks from './images/site-landmarks.png';
+import siteAnalysis from './images/site-analysis.png';
+import timeline from './images/timeline.png';
+import programDiagram from './images/program-diagram.png';
+import designLayout from './images/design-layout.png';
+import circulation from './images/circulation.png';
+import renderSiteIso from './images/render-site-iso.png';
+import congregationPlan from './images/congregation-plan.png';
+import congregationSection from './images/congregation-section.png';
+import congregationRender1 from './images/congregation-render-1.png';
+import congregationRender2 from './images/congregation-render-2.png';
+import playgroundPlan from './images/playground-plan.png';
+import playgroundSection from './images/playground-section.png';
+import playgroundRender from './images/playground-render.png';
+import playgroundIso from './images/playground-iso.png';
+import parkPlan from './images/park-plan.png';
+import parkSection from './images/park-section.png';
+import parkRender from './images/park-render.png';
+import parkIso from './images/park-iso.png';
+import workshopPlan from './images/workshop-plan.png';
+import workshopSection from './images/workshop-section.png';
+import workshopRender1 from './images/workshop-render-1.png';
+import workshopRender2 from './images/workshop-render-2.png';
+import storagePlan from './images/storage-plan.png';
+import storageSection from './images/storage-section.png';
+import storageRender1 from './images/storage-render-1.png';
+import storageRender2 from './images/storage-render-2.png';
+
+export const half = '(min-width: 1440px) 640px, (min-width: 641px) 46vw, 100vw';
+export const narrow = '(min-width: 800px) 768px, 100vw';
+
+<Chapter n="01" title="Research question">
+  In the ARC 759 studio, taught by Anne Filson and advised by Seda Kayim, students work with a team of faculty
+  advisors, bringing disciplinary expertise and a critical position to complete, influential proposals relevant to
+  the Commonwealth of Kentucky and beyond. My research asked how architecture can improve the lives of people who
+  have been displaced by and suffered from war, specifically the people of Gaza. How can Gaza be reconstructed
+  while embracing its values and history? And how can the architecture of that reconstruction reflect the
+  resilience Palestinians have shown in the face of oppression?
+</Chapter>
+
+<Figure src={photoCourtyard} kind="render" caption="The courtyard of the Al Omari Mosque after its destruction" alt="Photograph of the Al Omari Mosque courtyard: the damaged minaret and stone walls standing over piles of rubble, with an intact arcade at left." />
+
+<Chapter n="02" title="Site documentation">
+  The project centers on the Al Omari Mosque, the historic mosque in the old city of Gaza, which was largely
+  destroyed together with the buildings around it.
+</Chapter>
+
+<Figure src={photoDestruction} kind="render" caption="The mosque and surrounding buildings after the destruction" alt="Photograph over the ruins of the Al Omari Mosque: collapsed arches and the damaged minaret, with bombed-out buildings across the city beyond." />
+
+<Figure src={photoBefore} kind="render" caption="The mosque before the destruction" alt="Photograph of the Al Omari Mosque courtyard before the war, with worshippers praying in front of the arcades beneath the minaret." />
+
+<Chapter n="03" title="Site analysis">
+  The landmark map places the mosque among the neighborhood's dense markets, parks, schools, churches and
+  historic buildings. The site analysis maps the destroyed buildings around the mosque, the narrow pedestrian
+  alleys, the qibla direction, and Omar Mukhtar Street as the main entry to the site.
+</Chapter>
+
+<Figure src={siteLandmarks} caption="Site landmarks" alt="Dark map of Gaza's old city with the mosque circled in red at the center and leader lines to nearby landmarks: Mosque of Mr Hashim Son of Abdu-Manad, Qasr Al-Basha, the souk, Shijia Park, Al Taqawee High School, Palestine Square, Family Hospital, the Church of Saint Porphyrius and Grandma's Home Restaurant." />
+
+<Figure src={siteAnalysis} caption="Site analysis" alt="Site analysis plan: the mosque and its courtyard in grey with the qibla direction marked, a portion of the mosque marked for demolition, destroyed buildings hatched in pink all around, narrow alleys and pedestrian pathways, and Omar Mukhtar Street along the bottom as the main site entry." />
+
+<Chapter n="04" title="Facilitation, not a master plan">
+  The proposal is facilitation instead of top-down master planning. The project aims to facilitate by providing
+  concepts, resources and tools, and by collaborating with the community, so that the community can adapt the
+  reconstruction process and build programs as they see fit. The timeline runs from destruction through site
+  work, recycling and sorting materials, building the project and facilitating future construction, toward a plan,
+  about five years ahead, to reconstruct Gaza and develop temporary spaces. The proposed spaces are a congregation
+  space, a playground, outdoor seating, a workshop and storage, organized around the mosque.
+</Chapter>
+
+<Figure src={timeline} caption="Timeline" alt="Timeline arrow from Now to Future, with steps: Destruction, Site Work, Recycling and Sorting Materials, Building Project, Facilitating Future Construction, and at five years ahead, Develop a future plan to reconstruct Gaza and develop temporary spaces." />
+
+<Figure src={programDiagram} width="narrow" sizes={narrow} caption="Program diagram" alt="Bubble diagram inside a large red circle labelled Mosque: Community Meetings leads to Adults: Workshop and Children: Playground, which lead on to Storage and Recycling/Sorting and to Park and Rest/Food." />
+
+<Chapter n="05" title="Design proposal">
+  The new spaces wrap the existing mosque and its courtyard. A radial congregation space sits to the west, storage
+  and the workshop to the east, and a playground, outdoor dining and a park line Omar Mukhtar Street. Circulation
+  links each space to the street, the mosque courtyard and the others.
+</Chapter>
+
+<Figure src={designLayout} caption="Proposed design layout" alt="Site plan: the existing mosque courtyard at the center with the qibla direction, a radial congregation space ringed by trees to the west, a grid of storage canopies and a hexagonal workshop to the east, a playground path and outdoor dining, park and tables along Omar Mukhtar Street." />
+
+<Figure src={circulation} caption="Circulation diagram" alt="Faded site plan with red arrows showing movement from the street and alleys into the congregation space, across the mosque courtyard to the storage and workshop, and along the outdoor dining at the street edge." />
+
+<Figure src={renderSiteIso} kind="render" width="narrow" sizes={narrow} caption="Site overview — aerial" alt="Aerial render of the site: the domed congregation space under radiating canopies at left, the mosque with its minaret and long roofs at the center, the storage canopies and the hexagonal workshop at right, and a row of trees along the street." />
+
+<Chapter n="06" title="Congregation space">
+  A domed space under radiating canopies, cut with geometric screens that cast patterned shade, and ringed by palm
+  trees.
+</Chapter>
+
+<FigureGrid cols={2} template="2fr 3fr">
+  <Figure src={congregationPlan} sizes={half} caption="Floor plan" alt="Floor plan of the congregation space: an open area with columns radiating around a central circle, planting beds and trees along the edges, and stairs at the east side." />
+  <Figure src={congregationSection} sizes={half} caption="Section" alt="Section through the congregation space: a tall pointed dome at the center over arched canopies, with palm trees at either side." />
+</FigureGrid>
+
+<Figure src={congregationRender1} kind="render" caption="Under the canopies" alt="Render beneath the congregation space canopies: arched supports with star-patterned screens casting dappled shadows across a polished floor, with the mosque's arcades beyond." />
+
+<Figure src={congregationRender2} kind="render" caption="Approach to the congregation space" alt="Render through a stone arch onto a patterned brick plaza, with the domed congregation space, its screened canopies and palm trees ahead." />
+
+<Chapter n="07" title="Playground">
+  A playground for children along the edge of the site, with play structures set in planted beds on a patterned
+  brick path.
+</Chapter>
+
+<FigureGrid cols={2} template="2fr 3fr">
+  <Figure src={playgroundPlan} sizes={half} caption="Floor plan" alt="Plan of the playground: a paved path along an angled wall, with a green planting strip holding four play areas, including a rope climbing pyramid." />
+  <Figure src={playgroundSection} sizes={half} caption="Section" alt="Section along the playground: arched walls behind a rope climbing pyramid, play towers and wavy play structures, with a palm tree at the end." />
+</FigureGrid>
+
+<FigureGrid cols={2}>
+  <Figure src={playgroundRender} kind="render" sizes={half} caption="Playground" alt="Render of the playground: a rope climbing pyramid, play towers with a slide and wavy benches on grass and mulch beside a tall wall." />
+  <Figure src={playgroundIso} kind="render" sizes={half} caption="Isometric" alt="Isometric render of the playground strip between an arched perimeter wall and a tall building, with patterned paving and play structures." />
+</FigureGrid>
+
+<Chapter n="08" title="Park and outdoor dining">
+  A shaded park of tables along the street, under a pergola carried on carved columns, with a row of trees.
+</Chapter>
+
+<Figure src={parkPlan} caption="Floor plan" alt="Plan of the park: tables and seating among columns along a planted edge, a paved walkway, and a row of trees in round planters along the street." />
+
+<Figure src={parkSection} caption="Section" alt="Section along the park: a pergola on carved columns among a row of trees, with tables beneath, and an arched gate at the right end." />
+
+<FigureGrid cols={2}>
+  <Figure src={parkRender} kind="render" sizes={half} caption="Park" alt="Render under the park pergola: round tables with white chairs, carved columns and ornamental brackets, with trees and patterned paving beyond." />
+  <Figure src={parkIso} kind="render" sizes={half} caption="Isometric" alt="Isometric render of the park: a row of trees beside tall tables along a wall, with a curved slatted canopy at one end." />
+</FigureGrid>
+
+<Chapter n="09" title="Workshop">
+  An open workshop for adults, under a perforated roof carried on pointed arches.
+</Chapter>
+
+<FigureGrid cols={2} template="2fr 3fr">
+  <Figure src={workshopPlan} sizes={half} caption="Floor plan" alt="Plan of the workshop: an open paved floor with workbenches in rows and trees in planters at the corners." />
+  <Figure src={workshopSection} sizes={half} caption="Section" alt="Section through the workshop: a flat roof on three pointed arches, with trees at either side." />
+</FigureGrid>
+
+<Figure src={workshopRender1} kind="render" caption="Under the workshop roof" alt="Render beneath the workshop: sweeping pointed arches under a slatted roof casting bands of light on the patterned floor." />
+
+<Figure src={workshopRender2} kind="render" caption="Workshop from the garden" alt="Render of the workshop's pointed arches seen beside a large tree, with the park pergola visible through the arches." />
+
+<Chapter n="10" title="Storage">
+  A covered yard for storing and sorting materials recovered from the rubble, under a lattice canopy on columns.
+</Chapter>
+
+<Figure src={storagePlan} caption="Floor plan" alt="Plan of the storage yard: a grid of columns under a canopy, a row of columns along the north edge, two trees, and three planters with trees along the east side." />
+
+<Figure src={storageSection} caption="Section" alt="Section along the storage yard: a lattice canopy on columns with ornamental brackets, a tree at the left and palm trees at the right." />
+
+<Figure src={storageRender1} kind="render" caption="Under the storage canopy" alt="Render beneath the storage canopy: a geometric lattice roof with carved brackets on stone columns, casting striped shade on the paving." />
+
+<Figure src={storageRender2} kind="render" caption="Storage yard" alt="Render of the storage yard: freestanding stone columns around a palm tree, with the lattice canopy and the workshop arches behind." />

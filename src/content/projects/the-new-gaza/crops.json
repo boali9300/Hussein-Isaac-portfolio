@@ -1,0 +1,892 @@
+{
+  "source": "_source/NewGaza.pdf",
+  "outDir": "images",
+  "crops": [
+    {
+      "name": "photo-mosque-courtyard.png",
+      "mode": "raster",
+      "page": 1,
+      "rect": [
+        72.1,
+        323.4,
+        540,
+        702.9
+      ],
+      "dpi": 197,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "photo-destruction.png",
+      "mode": "embedded",
+      "page": 2,
+      "image": 1,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "photo-mosque-before.png",
+      "mode": "raster",
+      "page": 2,
+      "rect": [
+        72.5,
+        429.2,
+        539.7,
+        708.5
+      ],
+      "dpi": 280,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "site-landmarks.png",
+      "mode": "vector",
+      "page": 3,
+      "rect": [
+        72,
+        154,
+        540,
+        404.5
+      ],
+      "dpi": 400,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "site-analysis.png",
+      "mode": "vector",
+      "page": 3,
+      "rect": [
+        72,
+        430.5,
+        540,
+        659
+      ],
+      "dpi": 400,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "timeline.png",
+      "mode": "vector",
+      "page": 4,
+      "rect": [
+        70,
+        258,
+        534,
+        343
+      ],
+      "dpi": 350,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "program-diagram.png",
+      "mode": "vector",
+      "page": 4,
+      "rect": [
+        243,
+        418,
+        480,
+        696
+      ],
+      "dpi": 350,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "design-layout.png",
+      "mode": "vector",
+      "page": 5,
+      "rect": [
+        72,
+        154,
+        540,
+        405
+      ],
+      "dpi": 400,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "circulation.png",
+      "mode": "vector",
+      "page": 5,
+      "rect": [
+        72,
+        430.5,
+        541,
+        661
+      ],
+      "dpi": 400,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "render-overview.png",
+      "mode": "raster",
+      "page": 6,
+      "rect": [
+        72,
+        163.3,
+        540.1,
+        404.2
+      ],
+      "dpi": 228,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "render-site-iso.png",
+      "mode": "raster",
+      "page": 6,
+      "rect": [
+        169.9,
+        421,
+        403.7,
+        670.7
+      ],
+      "dpi": 450,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "congregation-plan.png",
+      "mode": "vector",
+      "page": 7,
+      "rect": [
+        154,
+        190,
+        480,
+        463
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "congregation-section.png",
+      "mode": "vector",
+      "page": 7,
+      "rect": [
+        72,
+        490,
+        541,
+        659
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "congregation-render-1.png",
+      "mode": "embedded",
+      "page": 8,
+      "image": 1,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "congregation-render-2.png",
+      "mode": "embedded",
+      "page": 8,
+      "image": 2,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "playground-plan.png",
+      "mode": "vector",
+      "page": 9,
+      "rect": [
+        168,
+        185,
+        410,
+        468
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "playground-section.png",
+      "mode": "vector",
+      "page": 9,
+      "rect": [
+        72,
+        490,
+        541,
+        608
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "playground-render.png",
+      "mode": "embedded",
+      "page": 10,
+      "image": 1,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "playground-iso.png",
+      "mode": "embedded",
+      "page": 10,
+      "image": 2,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "park-plan.png",
+      "mode": "vector",
+      "page": 11,
+      "rect": [
+        72,
+        190,
+        541,
+        397
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "park-section.png",
+      "mode": "vector",
+      "page": 11,
+      "rect": [
+        72,
+        514,
+        541,
+        583
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "park-render.png",
+      "mode": "embedded",
+      "page": 12,
+      "image": 1,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "park-iso.png",
+      "mode": "embedded",
+      "page": 12,
+      "image": 2,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "workshop-plan.png",
+      "mode": "vector",
+      "page": 13,
+      "rect": [
+        132,
+        188,
+        465,
+        458
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "workshop-section.png",
+      "mode": "vector",
+      "page": 13,
+      "rect": [
+        72,
+        492,
+        541,
+        578
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "workshop-render-1.png",
+      "mode": "embedded",
+      "page": 14,
+      "image": 2,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "workshop-render-2.png",
+      "mode": "embedded",
+      "page": 14,
+      "image": 1,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "storage-plan.png",
+      "mode": "vector",
+      "page": 15,
+      "rect": [
+        72,
+        189,
+        537,
+        440
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "storage-section.png",
+      "mode": "vector",
+      "page": 15,
+      "rect": [
+        72,
+        490,
+        541,
+        573
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "storage-render-1.png",
+      "mode": "embedded",
+      "page": 16,
+      "image": 2,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "storage-render-2.png",
+      "mode": "embedded",
+      "page": 16,
+      "image": 1,
+      "trim": false,
+      "color": true
+    }
+  ],
+  "_resolved": {
+    "photo-mosque-courtyard.png": {
+      "mode": "raster",
+      "page": 1,
+      "rect": [
+        72.1,
+        323.4,
+        540,
+        702.9
+      ],
+      "dpi": 197,
+      "output": [
+        1280,
+        1038
+      ],
+      "gray": false,
+      "bytes": 1103797
+    },
+    "photo-destruction.png": {
+      "mode": "embedded",
+      "page": 2,
+      "image": 1,
+      "nativePx": [
+        2226,
+        1098
+      ],
+      "densityDpi": 343,
+      "output": [
+        2226,
+        1098
+      ],
+      "gray": false,
+      "bytes": 3704325
+    },
+    "photo-mosque-before.png": {
+      "mode": "raster",
+      "page": 2,
+      "rect": [
+        72.5,
+        429.2,
+        539.7,
+        708.5
+      ],
+      "dpi": 280,
+      "output": [
+        1817,
+        1086
+      ],
+      "gray": false,
+      "bytes": 2311949
+    },
+    "site-landmarks.png": {
+      "mode": "vector",
+      "page": 3,
+      "rect": [
+        72,
+        154,
+        540,
+        404.5
+      ],
+      "dpi": 400,
+      "output": [
+        2600,
+        1392
+      ],
+      "gray": false,
+      "bytes": 926821
+    },
+    "site-analysis.png": {
+      "mode": "vector",
+      "page": 3,
+      "rect": [
+        72,
+        430.5,
+        540,
+        659
+      ],
+      "dpi": 400,
+      "output": [
+        2600,
+        1269
+      ],
+      "gray": false,
+      "bytes": 525217
+    },
+    "timeline.png": {
+      "mode": "vector",
+      "page": 4,
+      "rect": [
+        70,
+        258,
+        534,
+        343
+      ],
+      "dpi": 350,
+      "output": [
+        2245,
+        389
+      ],
+      "gray": false,
+      "bytes": 50882
+    },
+    "program-diagram.png": {
+      "mode": "vector",
+      "page": 4,
+      "rect": [
+        243,
+        418,
+        480,
+        696
+      ],
+      "dpi": 350,
+      "output": [
+        1161,
+        1356
+      ],
+      "gray": false,
+      "bytes": 126717
+    },
+    "design-layout.png": {
+      "mode": "vector",
+      "page": 5,
+      "rect": [
+        72,
+        154,
+        540,
+        405
+      ],
+      "dpi": 400,
+      "output": [
+        2600,
+        1394
+      ],
+      "gray": false,
+      "bytes": 996823
+    },
+    "circulation.png": {
+      "mode": "vector",
+      "page": 5,
+      "rect": [
+        72,
+        430.5,
+        541,
+        661
+      ],
+      "dpi": 400,
+      "output": [
+        2606,
+        1281
+      ],
+      "gray": false,
+      "bytes": 585198
+    },
+    "render-overview.png": {
+      "mode": "raster",
+      "page": 6,
+      "rect": [
+        72,
+        163.3,
+        540.1,
+        404.2
+      ],
+      "dpi": 228,
+      "output": [
+        1482,
+        763
+      ],
+      "gray": false,
+      "bytes": 1495086
+    },
+    "render-site-iso.png": {
+      "mode": "raster",
+      "page": 6,
+      "rect": [
+        169.9,
+        421,
+        403.7,
+        670.7
+      ],
+      "dpi": 450,
+      "output": [
+        1493,
+        1519
+      ],
+      "gray": false,
+      "bytes": 2089699
+    },
+    "congregation-plan.png": {
+      "mode": "vector",
+      "page": 7,
+      "rect": [
+        154,
+        190,
+        480,
+        463
+      ],
+      "dpi": 400,
+      "output": [
+        1806,
+        1523
+      ],
+      "gray": false,
+      "bytes": 199912
+    },
+    "congregation-section.png": {
+      "mode": "vector",
+      "page": 7,
+      "rect": [
+        72,
+        490,
+        541,
+        659
+      ],
+      "dpi": 400,
+      "output": [
+        2634,
+        952
+      ],
+      "gray": false,
+      "bytes": 201891
+    },
+    "congregation-render-1.png": {
+      "mode": "embedded",
+      "page": 8,
+      "image": 1,
+      "nativePx": [
+        1500,
+        843
+      ],
+      "densityDpi": 230.9,
+      "output": [
+        1500,
+        843
+      ],
+      "gray": false,
+      "bytes": 1640675
+    },
+    "congregation-render-2.png": {
+      "mode": "embedded",
+      "page": 8,
+      "image": 2,
+      "nativePx": [
+        1495,
+        671
+      ],
+      "densityDpi": 230.6,
+      "output": [
+        1495,
+        671
+      ],
+      "gray": false,
+      "bytes": 1670019
+    },
+    "playground-plan.png": {
+      "mode": "vector",
+      "page": 9,
+      "rect": [
+        168,
+        185,
+        410,
+        468
+      ],
+      "dpi": 400,
+      "output": [
+        1353,
+        1565
+      ],
+      "gray": false,
+      "bytes": 373140
+    },
+    "playground-section.png": {
+      "mode": "vector",
+      "page": 9,
+      "rect": [
+        72,
+        490,
+        541,
+        608
+      ],
+      "dpi": 400,
+      "output": [
+        2633,
+        664
+      ],
+      "gray": false,
+      "bytes": 158163
+    },
+    "playground-render.png": {
+      "mode": "embedded",
+      "page": 10,
+      "image": 1,
+      "nativePx": [
+        3000,
+        1651
+      ],
+      "densityDpi": 461.5,
+      "output": [
+        3000,
+        1651
+      ],
+      "gray": false,
+      "bytes": 6111416
+    },
+    "playground-iso.png": {
+      "mode": "embedded",
+      "page": 10,
+      "image": 2,
+      "nativePx": [
+        2809,
+        2228
+      ],
+      "densityDpi": 666.3,
+      "output": [
+        2841,
+        2260
+      ],
+      "gray": false,
+      "bytes": 4368536
+    },
+    "park-plan.png": {
+      "mode": "vector",
+      "page": 11,
+      "rect": [
+        72,
+        190,
+        541,
+        397
+      ],
+      "dpi": 400,
+      "output": [
+        2611,
+        1151
+      ],
+      "gray": false,
+      "bytes": 457245
+    },
+    "park-section.png": {
+      "mode": "vector",
+      "page": 11,
+      "rect": [
+        72,
+        514,
+        541,
+        583
+      ],
+      "dpi": 400,
+      "output": [
+        2630,
+        386
+      ],
+      "gray": false,
+      "bytes": 315294
+    },
+    "park-render.png": {
+      "mode": "embedded",
+      "page": 12,
+      "image": 1,
+      "nativePx": [
+        1500,
+        843
+      ],
+      "densityDpi": 230.8,
+      "output": [
+        1500,
+        843
+      ],
+      "gray": false,
+      "bytes": 2503046
+    },
+    "park-iso.png": {
+      "mode": "embedded",
+      "page": 12,
+      "image": 2,
+      "nativePx": [
+        3738,
+        2831
+      ],
+      "densityDpi": 905.3,
+      "output": [
+        3770,
+        2863
+      ],
+      "gray": false,
+      "bytes": 6599050
+    },
+    "workshop-plan.png": {
+      "mode": "vector",
+      "page": 13,
+      "rect": [
+        132,
+        188,
+        465,
+        458
+      ],
+      "dpi": 400,
+      "output": [
+        1842,
+        1498
+      ],
+      "gray": false,
+      "bytes": 659855
+    },
+    "workshop-section.png": {
+      "mode": "vector",
+      "page": 13,
+      "rect": [
+        72,
+        492,
+        541,
+        578
+      ],
+      "dpi": 400,
+      "output": [
+        2629,
+        484
+      ],
+      "gray": false,
+      "bytes": 231421
+    },
+    "workshop-render-1.png": {
+      "mode": "embedded",
+      "page": 14,
+      "image": 2,
+      "nativePx": [
+        1500,
+        791
+      ],
+      "densityDpi": 230.7,
+      "output": [
+        1500,
+        791
+      ],
+      "gray": false,
+      "bytes": 2212984
+    },
+    "workshop-render-2.png": {
+      "mode": "embedded",
+      "page": 14,
+      "image": 1,
+      "nativePx": [
+        3000,
+        1285
+      ],
+      "densityDpi": 461.9,
+      "output": [
+        3000,
+        1285
+      ],
+      "gray": false,
+      "bytes": 6764002
+    },
+    "storage-plan.png": {
+      "mode": "vector",
+      "page": 15,
+      "rect": [
+        72,
+        189,
+        537,
+        440
+      ],
+      "dpi": 400,
+      "output": [
+        2583,
+        1394
+      ],
+      "gray": false,
+      "bytes": 275142
+    },
+    "storage-section.png": {
+      "mode": "vector",
+      "page": 15,
+      "rect": [
+        72,
+        490,
+        541,
+        573
+      ],
+      "dpi": 400,
+      "output": [
+        2628,
+        467
+      ],
+      "gray": false,
+      "bytes": 204732
+    },
+    "storage-render-1.png": {
+      "mode": "embedded",
+      "page": 16,
+      "image": 2,
+      "nativePx": [
+        1500,
+        736
+      ],
+      "densityDpi": 230.8,
+      "output": [
+        1500,
+        736
+      ],
+      "gray": false,
+      "bytes": 2071891
+    },
+    "storage-render-2.png": {
+      "mode": "embedded",
+      "page": 16,
+      "image": 1,
+      "nativePx": [
+        3000,
+        1353
+      ],
+      "densityDpi": 461.6,
+      "output": [
+        3000,
+        1353
+      ],
+      "gray": false,
+      "bytes": 5393985
+    }
+  }
+}

@@ -11,11 +11,11 @@ interface Props {
   project: CollectionEntry<'projects'>;
   index: number;
   variant?: 'feature' | 'card';
-  headingLevel?: 'h2' | 'h3';
+  headingLevel?: 'h2' | 'h3' | 'h4';
 }
 
-const { project, index, variant = 'card', headingLevel: H = 'h3' } = Astro.props;
-const { title, summary, type, cover, draft } = project.data;
+const { project, index, variant = 'card', headingLevel: H = 'h4' } = Astro.props;
+const { title, summary, type, cover, draft, highlight } = project.data;
 const href = url(`/work/${project.id}/`);
 const n = String(index + 1).padStart(2, '0');
 ---
@@ -36,7 +36,10 @@ const n = String(index + 1).padStart(2, '0');
   </a>
   <div class="project-card__meta">
     <div class="project-card__id">
-      <p class="label label--accent">{n}</p>
+      <p class="label label--accent">
+        {n}
+        {highlight && <span class="project-card__highlight"> · {highlight}</span>}
+      </p>
       <H class="project-card__title h2">
         <a href={href}>{title}</a>
       </H>

@@ -29,7 +29,12 @@ const projects = defineCollection({
       heroImage: image().optional(),
       heroAlt: z.string().optional(),
       heroCaption: z.string().optional(),
+      /** Which body of work the project belongs to; graduate work is listed first. */
+      level: z.enum(['graduate', 'undergraduate']),
+      /** Position within its level. */
       order: z.number().int(),
+      /** Optional accent label on the card and page, e.g. "Graduate research project". */
+      highlight: z.string().optional(),
       featured: z.boolean().default(false),
       /** Hidden from production builds until Hussein approves the page. */
       draft: z.boolean().default(true),

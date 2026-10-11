@@ -1,0 +1,519 @@
+{
+  "source": "_source/StahlHouse.pdf",
+  "outDir": "images",
+  "crops": [
+    {
+      "name": "axon.png",
+      "mode": "vector",
+      "page": 1,
+      "rect": [
+        70,
+        340,
+        540,
+        580
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "render-night.png",
+      "mode": "raster",
+      "page": 2,
+      "rect": [
+        72.2,
+        188.9,
+        538.5,
+        343.2
+      ],
+      "dpi": 358,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "render-pool.png",
+      "mode": "embedded",
+      "page": 2,
+      "image": 3,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "render-living-room.png",
+      "mode": "embedded",
+      "page": 2,
+      "image": 5,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "site-plan.png",
+      "mode": "raster",
+      "page": 3,
+      "rect": [
+        72,
+        187,
+        298.5,
+        371
+      ],
+      "dpi": 450,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "plan-first-floor.png",
+      "mode": "vector",
+      "page": 3,
+      "rect": [
+        354,
+        192,
+        540,
+        380
+      ],
+      "dpi": 600,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "plan-rcp.png",
+      "mode": "vector",
+      "page": 3,
+      "rect": [
+        70,
+        411,
+        290,
+        604
+      ],
+      "dpi": 600,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "plan-roof.png",
+      "mode": "vector",
+      "page": 3,
+      "rect": [
+        343,
+        416,
+        541,
+        607
+      ],
+      "dpi": 600,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "elevation-north.png",
+      "mode": "vector",
+      "page": 4,
+      "rect": [
+        94,
+        150,
+        496,
+        289
+      ],
+      "dpi": 500,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "elevation-south.png",
+      "mode": "vector",
+      "page": 4,
+      "rect": [
+        94,
+        306,
+        492,
+        411
+      ],
+      "dpi": 500,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "elevation-east.png",
+      "mode": "vector",
+      "page": 4,
+      "rect": [
+        92,
+        433,
+        492,
+        553
+      ],
+      "dpi": 500,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "elevation-west.png",
+      "mode": "vector",
+      "page": 4,
+      "rect": [
+        96,
+        575,
+        492,
+        683
+      ],
+      "dpi": 500,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "section-1.png",
+      "mode": "raster",
+      "page": 5,
+      "rect": [
+        72.5,
+        154.4,
+        540.1,
+        428.5
+      ],
+      "dpi": 478,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "section-2.png",
+      "mode": "vector",
+      "page": 5,
+      "rect": [
+        72,
+        449,
+        541,
+        716
+      ],
+      "dpi": 450,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "wall-sections.png",
+      "mode": "vector",
+      "page": 6,
+      "rect": [
+        72,
+        150,
+        541,
+        400
+      ],
+      "dpi": 500,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "detail-beam-column.png",
+      "mode": "vector",
+      "page": 6,
+      "rect": [
+        72,
+        472,
+        292,
+        636
+      ],
+      "dpi": 500,
+      "pad": 16
+    },
+    {
+      "name": "detail-foundation.png",
+      "mode": "vector",
+      "page": 6,
+      "rect": [
+        307,
+        453,
+        532,
+        662
+      ],
+      "dpi": 500,
+      "pad": 16
+    }
+  ],
+  "_resolved": {
+    "axon.png": {
+      "mode": "vector",
+      "page": 1,
+      "rect": [
+        70,
+        340,
+        540,
+        580
+      ],
+      "dpi": 400,
+      "output": [
+        2623,
+        1236
+      ],
+      "gray": false,
+      "bytes": 427552
+    },
+    "render-night.png": {
+      "mode": "raster",
+      "page": 2,
+      "rect": [
+        72.2,
+        188.9,
+        538.5,
+        343.2
+      ],
+      "dpi": 358,
+      "output": [
+        2319,
+        767
+      ],
+      "gray": false,
+      "bytes": 1421906
+    },
+    "render-pool.png": {
+      "mode": "embedded",
+      "page": 2,
+      "image": 3,
+      "nativePx": [
+        999,
+        471
+      ],
+      "densityDpi": 203.6,
+      "output": [
+        999,
+        471
+      ],
+      "gray": false,
+      "bytes": 792926
+    },
+    "render-living-room.png": {
+      "mode": "embedded",
+      "page": 2,
+      "image": 5,
+      "nativePx": [
+        999,
+        540
+      ],
+      "densityDpi": 198.8,
+      "output": [
+        999,
+        540
+      ],
+      "gray": false,
+      "bytes": 902375
+    },
+    "site-plan.png": {
+      "mode": "raster",
+      "page": 3,
+      "rect": [
+        72,
+        187,
+        298.5,
+        371
+      ],
+      "dpi": 450,
+      "output": [
+        1416,
+        1150
+      ],
+      "gray": false,
+      "bytes": 1277404
+    },
+    "plan-first-floor.png": {
+      "mode": "vector",
+      "page": 3,
+      "rect": [
+        354,
+        192,
+        540,
+        380
+      ],
+      "dpi": 600,
+      "output": [
+        1540,
+        1529
+      ],
+      "gray": false,
+      "bytes": 207316
+    },
+    "plan-rcp.png": {
+      "mode": "vector",
+      "page": 3,
+      "rect": [
+        70,
+        411,
+        290,
+        604
+      ],
+      "dpi": 600,
+      "output": [
+        1737,
+        1526
+      ],
+      "gray": false,
+      "bytes": 116177
+    },
+    "plan-roof.png": {
+      "mode": "vector",
+      "page": 3,
+      "rect": [
+        343,
+        416,
+        541,
+        607
+      ],
+      "dpi": 600,
+      "output": [
+        1628,
+        1561
+      ],
+      "gray": false,
+      "bytes": 63608
+    },
+    "elevation-north.png": {
+      "mode": "vector",
+      "page": 4,
+      "rect": [
+        94,
+        150,
+        496,
+        289
+      ],
+      "dpi": 500,
+      "output": [
+        2765,
+        951
+      ],
+      "gray": false,
+      "bytes": 217393
+    },
+    "elevation-south.png": {
+      "mode": "vector",
+      "page": 4,
+      "rect": [
+        94,
+        306,
+        492,
+        411
+      ],
+      "dpi": 500,
+      "output": [
+        2744,
+        750
+      ],
+      "gray": false,
+      "bytes": 203095
+    },
+    "elevation-east.png": {
+      "mode": "vector",
+      "page": 4,
+      "rect": [
+        92,
+        433,
+        492,
+        553
+      ],
+      "dpi": 500,
+      "output": [
+        2750,
+        833
+      ],
+      "gray": false,
+      "bytes": 142394
+    },
+    "elevation-west.png": {
+      "mode": "vector",
+      "page": 4,
+      "rect": [
+        96,
+        575,
+        492,
+        683
+      ],
+      "dpi": 500,
+      "output": [
+        2714,
+        744
+      ],
+      "gray": false,
+      "bytes": 116467
+    },
+    "section-1.png": {
+      "mode": "raster",
+      "page": 5,
+      "rect": [
+        72.5,
+        154.4,
+        540.1,
+        428.5
+      ],
+      "dpi": 478,
+      "output": [
+        3104,
+        1820
+      ],
+      "gray": false,
+      "bytes": 2149698
+    },
+    "section-2.png": {
+      "mode": "vector",
+      "page": 5,
+      "rect": [
+        72,
+        449,
+        541,
+        716
+      ],
+      "dpi": 450,
+      "output": [
+        2944,
+        1659
+      ],
+      "gray": false,
+      "bytes": 236456
+    },
+    "wall-sections.png": {
+      "mode": "vector",
+      "page": 6,
+      "rect": [
+        72,
+        150,
+        541,
+        400
+      ],
+      "dpi": 500,
+      "output": [
+        3280,
+        1715
+      ],
+      "gray": false,
+      "bytes": 319956
+    },
+    "detail-beam-column.png": {
+      "mode": "vector",
+      "page": 6,
+      "rect": [
+        72,
+        472,
+        292,
+        636
+      ],
+      "dpi": 500,
+      "output": [
+        1514,
+        1118
+      ],
+      "gray": true,
+      "bytes": 53582
+    },
+    "detail-foundation.png": {
+      "mode": "vector",
+      "page": 6,
+      "rect": [
+        307,
+        453,
+        532,
+        662
+      ],
+      "dpi": 500,
+      "output": [
+        1508,
+        1412
+      ],
+      "gray": true,
+      "bytes": 63523
+    }
+  }
+}

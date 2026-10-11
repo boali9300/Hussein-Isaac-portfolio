@@ -4,13 +4,21 @@ import Base from '../layouts/Base.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import Pending from '../components/Pending.astro';
 import { site } from '../data/site';
-import { getProjects, shows } from '../lib/review';
+import { getProjects, levels, numberInLevel, shows } from '../lib/review';
 import { url } from '../lib/url';
 
 const projects = await getProjects();
-const featured = projects.filter((p) => p.data.featured);
-const others = projects.filter((p) => !p.data.featured);
-const hero = featured.find((p) => p.data.heroImage);
+const hero = projects.find((p) => p.data.featured && p.data.heroImage);
+const groups = levels
+  .map((level) => {
+    const list = projects.filter((p) => p.data.level === level.id);
+    return {
+      ...level,
+      featured: list.filter((p) => p.data.featured),
+      others: list.filter((p) => !p.data.featured),
+    };
+  })
+  .filter((g) => g.featured.length + g.others.length > 0);
 
 // From Hussein's previous site — his own words on his approach.
 const values = [
@@ -119,19 +127,26 @@ const meta = [
           </p>
         </div>
 
-        <div class="work__list">
-          {featured.map((project) => (
-            <ProjectCard project={project} index={projects.indexOf(project)} variant="feature" />
-          ))}
-          {
-            others.length > 0 && (
-              <div class="work__grid">
-                {others.map((project) => (
-                  <ProjectCard project={project} index={projects.indexOf(project)} />
+        <div class="work__groups">
+          {groups.map((group) => (
+            <section class="work__group" id={group.id} aria-labelledby={`${group.id}-title`}>
+              <h3 class="work__group-title h2" id={`${group.id}-title`} data-reveal>
+                {group.label}
+              </h3>
+              <div class="work__list">
+                {group.featured.map((project) => (
+                  <ProjectCard project={project} index={numberInLevel(projects, project) - 1} variant="feature" />
                 ))}
+                {group.others.length > 0 && (
+                  <div class="work__grid">
+                    {group.others.map((project) => (
+                      <ProjectCard project={project} index={numberInLevel(projects, project) - 1} />
+                    ))}
+                  </div>
+                )}
               </div>
-            )
-          }
+            </section>
+          ))}
         </div>
       </section>
     )
@@ -279,6 +294,18 @@ const meta = [
   .work__intro {
     grid-column: 8 / -1;
     max-width: 40ch;
+  }
+
+  .work__groups {
+    display: flex;
+    flex-direction: column;
+    gap: var(--section);
+  }
+
+  .work__group-title {
+    padding-top: var(--s-4);
+    margin-bottom: var(--s-6);
+    border-top: 1px solid var(--rule-strong);
   }
 
   .work__list {

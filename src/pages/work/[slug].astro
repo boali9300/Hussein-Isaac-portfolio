@@ -4,21 +4,26 @@ import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Figure from '../../components/Figure.astro';
 import TitleBlock from '../../components/TitleBlock.astro';
-import { getProjects } from '../../lib/review';
+import { getProjects, levelLabel, numberInLevel } from '../../lib/review';
 import { url } from '../../lib/url';
 
 export const getStaticPaths = (async () => {
   const projects = await getProjects();
   return projects.map((project, i) => ({
     params: { slug: project.id },
-    props: { project, index: i, next: projects[i + 1] ?? (projects.length > 1 ? projects[0] : undefined) },
+    props: {
+      project,
+      number: numberInLevel(projects, project),
+      next: projects[i + 1] ?? (projects.length > 1 ? projects[0] : undefined),
+    },
   }));
 }) satisfies GetStaticPaths;
 
-const { project, index, next } = Astro.props;
-const { title, summary, type, cover, coverAlt, coverCaption, facts, pending } = project.data;
+const { project, number, next } = Astro.props;
+const { title, summary, type, level, highlight, cover, coverAlt, coverCaption, facts, pending } = project.data;
 const { Content } = await render(project);
-const n = String(index + 1).padStart(2, '0');
+const n = String(number).padStart(2, '0');
+const group = levelLabel(level);
 ---
 
 <Base title={title} description={summary} image={cover} imageAlt={coverAlt}>
@@ -27,10 +32,14 @@ const n = String(index + 1).padStart(2, '0');
       <nav class="case__crumbs label" aria-label="Breadcrumb">
         <a href={url('/#work')}>Work</a>
         <span aria-hidden="true">/</span>
+        <a href={url(`/#${level}`)}>{group}</a>
+        <span aria-hidden="true">/</span>
         <span aria-current="page">{title}</span>
       </nav>
       <div class="case__intro">
-        <p class="label label--accent">Project {n} · {type}</p>
+        <p class="label label--accent">
+          {group} · Project {n} · {type}{highlight && <> · {highlight}</>}
+        </p>
         <h1 class="h1">{title}</h1>
         <p class="lead">{summary}</p>
       </div>
