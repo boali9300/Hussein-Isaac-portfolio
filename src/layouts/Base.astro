@@ -16,7 +16,7 @@ import Lightbox from '../components/Lightbox.astro';
 import ReviewBanner from '../components/ReviewBanner.astro';
 import { site } from '../data/site';
 import { url } from '../lib/url';
-import { REVIEW } from '../lib/review';
+import { REVIEW, getProjects } from '../lib/review';
 
 interface Props {
   title?: string;
@@ -30,8 +30,14 @@ interface Props {
 const { title, description = site.description, image, imageAlt, overlay = false } = Astro.props;
 const pageTitle = title ? `${title} — ${site.name}` : site.title;
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImage = image ? await getImage({ src: image, format: 'jpg', width: 1200, quality: 85, background: '#f4f1ea' }) : undefined;
+const ogImage = image ? await getImage({ src: image, format: 'jpg', width: 1200, quality: 85, background: '#e8f1f8' }) : undefined;
 const ogImageUrl = ogImage ? new URL(ogImage.src, Astro.site).href : undefined;
+
+// The homepage hero render also lies, faint and fixed, behind every page.
+const heroProject = (await getProjects()).find((p) => p.data.featured && p.data.heroImage);
+const backdrop = heroProject?.data.heroImage
+  ? await getImage({ src: heroProject.data.heroImage, format: 'avif', width: Math.min(1920, heroProject.data.heroImage.width), quality: 60 })
+  : undefined;
 
 const personLd = {
   '@context': 'https://schema.org',
@@ -53,7 +59,7 @@ const personLd = {
     <link rel="canonical" href={canonical} />
     <link rel="icon" href={url('/favicon.svg')} type="image/svg+xml" />
     <link rel="sitemap" href={url('/sitemap-index.xml')} />
-    <meta name="theme-color" content="#f4f1ea" />
+    <meta name="theme-color" content="#e8f1f8" />
     {REVIEW && <meta name="robots" content="noindex" />}
 
     <meta property="og:type" content="website" />
@@ -69,6 +75,7 @@ const personLd = {
     <script is:inline>document.documentElement.classList.add('js');</script>
   </head>
   <body>
+    {backdrop && <img class="site-backdrop" src={backdrop.src} alt="" aria-hidden="true" decoding="async" />}
     <a class="skip-link" href="#main">Skip to content</a>
     {REVIEW && <ReviewBanner />}
     <SiteHeader overlay={overlay} />
