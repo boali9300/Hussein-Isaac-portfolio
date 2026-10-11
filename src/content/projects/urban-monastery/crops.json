@@ -1,0 +1,402 @@
+{
+  "source": "_source/UrbanMonastery.pdf",
+  "outDir": "images",
+  "crops": [
+    {
+      "name": "plan-lower-level.png",
+      "mode": "raster",
+      "page": 1,
+      "rect": [
+        72.9,
+        241,
+        536.2,
+        440.6
+      ],
+      "dpi": 400,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "plan-upper-level.png",
+      "mode": "raster",
+      "page": 1,
+      "rect": [
+        72.9,
+        479.3,
+        534.8,
+        679.3
+      ],
+      "dpi": 400,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "roof-plan.png",
+      "mode": "raster",
+      "page": 2,
+      "rect": [
+        90.6,
+        145.3,
+        537.5,
+        323.5
+      ],
+      "dpi": 400,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "section-a.png",
+      "mode": "raster",
+      "page": 2,
+      "rect": [
+        90.4,
+        378.3,
+        538.1,
+        498.3
+      ],
+      "dpi": 400,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "section-b.png",
+      "mode": "raster",
+      "page": 2,
+      "rect": [
+        89.8,
+        555.5,
+        355.2,
+        672.8
+      ],
+      "dpi": 400,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "elevation-a.png",
+      "mode": "raster",
+      "page": 5,
+      "rect": [
+        72,
+        172,
+        505,
+        243
+      ],
+      "dpi": 400,
+      "pad": 16
+    },
+    {
+      "name": "elevation-b.png",
+      "mode": "raster",
+      "page": 5,
+      "rect": [
+        72,
+        312,
+        516,
+        378
+      ],
+      "dpi": 400,
+      "pad": 16
+    },
+    {
+      "name": "axon.png",
+      "mode": "raster",
+      "page": 5,
+      "rect": [
+        70.2,
+        437,
+        533,
+        631.5
+      ],
+      "dpi": 500,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "model-photo.png",
+      "mode": "embedded",
+      "page": 6,
+      "image": 1,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "render-walkway.png",
+      "mode": "raster",
+      "page": 6,
+      "rect": [
+        71.4,
+        391.1,
+        250.2,
+        667.8
+      ],
+      "dpi": 600,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "render-courtyard.png",
+      "mode": "raster",
+      "page": 6,
+      "rect": [
+        268.9,
+        391.6,
+        540.1,
+        666.4
+      ],
+      "dpi": 600,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "sound-plan.png",
+      "mode": "vector",
+      "page": 7,
+      "rect": [
+        74,
+        100,
+        513,
+        607
+      ],
+      "dpi": 350,
+      "pad": 24,
+      "color": true
+    },
+    {
+      "name": "sound-section.png",
+      "mode": "vector",
+      "page": 8,
+      "rect": [
+        79,
+        100,
+        530,
+        366
+      ],
+      "dpi": 400,
+      "pad": 24,
+      "color": true
+    }
+  ],
+  "_resolved": {
+    "plan-lower-level.png": {
+      "mode": "raster",
+      "page": 1,
+      "rect": [
+        72.9,
+        241,
+        536.2,
+        440.6
+      ],
+      "dpi": 400,
+      "output": [
+        2574,
+        1109
+      ],
+      "gray": false,
+      "bytes": 718271
+    },
+    "plan-upper-level.png": {
+      "mode": "raster",
+      "page": 1,
+      "rect": [
+        72.9,
+        479.3,
+        534.8,
+        679.3
+      ],
+      "dpi": 400,
+      "output": [
+        2566,
+        1111
+      ],
+      "gray": false,
+      "bytes": 811790
+    },
+    "roof-plan.png": {
+      "mode": "raster",
+      "page": 2,
+      "rect": [
+        90.6,
+        145.3,
+        537.5,
+        323.5
+      ],
+      "dpi": 400,
+      "output": [
+        2483,
+        990
+      ],
+      "gray": false,
+      "bytes": 417914
+    },
+    "section-a.png": {
+      "mode": "raster",
+      "page": 2,
+      "rect": [
+        90.4,
+        378.3,
+        538.1,
+        498.3
+      ],
+      "dpi": 400,
+      "output": [
+        2487,
+        667
+      ],
+      "gray": false,
+      "bytes": 626564
+    },
+    "section-b.png": {
+      "mode": "raster",
+      "page": 2,
+      "rect": [
+        89.8,
+        555.5,
+        355.2,
+        672.8
+      ],
+      "dpi": 400,
+      "output": [
+        1474,
+        652
+      ],
+      "gray": false,
+      "bytes": 1217952
+    },
+    "elevation-a.png": {
+      "mode": "raster",
+      "page": 5,
+      "rect": [
+        72,
+        172,
+        505,
+        243
+      ],
+      "dpi": 400,
+      "output": [
+        2411,
+        383
+      ],
+      "gray": true,
+      "bytes": 47879
+    },
+    "elevation-b.png": {
+      "mode": "raster",
+      "page": 5,
+      "rect": [
+        72,
+        312,
+        516,
+        378
+      ],
+      "dpi": 400,
+      "output": [
+        2468,
+        369
+      ],
+      "gray": true,
+      "bytes": 41278
+    },
+    "axon.png": {
+      "mode": "raster",
+      "page": 5,
+      "rect": [
+        70.2,
+        437,
+        533,
+        631.5
+      ],
+      "dpi": 500,
+      "output": [
+        3245,
+        1383
+      ],
+      "gray": false,
+      "bytes": 3909928
+    },
+    "model-photo.png": {
+      "mode": "embedded",
+      "page": 6,
+      "image": 1,
+      "nativePx": [
+        2164,
+        1068
+      ],
+      "densityDpi": 333.5,
+      "output": [
+        2164,
+        1068
+      ],
+      "gray": false,
+      "bytes": 1385897
+    },
+    "render-walkway.png": {
+      "mode": "raster",
+      "page": 6,
+      "rect": [
+        71.4,
+        391.1,
+        250.2,
+        667.8
+      ],
+      "dpi": 600,
+      "output": [
+        1490,
+        2306
+      ],
+      "gray": false,
+      "bytes": 4888828
+    },
+    "render-courtyard.png": {
+      "mode": "raster",
+      "page": 6,
+      "rect": [
+        268.9,
+        391.6,
+        540.1,
+        666.4
+      ],
+      "dpi": 600,
+      "output": [
+        2260,
+        2290
+      ],
+      "gray": false,
+      "bytes": 10668817
+    },
+    "sound-plan.png": {
+      "mode": "vector",
+      "page": 7,
+      "rect": [
+        74,
+        100,
+        513,
+        607
+      ],
+      "dpi": 350,
+      "output": [
+        2147,
+        2467
+      ],
+      "gray": false,
+      "bytes": 419024
+    },
+    "sound-section.png": {
+      "mode": "vector",
+      "page": 8,
+      "rect": [
+        79,
+        100,
+        530,
+        366
+      ],
+      "dpi": 400,
+      "output": [
+        2529,
+        1481
+      ],
+      "gray": false,
+      "bytes": 203731
+    }
+  }
+}

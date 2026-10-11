@@ -1,0 +1,119 @@
+---
+title: Urban Monastery
+summary: A monastery for downtown Lexington — refectory, cells and gathering spaces set around planted courts, with an acoustic study of the main hall.
+type: Religious / civic
+categories: [Civic, Technical study]
+cover: ./images/render-courtyard.png
+coverAlt: Rendered view of a planted courtyard with flowering trees, overlooked by a glazed two-story wing with a dining room on the lower floor.
+coverCaption: Courtyard — rendered
+order: 3
+featured: false
+draft: false
+facts:
+  - { label: Course, value: 'ARC 254 — Architectural Studio' }
+  - { label: Instructor, value: 'Elizabeth Swanson' }
+  - { label: Program, value: 'An urban monastery' }
+  - { label: Site, value: 'Lexington, Kentucky' }
+  - { label: Studies, value: 'Plans, roof plan, sections, elevations, axon, model, renders, acoustic study' }
+---
+
+import Chapter from '../../../components/Chapter.astro';
+import Figure from '../../../components/Figure.astro';
+import FigureGrid from '../../../components/FigureGrid.astro';
+import Legend from '../../../components/Legend.astro';
+import DataTable from '../../../components/DataTable.astro';
+
+import planLower from './images/plan-lower-level.png';
+import planUpper from './images/plan-upper-level.png';
+import roofPlan from './images/roof-plan.png';
+import secA from './images/section-a.png';
+import secB from './images/section-b.png';
+import elevA from './images/elevation-a.png';
+import elevB from './images/elevation-b.png';
+import axon from './images/axon.png';
+import modelPhoto from './images/model-photo.png';
+import renderWalkway from './images/render-walkway.png';
+import renderCourtyard from './images/render-courtyard.png';
+import soundPlan from './images/sound-plan.png';
+import soundSection from './images/sound-section.png';
+
+export const half = '(min-width: 1440px) 640px, (min-width: 641px) 46vw, 100vw';
+
+<Chapter n="01" title="Brief">
+  The ARC 254 studio, taught by Elizabeth Swanson, asked for an urban monastery in Lexington, Kentucky. Students
+  researched monasteries, worked through many design iterations, then evaluated them and chose the strongest to
+  develop into a final design.
+</Chapter>
+
+<Chapter n="02" title="Plans">
+  The monastery fills its block as a series of rooms around planted courts. The lower level holds the shared rooms,
+  including a refectory with long tables, smaller rooms with round tables and a large columned hall. On the upper
+  level, two rows of small cells line a central corridor, joined by a bridge to rooms of desks and shelving.
+</Chapter>
+
+<Figure src={planLower} caption="Lower level floor plan" alt="Lower level plan in grey tones with cast shadows: a refectory with long tables, rooms with round tables, a kitchen, planted courts and a large hall with two rows of columns, with trees on the neighboring lots." />
+
+<Figure src={planUpper} caption="Upper level floor plan" alt="Upper level plan: two rows of small cells along a central corridor at right, linked by a bridge to rooms with desks and shelving at left, over planted courts and green roofs." />
+
+<Figure src={roofPlan} caption="Roof plan — green roofs, glass roofs and roof elevations" alt="Roof plan: green roofs at several elevations drawn with wavy planting lines, sloped glass roofs over the central spine and the hall, with slope arrows and roof elevation tags." />
+
+<Chapter n="03" title="Sections and elevations">
+  Section A runs the length of the site from Upper Street to Limestone Street, and Section B crosses it. Both are set
+  against a watercolor sky. The elevations show solid stippled walls under gently sloped roofs, opening to bands of
+  glazing.
+</Chapter>
+
+<Figure src={secA} caption="Section A — Upper Street to Limestone Street" alt="Section A across the site from Upper Street at left to Limestone Street at right: a tall sloped-roof hall, a long low glazed wing and a raised two-story block, with white tree silhouettes against a green and blue watercolor sky." />
+
+<Figure src={secB} width="narrow" sizes="(min-width: 800px) 768px, 100vw" caption="Section B" alt="Section B: a dining space under a roof terrace at left and a tall glazed hall sunk partly below grade at right, against a watercolor sky with white tree silhouettes." />
+
+<Figure src={elevA} caption="Elevation A" alt="Elevation A: a tall stippled volume at left, a lower wing with a sloped roof over a band of glazing and a glazed lower wall with a dark entry, and a separate stippled block at right." />
+
+<Figure src={elevB} caption="Elevation B" alt="Elevation B: a long stippled volume raised on slender columns at left, and stepped stippled volumes with a band of windows at right." />
+
+<Chapter n="04" title="The monastery in its block">
+  The axonometric places the monastery on its corner lot among the neighboring buildings. Planted courts open between
+  the wings, the main hall faces the street under a sloped roof, and a wooded garden fills the back of the site. A
+  physical model and two renders show the glazed upper walkway and a planted courtyard.
+</Chapter>
+
+<Figure src={axon} kind="render" caption="Axonometric view" alt="Rendered axonometric of the monastery on a city block: sloped green-grey roofs around planted courts with red and yellow trees, a wooded garden at the back, parking along the side street, and plain white neighboring buildings." />
+
+<Figure src={modelPhoto} kind="render" caption="Physical model" alt="Photo of a sectional physical model with yellow-edged frames and clear walls, green planting on the roofs, people figures, and wood chips filling the base, set against a painted sky." />
+
+<FigureGrid cols={2} template="2fr 3fr">
+  <Figure src={renderWalkway} kind="render" sizes={half} caption="Upper walkway" alt="Render looking along a glazed upper walkway with slender roof fins overhead, a glass railing and a view down to flowering trees." />
+  <Figure src={renderCourtyard} kind="render" sizes={half} caption="Courtyard" alt="Render of a planted courtyard with flowering trees and a path, overlooked by a glazed two-story wing with a dining room on the lower floor." />
+</FigureGrid>
+
+<Chapter n="05" title="Sound study">
+  An acoustic study of the 48'-0" × 49'-6" hall. The enlarged plan and Section A-A trace direct and reflected sound
+  from the speaker to the seats. A 16'-0" suspended reflector panel near the speaker sends sound toward the back of
+  the room. The specifications list each surface's material, sound absorption coefficient and area, and the
+  calculations give the room's reverberation time and the minimum width of the reflector panel.
+</Chapter>
+
+<Legend
+  items={[
+    { color: '#e2e2ff', label: 'Reflected sound' },
+    { color: '#ffe2e2', label: 'Direct sound' },
+  ]}
+/>
+
+<Figure src={soundPlan} width="narrow" sizes="(min-width: 800px) 768px, 100vw" caption={`Enlarged floor plan — 48'-0" × 49'-6"`} alt="Enlarged plan of the hall: a central aisle with stairs at each end, benches in four groups on either side, and fine blue and red lines radiating from a speaking point to the seating." />
+
+<Figure src={soundSection} caption="Section A-A — direct and reflected sound" alt="Section A-A through the hall: a sloped roof rising from 21 feet 3 inches to 25 feet 3 inches, a 16-foot reflector panel hung near the speaker, red direct-sound lines from the speaker to the seats and blue reflected-sound lines off the panel and ceiling." />
+
+<DataTable
+  caption="Specifications"
+  head={['Surface', 'Material', 'SAC', 'Area (sq ft)']}
+  numeric={[2, 3]}
+  rows={[
+    ['Side walls', 'Concrete', '.31', '(49.5 × 23) × 2 = 2,277'],
+    ['Back and front walls', 'Gypsum board', '.05', '(48 × 23) × 2 = 2,208'],
+    ['Seating', 'Wood', '.10', '240 + 480 = 720'],
+    ['Floor', 'Marble', '.01', '(48 × 49.5) − 720 = 1,656'],
+    ['Ceiling', 'Gypsum board', '.05', '48 × 49.5 = 2,376'],
+  ]}
+  note="Reverberation time: TR = .05 × V / Σ(A × α) = .05 × 54,648 / (705 + 110 + 72 + 16 + 118) = 2.6 sec. Reflection panel size: W = 2λ = 2c/f = 2 × (1130 / 500) = 4.52 ft."
+/>

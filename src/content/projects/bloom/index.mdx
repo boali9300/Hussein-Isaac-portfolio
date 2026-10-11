@@ -1,0 +1,192 @@
+---
+title: Bloom
+summary: A therapeutic complex in Shanghai — a clinic, twelve homes and a rooftop teahouse raised on a truss above a historic lilong, wrapped in a diamond-patterned double-skin façade.
+type: Housing + therapeutic clinic
+categories: [Housing, Mixed use, Technical study]
+cover: ./images/render-night.png
+coverAlt: Night render of the tower against the Shanghai skyline, its diamond-patterned façade lit from within between two planted towers, with the Oriental Pearl Tower at left.
+coverCaption: Bloom at night — rendered
+order: 4
+featured: false
+draft: false
+facts:
+  - { label: Course, value: 'ARC 356 — Architectural Studio' }
+  - { label: Instructor, value: 'Luhan Gregory' }
+  - { label: Team, value: 'Joe Metzger & Hussein Isaac' }
+  - { label: Program, value: '29,190 sq ft therapeutic complex — clinic, 12 housing units, rooftop teahouse and garden' }
+  - { label: Site, value: 'Changyang Rd Lilong Unit, Hongkou District, Shanghai, China' }
+  - { label: Studies, value: 'Research diagrams and assemblages, site, program, façade performance, unit, clinic and teahouse plans, renders' }
+---
+
+import Chapter from '../../../components/Chapter.astro';
+import Figure from '../../../components/Figure.astro';
+import FigureGrid from '../../../components/FigureGrid.astro';
+import Legend from '../../../components/Legend.astro';
+
+import identity from './images/identity.png';
+import renderNight from './images/render-night.png';
+import renderDay from './images/render-day.png';
+import diagram1 from './images/diagram-1.png';
+import diagram2 from './images/diagram-2.png';
+import assemblage1 from './images/assemblage-1.png';
+import assemblage2 from './images/assemblage-2.png';
+import siteAxon from './images/site-axon.png';
+import sitePlan from './images/site-plan.png';
+import programSection from './images/program-section.png';
+import programStack from './images/program-stack.png';
+import facadeRender from './images/facade-render.png';
+import facadeRadiation from './images/facade-radiation.png';
+import facadeDoubleSkin from './images/facade-double-skin.png';
+import unitAPlan from './images/unit-a-plan.png';
+import unitARefuge from './images/unit-a-refuge.png';
+import unitALivingModule from './images/unit-a-living-module.png';
+import unitALivingRoom from './images/unit-a-living-room.png';
+import unitABedroom from './images/unit-a-bedroom.png';
+import unitBSecond from './images/unit-b-second-floor.png';
+import unitBFirst from './images/unit-b-first-floor.png';
+import unitBLivingRoom from './images/unit-b-living-room.png';
+import clinicSecond from './images/clinic-second-floor.png';
+import clinicFirst from './images/clinic-first-floor.png';
+import clinicWaiting from './images/clinic-waiting-room.png';
+import teahousePlans from './images/teahouse-plans.png';
+import teahouseTearoom from './images/teahouse-lofted-tearoom.png';
+import teahouseGarden from './images/teahouse-rooftop-garden.png';
+
+export const half = '(min-width: 1440px) 640px, (min-width: 641px) 46vw, 100vw';
+
+<Chapter n="01" title="Brief">
+  In the ARC 356 studio, taught by Luhan Gregory, students worked in pairs. They first studied Louisville and
+  Shanghai through collages, assemblages and diagrams. Each pair was then given a site in one of the two cities and
+  asked to design housing with an added program. All of the work on this project was done together with my
+  classmate Joe Metzger.
+</Chapter>
+
+<Figure src={identity} width="narrow" sizes="(min-width: 800px) 768px, 100vw" caption="Project identity — Bloom Therapeutic Clinic, by Joe Metzger & Hussein Isaac" alt="Bloom logo: the word BLOOM with a figure doing a handstand in place of the L, over the words Rejuvenate, Refresh, Restore, and the address Changyang Rd Lilong Unit, Hongkou Qu, Shanghai, China." />
+
+<Figure src={renderNight} kind="render" caption="Bloom at night, with the Shanghai skyline" alt="Night render of the tower against the Shanghai skyline: a diamond-patterned façade lit from within between two planted towers, with the Oriental Pearl Tower at left." />
+
+<Figure src={renderDay} kind="render" width="narrow" sizes="(min-width: 800px) 768px, 100vw" caption="The tower above the lilong" alt="Daytime render of the tower rising above the red-brick lilong rooftops: a white diamond-lattice façade framed by two pale green cores, with the city beyond." />
+
+<Chapter n="02" title="Research">
+  The studio began with diagrams and assemblages exploring the two cities.
+</Chapter>
+
+<FigureGrid cols={2}>
+  <Figure src={diagram1} sizes={half} caption="Diagram" alt="Diagram on a yellow hatched field: red vertically lined blocks on a black horizontal band, linked by red lines to pale pink circles." />
+  <Figure src={diagram2} sizes={half} caption="Diagram" alt="Diagram of red and orange flowing lines crossing diagonally over concentric yellow octagons." />
+</FigureGrid>
+
+<FigureGrid cols={2}>
+  <Figure src={assemblage1} kind="render" sizes={half} caption="Assemblage" alt="Black-and-white photo of an assemblage: a dark board studded with pins at an angle, over horizontal slats." />
+  <Figure src={assemblage2} kind="render" sizes={half} caption="Assemblage" alt="Black-and-white photo of an assemblage: a dark, root-like form branching out from a central disc and casting shadows." />
+</FigureGrid>
+
+<Chapter n="03" title="Site">
+  The site is a lilong block on Changyang Road in Hongkou District, bounded by Zhoushan, Huoshan and Haimen Roads.
+  The new building, shown in blue, rises from the middle of the block.
+</Chapter>
+
+<Figure src={siteAxon} caption="Site location — axonometric" alt="White massing model of the neighborhood with the project shown as a blue tower in the middle of a block, bounded by Changyang, Zhoushan, Huoshan and Haimen Roads." />
+
+<Figure src={sitePlan} width="narrow" sizes="(min-width: 800px) 768px, 100vw" caption="Site location — plan" alt="White massing plan of the surrounding blocks with the project's footprint in blue, set within the rows of lilong houses." />
+
+<Chapter n="04" title="Program">
+  The 29,190 sq ft Bloom Therapeutic Complex includes a renovated housing complex and a new building that sits on a
+  structural truss and rises nine stories above grade. Raising the building lets the historic lilong courtyard and
+  streetscape stay in place. Floors 1–2 hold a therapeutic clinic that combines Eastern and Western medical
+  practices. Floors 3–8 hold twelve housing units. Floors 3–4 have two units per floor with the living and sleeping
+  modules side by side, for less mobile residents. Floors 5–8 have lofted units with living below and sleeping above,
+  so the residents who need the most care live closest to the clinic. On the roof, a teahouse with an intensive
+  garden gives a place to relax and enjoy the community, away from the pace and pressures of city life. The
+  teahouse's north and south walls are glass, carried up from the inside face of the double-skin façade. The
+  garden's glass panels run on a pulley system and lift like a garage door, opening the garden to the summer
+  weather and closing against winter winds and temperature extremes. Like the rest of the complex, the teahouse
+  uses passive heating.
+</Chapter>
+
+<FigureGrid cols={2}>
+  <Figure src={programSection} sizes={half} caption="Program diagram — teahouse, housing and clinic above the existing lilong" alt="Diagram of the building's layers: a lilac teahouse band on top, a green housing band with bed and sofa icons, a purple clinic band with therapy icons, all lifted over the existing lilong." />
+  <Figure src={programStack} sizes={half} caption="Program stack" alt="Isometric stack of four layers labelled, from top: Teahouse, Housing, Clinic, Existing Lilong." />
+</FigureGrid>
+
+<Chapter n="05" title="Façade performance">
+  The diamonds in the façade are glass panels, each sized to give its floor the best views. Honeycomb solar panels,
+  set at 68 degrees, keep out too much radiation and heat in summer. In winter the building invites the sun in: the
+  panels seal shut to catch its rays and trap heat in the double-skin, ventilated façade. The trapped heat helps
+  condition the building, while excess heat vents at the top of the façade and pre-heats the teahouse. A
+  retractable glazing condition opens sweeping views of downtown Shanghai and the Bund while keeping the interior
+  comfortable.
+</Chapter>
+
+<Figure src={facadeRender} kind="render" width="narrow" sizes="(min-width: 800px) 768px, 100vw" caption="Solar radiation on the façade" alt="Render of the façade between two white cores, with each diamond panel colored by solar radiation, from yellow to red." />
+
+<FigureGrid cols={2} template="2fr 3fr">
+  <Figure src={facadeRadiation} sizes={half} caption="Panel module and radiation analysis (kWh/m²)" alt="Top: two blue solar panels set in a white diamond frame. Bottom: a radiation scale from under 0 to 1,295 kWh per square meter beside a cluster of diamond modules, one opening shaded red and one yellow." />
+  <Figure src={facadeDoubleSkin} sizes={half} caption="Double façade / Trombe wall function" alt="Exploded diagram of the double façade: inside-face glazing, solar panels and mullions, with sun rays entering, cool air drawn in at the bottom and hot air rising between the layers." />
+</FigureGrid>
+
+<Chapter n="06" title="Housing units">
+  On floors 3–4, each Unit A places its living module and sleeping module side by side on one level. A point of
+  refuge at each end of the floor sits next to an exit stair. On floors 5–8, Unit B is a two-story loft with the
+  living module below and bedrooms with balconies above.
+</Chapter>
+
+<Legend
+  items={[
+    { color: '#9ed8a4', label: 'Living module' },
+    { color: '#d2e6d0', label: 'Living room' },
+    { color: '#90ae96', label: 'Bedroom' },
+  ]}
+/>
+
+<Figure src={unitAPlan} caption="Unit A floor plan — scale 3/32″ = 1′-0″" alt="Unit A floor plan: two units side by side between mechanical rooms and points of refuge, each with kitchen, dining, living room, bedroom and sunroom, with the living module, a living room and a bedroom highlighted in greens." />
+
+<Figure src={unitARefuge} caption="Unit A floor plan — routes to the points of refuge" alt="Unit A floor plan with blue arrows leading from each end of the corridor to the points of refuge beside the exit stairs." />
+
+<Figure src={unitALivingModule} kind="render" caption="Living module" alt="Render of the living module: a pale green sofa, a kitchen with a wood island and bar stools, and a glass dining table in front of floor-to-ceiling windows over the Shanghai skyline at dusk." />
+
+<FigureGrid cols={2}>
+  <Figure src={unitALivingRoom} kind="render" sizes={half} caption="Living room" alt="Render of a living room with a pale green sofa and a round table, looking out through the diamond façade." />
+  <Figure src={unitABedroom} kind="render" sizes={half} caption="Bedroom" alt="Render of a bedroom with a desk and a low bed facing a wide window over the city." />
+</FigureGrid>
+
+<FigureGrid cols={2}>
+  <Figure src={unitBSecond} sizes={half} caption="Unit B second floor plan (sleeping module)" alt="Unit B upper floor plan: four bedrooms, each with a bathroom and a balcony, two of them reached by internal stairs, one bedroom highlighted green." />
+  <Figure src={unitBFirst} sizes={half} caption="Unit B first floor plan (living module)" alt="Unit B lower floor plan: four living modules with dining, kitchen and living room, internal stairs up to the bedrooms, storage and mechanical rooms and points of refuge at each end, with one living room and one kitchen and dining area highlighted." />
+</FigureGrid>
+
+<Figure src={unitBLivingRoom} kind="render" caption="Unit B first floor living room" alt="Render of a Unit B living room: a long pale green sofa, armchairs and a glass coffee table by a tall window over the Shanghai skyline, with the stair to the loft at left." />
+
+<Chapter n="07" title="Clinic">
+  The two clinic floors combine Eastern and Western medicine. The first floor holds the entrance and waiting room,
+  two yoga rooms, a pharmacy, washrooms and a healing garden. The second floor holds diagnostic rooms, treatment
+  rooms for acupuncture and cupping, an exercise room, an office and a second healing garden.
+</Chapter>
+
+<Legend items={[{ color: '#d6cce4', label: 'Entrance + waiting room' }]} />
+
+<FigureGrid cols={2}>
+  <Figure src={clinicFirst} sizes={half} caption="Clinic — first floor plan" alt="Clinic first floor plan: yoga rooms at each end, washrooms, a healing garden, a pharmacy, storage and the entrance and waiting room highlighted in lilac and purple." />
+  <Figure src={clinicSecond} sizes={half} caption="Clinic — second floor plan" alt="Clinic second floor plan: an exercise room, diagnostic rooms, three treatment rooms for acupuncture and cupping, storage, an office, waiting areas and a healing garden highlighted in purple." />
+</FigureGrid>
+
+<Figure src={clinicWaiting} kind="render" caption="Entrance and waiting room" alt="Render of the clinic waiting room: a wood reception desk, bentwood chairs around low white tables, sage-green walls and the diamond façade visible through the window." />
+
+<Chapter n="08" title="Rooftop teahouse and garden">
+  The teahouse sits on the roof beside a terraced court with a fountain and a garden of trees and tables. A
+  lofted tearoom above the teahouse looks out over the city.
+</Chapter>
+
+<Legend
+  items={[
+    { color: '#8bb6da', label: 'Lofted tearoom' },
+    { color: '#d9e2ef', label: 'Rooftop garden' },
+  ]}
+/>
+
+<Figure src={teahousePlans} width="narrow" sizes="(min-width: 800px) 768px, 100vw" caption="Teahouse lofted floor plan and teahouse floor plan — scale 3/32″ = 1′-0″" alt="Two teahouse plans: the lofted tearoom with six tables, highlighted blue, linked by an arrow to its place above the teahouse; below, the teahouse floor with kitchen, office, restrooms, a terraced fountain court and a garden of trees and tables highlighted in light blue." />
+
+<FigureGrid cols={2} template="3fr 4fr">
+  <Figure src={teahouseTearoom} kind="render" sizes={half} caption="Lofted tearoom" alt="Render of the lofted tearoom: wood tables and chairs under a curved wood ceiling, with tall windows looking out at the city at dusk." />
+  <Figure src={teahouseGarden} kind="render" sizes={half} caption="Rooftop garden" alt="Render of the rooftop garden: tables and white chairs among flowering shrubs, beside the glazed two-story teahouse under a sloped roof, with the Shanghai Tower and the Lujiazui skyline beyond." />
+</FigureGrid>

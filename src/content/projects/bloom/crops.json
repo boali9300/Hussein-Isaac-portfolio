@@ -1,0 +1,883 @@
+{
+  "source": "_source/Bloom.pdf",
+  "outDir": "images",
+  "crops": [
+    {
+      "name": "identity.png",
+      "mode": "vector",
+      "page": 1,
+      "rect": [
+        125,
+        298,
+        495,
+        590
+      ],
+      "dpi": 300,
+      "pad": 24,
+      "color": true
+    },
+    {
+      "name": "render-night.png",
+      "mode": "raster",
+      "page": 2,
+      "rect": [
+        73.4,
+        112.4,
+        539.9,
+        385.9
+      ],
+      "dpi": 515,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "render-day.png",
+      "mode": "embedded",
+      "page": 2,
+      "image": 3,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "diagram-1.png",
+      "mode": "vector",
+      "page": 3,
+      "rect": [
+        70,
+        172,
+        282,
+        384
+      ],
+      "dpi": 350,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "diagram-2.png",
+      "mode": "vector",
+      "page": 3,
+      "rect": [
+        329,
+        170,
+        541,
+        382
+      ],
+      "dpi": 350,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "assemblage-1.png",
+      "mode": "raster",
+      "page": 3,
+      "rect": [
+        73.7,
+        423.2,
+        277.5,
+        627
+      ],
+      "dpi": 600,
+      "trim": false
+    },
+    {
+      "name": "assemblage-2.png",
+      "mode": "raster",
+      "page": 3,
+      "rect": [
+        345.5,
+        419.3,
+        548.1,
+        623.2
+      ],
+      "dpi": 600,
+      "trim": false
+    },
+    {
+      "name": "site-axon.png",
+      "mode": "raster",
+      "page": 4,
+      "rect": [
+        118,
+        96,
+        512,
+        373
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true,
+      "erase": [
+        [
+          70,
+          94,
+          142,
+          112
+        ]
+      ]
+    },
+    {
+      "name": "site-plan.png",
+      "mode": "raster",
+      "page": 4,
+      "rect": [
+        140,
+        374,
+        460,
+        698
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "program-section.png",
+      "mode": "vector",
+      "page": 5,
+      "rect": [
+        294,
+        86,
+        540,
+        320
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "program-stack.png",
+      "mode": "vector",
+      "page": 5,
+      "rect": [
+        304,
+        356,
+        532,
+        695
+      ],
+      "dpi": 350,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "facade-render.png",
+      "mode": "embedded",
+      "page": 6,
+      "image": 1,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "facade-radiation.png",
+      "mode": "raster",
+      "page": 6,
+      "rect": [
+        104,
+        436,
+        260,
+        670
+      ],
+      "dpi": 600,
+      "pad": 16,
+      "color": true,
+      "erase": [
+        [
+          200,
+          474,
+          262,
+          487
+        ]
+      ],
+      "trim": false
+    },
+    {
+      "name": "facade-double-skin.png",
+      "mode": "vector",
+      "page": 6,
+      "rect": [
+        305,
+        475,
+        538,
+        672
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "unit-a-plan.png",
+      "mode": "vector",
+      "page": 7,
+      "rect": [
+        102,
+        93,
+        495,
+        265
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true,
+      "erase": [
+        [
+          242,
+          240,
+          332,
+          262
+        ]
+      ]
+    },
+    {
+      "name": "unit-a-refuge.png",
+      "mode": "vector",
+      "page": 7,
+      "rect": [
+        104,
+        303,
+        493,
+        444
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "unit-a-living-module.png",
+      "mode": "embedded",
+      "page": 7,
+      "image": 2,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "unit-a-living-room.png",
+      "mode": "embedded",
+      "page": 7,
+      "image": 3,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "unit-a-bedroom.png",
+      "mode": "embedded",
+      "page": 7,
+      "image": 4,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "unit-b-second-floor.png",
+      "mode": "vector",
+      "page": 8,
+      "rect": [
+        104,
+        86,
+        502,
+        281
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true,
+      "erase": [
+        [
+          182,
+          254,
+          395,
+          273
+        ]
+      ]
+    },
+    {
+      "name": "unit-b-first-floor.png",
+      "mode": "vector",
+      "page": 8,
+      "rect": [
+        104,
+        311,
+        502,
+        491
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true,
+      "erase": [
+        [
+          198,
+          464,
+          388,
+          485
+        ]
+      ]
+    },
+    {
+      "name": "unit-b-living-room.png",
+      "mode": "raster",
+      "page": 8,
+      "rect": [
+        146.6,
+        497.2,
+        456.7,
+        681.2
+      ],
+      "dpi": 500,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "clinic-second-floor.png",
+      "mode": "vector",
+      "page": 9,
+      "rect": [
+        102,
+        87,
+        488,
+        266
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true,
+      "erase": [
+        [
+          225,
+          240,
+          352,
+          259
+        ]
+      ]
+    },
+    {
+      "name": "clinic-first-floor.png",
+      "mode": "vector",
+      "page": 9,
+      "rect": [
+        102,
+        289,
+        488,
+        463
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true,
+      "erase": [
+        [
+          228,
+          439,
+          343,
+          458
+        ]
+      ]
+    },
+    {
+      "name": "clinic-waiting-room.png",
+      "mode": "embedded",
+      "page": 9,
+      "image": 2,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "teahouse-plans.png",
+      "mode": "vector",
+      "page": 10,
+      "rect": [
+        110,
+        100,
+        498,
+        430
+      ],
+      "dpi": 350,
+      "pad": 16,
+      "color": true,
+      "erase": [
+        [
+          305,
+          60,
+          500,
+          250
+        ]
+      ]
+    },
+    {
+      "name": "teahouse-lofted-tearoom.png",
+      "mode": "embedded",
+      "page": 10,
+      "image": 1,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "teahouse-rooftop-garden.png",
+      "mode": "embedded",
+      "page": 10,
+      "image": 2,
+      "trim": false,
+      "color": true
+    }
+  ],
+  "_resolved": {
+    "identity.png": {
+      "mode": "vector",
+      "page": 1,
+      "rect": [
+        125,
+        298,
+        495,
+        590
+      ],
+      "dpi": 300,
+      "output": [
+        1545,
+        1216
+      ],
+      "gray": false,
+      "bytes": 115384
+    },
+    "render-night.png": {
+      "mode": "raster",
+      "page": 2,
+      "rect": [
+        73.4,
+        112.4,
+        539.9,
+        385.9
+      ],
+      "dpi": 515,
+      "output": [
+        3337,
+        1956
+      ],
+      "gray": false,
+      "bytes": 8487754
+    },
+    "render-day.png": {
+      "mode": "embedded",
+      "page": 2,
+      "image": 3,
+      "nativePx": [
+        2412,
+        2721
+      ],
+      "densityDpi": 630.8,
+      "output": [
+        2412,
+        2721
+      ],
+      "gray": false,
+      "bytes": 8538522
+    },
+    "diagram-1.png": {
+      "mode": "vector",
+      "page": 3,
+      "rect": [
+        70,
+        172,
+        282,
+        384
+      ],
+      "dpi": 350,
+      "output": [
+        1019,
+        1019
+      ],
+      "gray": false,
+      "bytes": 216649
+    },
+    "diagram-2.png": {
+      "mode": "vector",
+      "page": 3,
+      "rect": [
+        329,
+        170,
+        541,
+        382
+      ],
+      "dpi": 350,
+      "output": [
+        1022,
+        1020
+      ],
+      "gray": false,
+      "bytes": 211945
+    },
+    "assemblage-1.png": {
+      "mode": "raster",
+      "page": 3,
+      "rect": [
+        73.7,
+        423.2,
+        277.5,
+        627
+      ],
+      "dpi": 600,
+      "output": [
+        1698,
+        1698
+      ],
+      "gray": true,
+      "bytes": 1616170
+    },
+    "assemblage-2.png": {
+      "mode": "raster",
+      "page": 3,
+      "rect": [
+        345.5,
+        419.3,
+        548.1,
+        623.2
+      ],
+      "dpi": 600,
+      "output": [
+        1688,
+        1699
+      ],
+      "gray": true,
+      "bytes": 1154520
+    },
+    "site-axon.png": {
+      "mode": "raster",
+      "page": 4,
+      "rect": [
+        118,
+        96,
+        512,
+        373
+      ],
+      "dpi": 400,
+      "output": [
+        2221,
+        1495
+      ],
+      "gray": false,
+      "bytes": 2370656
+    },
+    "site-plan.png": {
+      "mode": "raster",
+      "page": 4,
+      "rect": [
+        140,
+        374,
+        460,
+        698
+      ],
+      "dpi": 400,
+      "output": [
+        1769,
+        1797
+      ],
+      "gray": false,
+      "bytes": 2176771
+    },
+    "program-section.png": {
+      "mode": "vector",
+      "page": 5,
+      "rect": [
+        294,
+        86,
+        540,
+        320
+      ],
+      "dpi": 400,
+      "output": [
+        1379,
+        1285
+      ],
+      "gray": false,
+      "bytes": 127359
+    },
+    "program-stack.png": {
+      "mode": "vector",
+      "page": 5,
+      "rect": [
+        304,
+        356,
+        532,
+        695
+      ],
+      "dpi": 350,
+      "output": [
+        1097,
+        1634
+      ],
+      "gray": false,
+      "bytes": 134648
+    },
+    "facade-render.png": {
+      "mode": "embedded",
+      "page": 6,
+      "image": 1,
+      "nativePx": [
+        1158,
+        1181
+      ],
+      "densityDpi": 354.6,
+      "output": [
+        1158,
+        1181
+      ],
+      "gray": false,
+      "bytes": 792479
+    },
+    "facade-radiation.png": {
+      "mode": "raster",
+      "page": 6,
+      "rect": [
+        104,
+        436,
+        260,
+        670
+      ],
+      "dpi": 600,
+      "output": [
+        1332,
+        1982
+      ],
+      "gray": false,
+      "bytes": 294031
+    },
+    "facade-double-skin.png": {
+      "mode": "vector",
+      "page": 6,
+      "rect": [
+        305,
+        475,
+        538,
+        672
+      ],
+      "dpi": 400,
+      "output": [
+        1293,
+        1083
+      ],
+      "gray": false,
+      "bytes": 312846
+    },
+    "unit-a-plan.png": {
+      "mode": "vector",
+      "page": 7,
+      "rect": [
+        102,
+        93,
+        495,
+        265
+      ],
+      "dpi": 400,
+      "output": [
+        2167,
+        952
+      ],
+      "gray": false,
+      "bytes": 139709
+    },
+    "unit-a-refuge.png": {
+      "mode": "vector",
+      "page": 7,
+      "rect": [
+        104,
+        303,
+        493,
+        444
+      ],
+      "dpi": 400,
+      "output": [
+        2158,
+        773
+      ],
+      "gray": false,
+      "bytes": 102905
+    },
+    "unit-a-living-module.png": {
+      "mode": "embedded",
+      "page": 7,
+      "image": 2,
+      "nativePx": [
+        1330,
+        767
+      ],
+      "densityDpi": 402.7,
+      "output": [
+        1330,
+        767
+      ],
+      "gray": false,
+      "bytes": 1119091
+    },
+    "unit-a-living-room.png": {
+      "mode": "embedded",
+      "page": 7,
+      "image": 3,
+      "nativePx": [
+        1082,
+        901
+      ],
+      "densityDpi": 685.1,
+      "output": [
+        1082,
+        901
+      ],
+      "gray": false,
+      "bytes": 1061313
+    },
+    "unit-a-bedroom.png": {
+      "mode": "embedded",
+      "page": 7,
+      "image": 4,
+      "nativePx": [
+        966,
+        900
+      ],
+      "densityDpi": 689.6,
+      "output": [
+        966,
+        900
+      ],
+      "gray": false,
+      "bytes": 1189995
+    },
+    "unit-b-second-floor.png": {
+      "mode": "vector",
+      "page": 8,
+      "rect": [
+        104,
+        86,
+        502,
+        281
+      ],
+      "dpi": 400,
+      "output": [
+        2210,
+        1082
+      ],
+      "gray": false,
+      "bytes": 114017
+    },
+    "unit-b-first-floor.png": {
+      "mode": "vector",
+      "page": 8,
+      "rect": [
+        104,
+        311,
+        502,
+        491
+      ],
+      "dpi": 400,
+      "output": [
+        2210,
+        990
+      ],
+      "gray": false,
+      "bytes": 174995
+    },
+    "unit-b-living-room.png": {
+      "mode": "raster",
+      "page": 8,
+      "rect": [
+        146.6,
+        497.2,
+        456.7,
+        681.2
+      ],
+      "dpi": 500,
+      "output": [
+        2153,
+        1278
+      ],
+      "gray": false,
+      "bytes": 3190530
+    },
+    "clinic-second-floor.png": {
+      "mode": "vector",
+      "page": 9,
+      "rect": [
+        102,
+        87,
+        488,
+        266
+      ],
+      "dpi": 400,
+      "output": [
+        2146,
+        1011
+      ],
+      "gray": false,
+      "bytes": 235413
+    },
+    "clinic-first-floor.png": {
+      "mode": "vector",
+      "page": 9,
+      "rect": [
+        102,
+        289,
+        488,
+        463
+      ],
+      "dpi": 400,
+      "output": [
+        2146,
+        971
+      ],
+      "gray": false,
+      "bytes": 228443
+    },
+    "clinic-waiting-room.png": {
+      "mode": "embedded",
+      "page": 9,
+      "image": 2,
+      "nativePx": [
+        2738,
+        1636
+      ],
+      "densityDpi": 541.3,
+      "output": [
+        2738,
+        1636
+      ],
+      "gray": false,
+      "bytes": 5703806
+    },
+    "teahouse-plans.png": {
+      "mode": "vector",
+      "page": 10,
+      "rect": [
+        110,
+        100,
+        498,
+        430
+      ],
+      "dpi": 350,
+      "output": [
+        1880,
+        1603
+      ],
+      "gray": false,
+      "bytes": 298485
+    },
+    "teahouse-lofted-tearoom.png": {
+      "mode": "embedded",
+      "page": 10,
+      "image": 1,
+      "nativePx": [
+        1003,
+        901
+      ],
+      "densityDpi": 396.7,
+      "output": [
+        1003,
+        901
+      ],
+      "gray": false,
+      "bytes": 1364644
+    },
+    "teahouse-rooftop-garden.png": {
+      "mode": "embedded",
+      "page": 10,
+      "image": 2,
+      "nativePx": [
+        1233,
+        733
+      ],
+      "densityDpi": 243.8,
+      "output": [
+        1233,
+        733
+      ],
+      "gray": false,
+      "bytes": 1619306
+    }
+  }
+}
