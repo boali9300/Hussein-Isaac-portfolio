@@ -25,7 +25,7 @@ const projects = defineCollection({
       cover: image(),
       coverAlt: z.string(),
       coverCaption: z.string().optional(),
-      /** Optional drawing used in the homepage hero when this project is featured. */
+      /** Optional full-bleed image for the homepage hero; the first featured project with one is used. */
       heroImage: image().optional(),
       heroAlt: z.string().optional(),
       heroCaption: z.string().optional(),

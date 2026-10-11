@@ -2,8 +2,11 @@
 import '@fontsource-variable/inter-tight';
 import '@fontsource/ibm-plex-mono/400.css';
 import '@fontsource/ibm-plex-mono/500.css';
+import '@fontsource/instrument-serif/400.css';
+import '@fontsource/instrument-serif/400-italic.css';
 import '../styles/global.css';
 import interTightLatin from '@fontsource-variable/inter-tight/files/inter-tight-latin-wght-normal.woff2?url';
+import serifLatin from '@fontsource/instrument-serif/files/instrument-serif-latin-400-normal.woff2?url';
 
 import { getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
@@ -20,9 +23,11 @@ interface Props {
   description?: string;
   image?: ImageMetadata;
   imageAlt?: string;
+  /** The page opens with a full-bleed photograph: the header sits over it until scrolled. */
+  overlay?: boolean;
 }
 
-const { title, description = site.description, image, imageAlt } = Astro.props;
+const { title, description = site.description, image, imageAlt, overlay = false } = Astro.props;
 const pageTitle = title ? `${title} — ${site.name}` : site.title;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = image ? await getImage({ src: image, format: 'jpg', width: 1200, quality: 85, background: '#f4f1ea' }) : undefined;
@@ -42,6 +47,7 @@ const personLd = {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preload" href={interTightLatin} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={serifLatin} as="font" type="font/woff2" crossorigin />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
@@ -65,7 +71,7 @@ const personLd = {
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     {REVIEW && <ReviewBanner />}
-    <SiteHeader />
+    <SiteHeader overlay={overlay} />
     <main id="main" tabindex="-1">
       <slot />
     </main>

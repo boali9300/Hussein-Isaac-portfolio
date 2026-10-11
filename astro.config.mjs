@@ -17,7 +17,8 @@ export default defineConfig({
     layout: 'constrained',
     service: sharpImageService({
       // Drawings are served lossless (WebP, PNG fallback): identical pixels, smaller files.
-      // Renders use AVIF with a JPEG fallback, so lossless WebP never applies to them.
+      // Renders use AVIF with a JPEG fallback (PNG when transparent), so lossless WebP
+      // never applies to them — see src/lib/images.ts.
       webp: { lossless: true, effort: 4 },
       png: { compressionLevel: 9, adaptiveFiltering: true },
       jpeg: { mozjpeg: true },

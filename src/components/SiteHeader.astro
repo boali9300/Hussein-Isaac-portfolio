@@ -1,11 +1,21 @@
 ---
 import { nav, site } from '../data/site';
 import { url } from '../lib/url';
+
+interface Props {
+  /** Sit transparent over a full-bleed hero ([data-hero]) until it scrolls away. */
+  overlay?: boolean;
+}
+
+const { overlay = false } = Astro.props;
 ---
 
-<header class="site-header">
+<header class:list={['site-header', { 'site-header--overlay': overlay }]} data-site-header>
   <div class="container site-header__inner">
-    <a class="site-header__brand" href={url('/')}>{site.name}</a>
+    <a class="site-header__brand" href={url('/')}>
+      <span class="site-header__name">{site.name}</span>
+      <span class="site-header__role">Architecture</span>
+    </a>
 
     <button
       class="site-header__toggle"
@@ -37,9 +47,26 @@ import { url } from '../lib/url';
     position: sticky;
     top: 0;
     z-index: 50;
-    background: color-mix(in srgb, var(--paper) 92%, transparent);
-    backdrop-filter: blur(8px);
+    color: var(--ink);
+    background: color-mix(in srgb, var(--paper) 94%, transparent);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--rule);
+    transition:
+      background-color var(--dur-fast) var(--ease),
+      color var(--dur-fast) var(--ease),
+      border-color var(--dur-fast) var(--ease);
+  }
+
+  /* Over a hero: the header takes no space, so the photograph runs to the top edge. */
+  .site-header--overlay {
+    margin-bottom: calc(-1 * var(--header-h));
+  }
+
+  :global(.js) .site-header--overlay.is-over:not(.is-open) {
+    color: var(--on-ink);
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom-color: var(--on-ink-rule);
   }
 
   .site-header__inner {
@@ -50,12 +77,24 @@ import { url } from '../lib/url';
   }
 
   .site-header__brand {
+    display: flex;
+    align-items: baseline;
+    gap: var(--s-3);
+    text-decoration: none;
+  }
+
+  .site-header__name {
+    font-family: var(--font-serif);
+    font-size: 1.625rem;
+    line-height: 1;
+  }
+
+  .site-header__role {
     font-family: var(--font-mono);
     font-size: var(--text-label);
-    font-weight: 500;
     letter-spacing: var(--tracking-label);
     text-transform: uppercase;
-    text-decoration: none;
+    opacity: 0.75;
   }
 
   .site-header__nav ul {
@@ -96,6 +135,10 @@ import { url } from '../lib/url';
   }
 
   @media (max-width: 720px) {
+    .site-header__role {
+      display: none;
+    }
+
     .site-header__toggle {
       display: grid;
       place-items: center;
@@ -112,7 +155,7 @@ import { url } from '../lib/url';
       display: block;
       width: 1.25rem;
       height: 1px;
-      background: var(--ink);
+      background: currentColor;
       transition: transform var(--dur-fast) var(--ease);
     }
 
@@ -140,12 +183,13 @@ import { url } from '../lib/url';
       top: var(--header-h);
       left: 0;
       right: 0;
+      color: var(--ink);
       background: var(--paper);
       border-bottom: 1px solid var(--rule);
       display: none;
     }
 
-    .site-header__nav.is-open {
+    .is-open .site-header__nav {
       display: block;
     }
 
@@ -168,12 +212,14 @@ import { url } from '../lib/url';
 </style>
 
 <script>
+  const header = document.querySelector<HTMLElement>('[data-site-header]');
   const toggle = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
   const navEl = document.getElementById('site-nav');
-  if (toggle && navEl) {
+
+  if (header && toggle && navEl) {
     const setOpen = (open: boolean) => {
       toggle.setAttribute('aria-expanded', String(open));
-      navEl.classList.toggle('is-open', open);
+      header.classList.toggle('is-open', open);
     };
     toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
     navEl.addEventListener('click', (e) => {
@@ -185,5 +231,16 @@ import { url } from '../lib/url';
         toggle.focus();
       }
     });
+  }
+
+  // Overlay mode: light and transparent while the hero is under the header.
+  const hero = document.querySelector<HTMLElement>('[data-hero]');
+  if (header?.classList.contains('site-header--overlay') && hero && 'IntersectionObserver' in window) {
+    const headerH = header.offsetHeight;
+    const io = new IntersectionObserver(([entry]) => header.classList.toggle('is-over', entry.isIntersecting), {
+      rootMargin: `-${headerH}px 0px 0px 0px`,
+      threshold: 0,
+    });
+    io.observe(hero);
   }
 </script>

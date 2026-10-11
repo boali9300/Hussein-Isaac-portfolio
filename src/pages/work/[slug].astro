@@ -1,9 +1,11 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import { render } from 'astro:content';
+import { Picture } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import Figure from '../../components/Figure.astro';
 import TitleBlock from '../../components/TitleBlock.astro';
+import { hasAlpha, photoFormats } from '../../lib/images';
 import { getProjects, levelLabel, numberInLevel } from '../../lib/review';
 import { url } from '../../lib/url';
 
@@ -24,11 +26,17 @@ const { title, summary, type, level, highlight, cover, coverAlt, coverCaption, f
 const { Content } = await render(project);
 const n = String(number).padStart(2, '0');
 const group = levelLabel(level);
+
+// Photographs run full-bleed; a cover with a transparent backdrop is shown whole, as a figure.
+const coverIsCutout = await hasAlpha(cover);
+const coverFormats = await photoFormats(cover);
+const nextFormats = next ? await photoFormats(next.data.cover) : undefined;
+const nextFitted = next ? await hasAlpha(next.data.cover) : false;
 ---
 
 <Base title={title} description={summary} image={cover} imageAlt={coverAlt}>
   <article class="case">
-    <header class="container case__header grid">
+    <header class="container case__header">
       <nav class="case__crumbs label" aria-label="Breadcrumb">
         <a href={url('/#work')}>Work</a>
         <span aria-hidden="true">/</span>
@@ -36,21 +44,49 @@ const group = levelLabel(level);
         <span aria-hidden="true">/</span>
         <span aria-current="page">{title}</span>
       </nav>
-      <div class="case__intro">
-        <p class="label label--accent">
-          {group} · Project {n} · {type}{highlight && <> · {highlight}</>}
-        </p>
-        <h1 class="h1">{title}</h1>
-        <p class="lead">{summary}</p>
-      </div>
-      <div class="case__facts">
-        <TitleBlock facts={facts} pending={pending} />
+
+      <div class="case__intro grid">
+        <div class="case__heading">
+          <p class="label label--accent eyebrow">
+            {group} · Project {n}{highlight && <> · {highlight}</>}
+          </p>
+          <h1 class="display case__title">{title}</h1>
+        </div>
+        <div class="case__summary">
+          <p class="label">{type}</p>
+          <p class="lead">{summary}</p>
+        </div>
       </div>
     </header>
 
-    <div class="case__hero">
-      <div class="container">
-        <Figure src={cover} alt={coverAlt} kind="render" priority caption={coverCaption} />
+    {
+      coverIsCutout ? (
+        <div class="container case__cover-figure">
+          <Figure src={cover} alt={coverAlt} kind="render" priority caption={coverCaption} />
+        </div>
+      ) : (
+        <figure class="case__cover">
+          <Picture
+            src={cover}
+            alt={coverAlt}
+            width={cover.width}
+            quality={85}
+            sizes="100vw"
+            loading="eager"
+            fetchpriority="high"
+            {...coverFormats}
+          />
+          {coverCaption && (
+            <figcaption class="container label">{coverCaption}</figcaption>
+          )}
+        </figure>
+      )
+    }
+
+    <div class="container case__facts grid">
+      <p class="case__facts-label label">Project data</p>
+      <div class="case__facts-block">
+        <TitleBlock facts={facts} pending={pending} />
       </div>
     </div>
 
@@ -58,16 +94,35 @@ const group = levelLabel(level);
       <Content />
     </div>
 
-    <footer class="container case__footer">
-      <a class="link-arrow" href={url('/#work')}><span aria-hidden="true">←</span> All work</a>
-      {
-        next && (
-          <a class="case__next" href={url(`/work/${next.id}/`)}>
-            <span class="label">Next project</span>
-            <span class="h2">{next.data.title}</span>
-          </a>
-        )
-      }
+    <footer class="case__footer">
+      <div class="container">
+        <a class="link-arrow case__back" href={url(`/#${level}`)}>
+          <span aria-hidden="true">←</span> {group}
+        </a>
+        {
+          next && (
+            <a class="case__next grid" href={url(`/work/${next.id}/`)}>
+              <span class:list={['case__next-media', { 'is-fitted': nextFitted }]}>
+                <Picture
+                  src={next.data.cover}
+                  alt=""
+                  width={next.data.cover.width}
+                  quality={80}
+                  sizes="(min-width: 901px) 40vw, 100vw"
+                  {...nextFormats}
+                />
+              </span>
+              <span class="case__next-text">
+                <span class="label eyebrow">Next project</span>
+                <span class="h1">{next.data.title}</span>
+                <span class="label">
+                  {levelLabel(next.data.level)} · {next.data.type}
+                </span>
+              </span>
+            </a>
+          )
+        }
+      </div>
     </footer>
   </article>
 </Base>
@@ -76,13 +131,13 @@ const group = levelLabel(level);
   .case__header {
     padding-top: var(--s-6);
     padding-bottom: var(--s-7);
-    row-gap: var(--s-5);
   }
 
   .case__crumbs {
-    grid-column: 1 / -1;
     display: flex;
+    flex-wrap: wrap;
     gap: var(--s-2);
+    margin-bottom: var(--s-7);
   }
 
   .case__crumbs a {
@@ -94,18 +149,64 @@ const group = levelLabel(level);
   }
 
   .case__intro {
-    grid-column: 1 / span 7;
+    row-gap: var(--s-5);
+    align-items: end;
+  }
+
+  .case__heading {
+    grid-column: 1 / span 8;
     display: flex;
     flex-direction: column;
     gap: var(--s-4);
   }
 
-  .case__facts {
+  .case__title {
+    font-size: clamp(3.5rem, 9vw, 8.5rem);
+  }
+
+  .case__summary {
     grid-column: 9 / -1;
-    align-self: end;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+    padding-bottom: var(--s-3);
+  }
+
+  /* Full-bleed cover photograph */
+  .case__cover {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+  }
+
+  .case__cover :global(img) {
+    width: 100%;
+    height: min(82svh, 56vw);
+    object-fit: cover;
+    background: var(--paper-deep);
+  }
+
+  .case__cover-figure {
+    padding-block: var(--s-4);
+  }
+
+  /* Project data, drawn as a title block */
+  .case__facts {
+    padding-top: var(--section);
+    row-gap: var(--s-4);
+  }
+
+  .case__facts-label {
+    grid-column: 1 / span 3;
+    padding-top: var(--s-3);
+  }
+
+  .case__facts-block {
+    grid-column: 4 / -1;
   }
 
   .case__body {
+    counter-reset: figure;
     display: flex;
     flex-direction: column;
     gap: var(--s-6);
@@ -117,33 +218,81 @@ const group = levelLabel(level);
     margin-top: var(--s-7);
   }
 
+  /* Footer: back to the group, and the next project as a spread */
   .case__footer {
+    padding-bottom: var(--section);
+  }
+
+  .case__footer .container {
     display: flex;
-    justify-content: space-between;
-    align-items: end;
+    flex-direction: column;
     gap: var(--s-5);
     padding-top: var(--s-5);
-    padding-bottom: var(--section);
     border-top: 1px solid var(--rule-strong);
   }
 
-  .case__next {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    gap: var(--s-2);
-    text-decoration: none;
-    text-align: right;
+  .case__back {
+    align-self: start;
   }
 
-  .case__next:hover .h2 {
+  .case__next {
+    align-items: end;
+    row-gap: var(--s-4);
+    text-decoration: none;
+  }
+
+  .case__next-media {
+    grid-column: 1 / span 6;
+    display: block;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: var(--paper-deep);
+  }
+
+  .case__next-media :global(picture) {
+    display: contents;
+  }
+
+  .case__next-media :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.4s var(--ease);
+  }
+
+  .case__next-media.is-fitted :global(img) {
+    object-fit: contain;
+    padding: var(--s-4);
+  }
+
+  .case__next:hover .case__next-media :global(img) {
+    transform: scale(1.025);
+  }
+
+  .case__next-text {
+    grid-column: 8 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+  }
+
+  .case__next:hover .h1 {
     color: var(--accent-text);
   }
 
   @media (max-width: 900px) {
-    .case__intro,
-    .case__facts {
+    .case__heading,
+    .case__summary,
+    .case__facts-label,
+    .case__facts-block,
+    .case__next-media,
+    .case__next-text {
       grid-column: 1 / -1;
+    }
+
+    .case__cover :global(img) {
+      height: auto;
+      aspect-ratio: 4 / 3;
     }
   }
 </style>

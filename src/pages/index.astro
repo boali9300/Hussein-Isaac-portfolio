@@ -4,21 +4,26 @@ import Base from '../layouts/Base.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import Pending from '../components/Pending.astro';
 import { site } from '../data/site';
+import { photoFormats } from '../lib/images';
 import { getProjects, levels, numberInLevel, shows } from '../lib/review';
 import { url } from '../lib/url';
 
 const projects = await getProjects();
 const hero = projects.find((p) => p.data.featured && p.data.heroImage);
+const heroFormats = hero?.data.heroImage ? await photoFormats(hero.data.heroImage) : undefined;
 const groups = levels
   .map((level) => {
     const list = projects.filter((p) => p.data.level === level.id);
     return {
       ...level,
+      list,
       featured: list.filter((p) => p.data.featured),
       others: list.filter((p) => !p.data.featured),
     };
   })
-  .filter((g) => g.featured.length + g.others.length > 0);
+  .filter((g) => g.list.length > 0);
+
+const course = (p: (typeof projects)[number]) => p.data.facts.find((f) => f.label === 'Course')?.value.split(' — ')[0];
 
 // From Hussein's previous site — his own words on his approach.
 const values = [
@@ -35,69 +40,79 @@ const meta = [
 ].filter((m) => shows(m.fact));
 ---
 
-<Base>
-  <section class="hero container grid" aria-labelledby="hero-title">
-    <div class="hero__copy">
-      <p class="label">{site.discipline}</p>
-      <h1 class="display" id="hero-title">Hussein<br />Isaac</h1>
-      <p class="lead">{site.tagline}</p>
-      <div class="hero__actions">
-        <a class="link-arrow" href={url('/#work')}>Selected work <span aria-hidden="true">↓</span></a>
-        <a class="link-arrow" href={url('/#contact')}>Contact <span aria-hidden="true">→</span></a>
-      </div>
-      {
-        meta.length > 0 && (
-          <dl class="hero__meta">
-            {meta.map((m) => (
-              <div>
-                <dt class="label">{m.label}</dt>
-                <dd>
-                  <Pending fact={m.fact}>{m.fact.value}</Pending>
-                </dd>
-              </div>
-            ))}
-          </dl>
-        )
-      }
-    </div>
-
-    {
-      hero?.data.heroImage && (
-        <figure class="hero__sheet">
-          <a class="hero__sheet-link" href={url(`/work/${hero.id}/`)}>
-            <Picture
-              src={hero.data.heroImage}
-              alt={hero.data.heroAlt ?? ''}
-              width={hero.data.heroImage.width}
-              formats={['webp']}
-              fallbackFormat="png"
-              sizes="(min-width: 1440px) 520px, (min-width: 901px) 36vw, 90vw"
-              loading="eager"
-            />
+<Base overlay={!!hero}>
+  {
+    hero?.data.heroImage ? (
+      <section class="hero on-photo" aria-labelledby="hero-title" data-hero>
+        <Picture
+          class="hero__image"
+          src={hero.data.heroImage}
+          alt={hero.data.heroAlt ?? ''}
+          width={hero.data.heroImage.width}
+          quality={85}
+          sizes="100vw"
+          loading="eager"
+          fetchpriority="high"
+          {...heroFormats}
+        />
+        <div class="hero__scrim" aria-hidden="true" />
+        <div class="container hero__content">
+          <div class="hero__title">
+            <p class="label eyebrow">{site.discipline}</p>
+            <h1 class="display" id="hero-title">
+              Hussein <em>Isaac</em>
+            </h1>
+            <p class="lead">{site.tagline}</p>
+          </div>
+          <a class="hero__plate" href={url(`/work/${hero.id}/`)}>
+            <span class="label">Plate — {hero.data.highlight ?? hero.data.type}</span>
+            <span class="hero__plate-title">{hero.data.heroCaption ?? hero.data.title}</span>
+            <span class="label hero__plate-link">
+              View project <span aria-hidden="true">→</span>
+            </span>
           </a>
-          {hero.data.heroCaption && <figcaption class="label">{hero.data.heroCaption}</figcaption>}
-        </figure>
-      )
-    }
-  </section>
+        </div>
+      </section>
+    ) : (
+      <section class="hero hero--plain container" aria-labelledby="hero-title">
+        <p class="label eyebrow">{site.discipline}</p>
+        <h1 class="display" id="hero-title">
+          Hussein <em>Isaac</em>
+        </h1>
+        <p class="lead">{site.tagline}</p>
+      </section>
+    )
+  }
 
   <section class="section container" id="profile" aria-labelledby="profile-title">
     <div class="grid profile">
-      <div class="profile__head" data-reveal>
-        <p class="label label--accent">01 — Profile</p>
-        <h2 class="h2" id="profile-title">Clear ideas. Precise drawings. Buildable work.</h2>
-      </div>
-      <div class="profile__body prose" data-reveal>
-        <p class="lead">
-          Born in Iraq and shaped by life across the Middle East and the United States, I bring a cross-cultural
-          perspective to architecture.
+      <p class="profile__eyebrow label label--accent eyebrow" data-reveal>01 — Profile</p>
+      <div class="profile__body" data-reveal>
+        <h2 class="visually-hidden" id="profile-title">Profile</h2>
+        <p class="statement">
+          Born in Iraq and shaped by life across the Middle East and the United States, I bring a
+          <em>cross-cultural</em> perspective to architecture.
         </p>
-        <p class="muted">
+        <p class="profile__text muted">
           My experiences have strengthened my interest in designing places that support safety, belonging, and everyday
           life — while respecting the character and needs of the communities they serve. I believe architecture can
           improve everyday life by bringing together thoughtful ideas, clear technical thinking, and an understanding of
           context.
         </p>
+        {
+          meta.length > 0 && (
+            <dl class="profile__meta">
+              {meta.map((m) => (
+                <div>
+                  <dt class="label">{m.label}</dt>
+                  <dd>
+                    <Pending fact={m.fact}>{m.fact.value}</Pending>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          )
+        }
       </div>
       <ul class="values" data-reveal>
         {
@@ -118,21 +133,50 @@ const meta = [
       <section class="section container" id="work" aria-labelledby="work-title">
         <div class="grid work__head" data-reveal>
           <div class="work__title">
-            <p class="label label--accent">02 — Selected work</p>
-            <h2 class="h2" id="work-title">Projects presented as complete case studies.</h2>
+            <p class="label label--accent eyebrow">02 — Work</p>
+            <h2 class="h1" id="work-title">
+              Projects, from brief <em>to detail.</em>
+            </h2>
           </div>
           <p class="work__intro muted">
-            Each project follows the work from brief to detail: site, plans and sections, renderings and technical
+            Each project is presented as a complete case study: site, plans and sections, renderings and technical
             studies.
           </p>
         </div>
 
+        <nav class="index" aria-label="Project index" data-reveal>
+          <p class="label">Index of projects</p>
+          {groups.map((group) => (
+            <div class="index__group">
+              <p class="index__level label">
+                <a href={url(`/#${group.id}`)}>{group.label}</a>
+              </p>
+              <ol class="index__list">
+                {group.list.map((project) => (
+                  <li>
+                    <a class="index__row" href={url(`/work/${project.id}/`)}>
+                      <span class="index__n label">{String(numberInLevel(projects, project)).padStart(2, '0')}</span>
+                      <span class="index__title">{project.data.title}</span>
+                      <span class="index__type label">{project.data.type}</span>
+                      <span class="index__course label">{course(project)}</span>
+                      <span class="index__arrow" aria-hidden="true">→</span>
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          ))}
+        </nav>
+
         <div class="work__groups">
           {groups.map((group) => (
             <section class="work__group" id={group.id} aria-labelledby={`${group.id}-title`}>
-              <h3 class="work__group-title h2" id={`${group.id}-title`} data-reveal>
-                {group.label}
-              </h3>
+              <header class="work__group-head" data-reveal>
+                <h3 class="h2" id={`${group.id}-title`}>{group.label}</h3>
+                <p class="label">
+                  {group.list.length} {group.list.length === 1 ? 'project' : 'projects'}
+                </p>
+              </header>
               <div class="work__list">
                 {group.featured.map((project) => (
                   <ProjectCard project={project} index={numberInLevel(projects, project) - 1} variant="feature" />
@@ -155,8 +199,8 @@ const meta = [
   <section class="contact band-ink" id="contact" aria-labelledby="contact-title">
     <div class="container grid">
       <div class="contact__head" data-reveal>
-        <p class="label">03 — Contact</p>
-        <h2 class="h1" id="contact-title">Let’s talk about the work.</h2>
+        <p class="label eyebrow">03 — Contact</p>
+        <h2 class="h1" id="contact-title">Let’s talk about <em>the work.</em></h2>
       </div>
       <div class="contact__body" data-reveal>
         <p class="lead">Available for architecture, documentation, coordination, and design opportunities.</p>
@@ -182,57 +226,86 @@ const meta = [
 </Base>
 
 <style>
-  /* Hero */
+  /* Hero — a full-bleed render with the name set over it. */
   .hero {
-    min-height: min(calc(100svh - var(--header-h)), 60rem);
-    padding-block: var(--s-6);
-    row-gap: var(--s-6);
-    align-items: center;
+    position: relative;
+    display: grid;
+    min-height: max(36rem, 100svh);
+    overflow: hidden;
+    background: var(--ink);
   }
 
-  .hero__copy {
-    grid-column: 1 / span 7;
+  .hero :global(.hero__image) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero__scrim {
+    position: absolute;
+    inset: 0;
+    background: var(--scrim);
+  }
+
+  .hero__content {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: var(--s-6);
+    padding-top: calc(var(--header-h) + var(--s-6));
+    padding-bottom: var(--s-7);
+  }
+
+  .hero__title {
     display: flex;
     flex-direction: column;
-    gap: var(--s-5);
+    gap: var(--s-4);
   }
 
-  .hero__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--s-5);
+  .hero__title .display {
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.25);
   }
 
-  .hero__meta {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, auto));
-    justify-content: start;
-    gap: var(--s-3) var(--s-6);
-    margin-top: var(--s-4);
-    padding-top: var(--s-4);
-    border-top: 1px solid var(--rule);
-    font-size: var(--text-small);
+  .hero__title .lead {
+    max-width: 34ch;
   }
 
-  .hero__meta dt {
-    margin-bottom: var(--s-1);
-  }
-
-  .hero__sheet {
-    grid-column: 8 / -1;
+  .hero__plate {
     display: flex;
     flex-direction: column;
-    gap: var(--s-3);
+    gap: var(--s-2);
+    max-width: 18rem;
+    padding: var(--s-3) 0 0;
+    border-top: 1px solid var(--on-ink-rule);
+    text-decoration: none;
   }
 
-  .hero__sheet-link {
-    display: grid;
-    place-items: center;
+  .hero__plate-title {
+    font-family: var(--font-serif);
+    font-size: 1.375rem;
+    line-height: 1.2;
   }
 
-  .hero__sheet-link :global(img) {
-    max-height: min(calc(100svh - var(--header-h) - 12rem), 48rem);
-    width: auto;
+  .hero__plate-link {
+    transition: color var(--dur-fast) var(--ease);
+  }
+
+  .hero__plate:hover .hero__plate-link {
+    opacity: 1;
+    color: var(--on-ink);
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+  }
+
+  .hero--plain {
+    min-height: min(80svh, 48rem);
+    align-content: end;
+    gap: var(--s-4);
+    padding-block: var(--s-8);
+    background: none;
   }
 
   /* Profile */
@@ -240,19 +313,46 @@ const meta = [
     row-gap: var(--s-7);
   }
 
-  .profile__head {
-    grid-column: 1 / span 5;
-    display: flex;
-    flex-direction: column;
-    gap: var(--s-4);
+  .profile__eyebrow {
+    grid-column: 1 / span 3;
+    align-self: start;
+    padding-top: 0.9rem;
   }
 
   .profile__body {
-    grid-column: 7 / -1;
+    grid-column: 4 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-5);
   }
 
-  .profile__body .lead {
-    max-width: none;
+  .profile__text {
+    max-width: var(--measure);
+    font-size: var(--text-lead);
+    line-height: 1.55;
+  }
+
+  .profile__meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 1px solid var(--rule-strong);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .profile__meta > div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-1);
+    padding: var(--s-3) var(--s-3) var(--s-3) 0;
+  }
+
+  .profile__meta > div + div {
+    padding-left: var(--s-3);
+    border-left: 1px solid var(--rule);
+  }
+
+  .profile__meta dd {
+    font-size: var(--text-small);
   }
 
   .values {
@@ -282,15 +382,91 @@ const meta = [
   }
 
   .work__title {
-    grid-column: 1 / span 6;
+    grid-column: 1 / span 8;
     display: flex;
     flex-direction: column;
     gap: var(--s-4);
   }
 
   .work__intro {
-    grid-column: 8 / -1;
+    grid-column: 9 / -1;
     max-width: 40ch;
+  }
+
+  /* The index — a drawing schedule of every project. */
+  .index {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+    margin-bottom: var(--section);
+  }
+
+  .index__group {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--col-gap);
+    border-top: 1px solid var(--rule-strong);
+  }
+
+  .index__level {
+    grid-column: 1 / span 3;
+    padding-top: var(--s-3);
+  }
+
+  .index__level a {
+    text-decoration: none;
+  }
+
+  .index__level a:hover {
+    color: var(--accent-text);
+  }
+
+  .index__list {
+    grid-column: 4 / -1;
+  }
+
+  .index__row {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr) minmax(0, 20rem) 5rem 1.5rem;
+    align-items: baseline;
+    gap: var(--s-3);
+    padding-block: var(--s-3);
+    border-bottom: 1px solid var(--rule);
+    text-decoration: none;
+    transition: padding var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+
+  .index__list li:last-child .index__row {
+    border-bottom: 0;
+  }
+
+  .index__title {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    line-height: 1.1;
+  }
+
+  .index__arrow {
+    justify-self: end;
+    color: var(--accent);
+    opacity: 0;
+    transform: translateX(-0.5rem);
+    transition:
+      opacity var(--dur-fast) var(--ease),
+      transform var(--dur-fast) var(--ease);
+  }
+
+  .index__row:hover {
+    padding-left: var(--s-2);
+  }
+
+  .index__row:hover .index__title {
+    color: var(--accent-text);
+  }
+
+  .index__row:hover .index__arrow {
+    opacity: 1;
+    transform: none;
   }
 
   .work__groups {
@@ -299,7 +475,11 @@ const meta = [
     gap: var(--section);
   }
 
-  .work__group-title {
+  .work__group-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--s-4);
     padding-top: var(--s-4);
     margin-bottom: var(--s-6);
     border-top: 1px solid var(--rule-strong);
@@ -314,7 +494,7 @@ const meta = [
   .work__grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--s-7) var(--col-gap);
+    gap: var(--s-8) var(--col-gap);
   }
 
   /* Contact */
@@ -328,14 +508,14 @@ const meta = [
   }
 
   .contact__head {
-    grid-column: 1 / span 6;
+    grid-column: 1 / span 7;
     display: flex;
     flex-direction: column;
     gap: var(--s-4);
   }
 
   .contact__body {
-    grid-column: 8 / -1;
+    grid-column: 9 / -1;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -343,35 +523,40 @@ const meta = [
   }
 
   .contact__email {
+    font-family: var(--font-serif);
     font-size: var(--text-h3);
-    letter-spacing: -0.01em;
   }
 
   .contact__email a {
     text-decoration-color: var(--accent);
-    text-decoration-thickness: 2px;
-    text-underline-offset: 0.3em;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.25em;
     overflow-wrap: anywhere;
   }
 
   @media (max-width: 900px) {
-    .hero {
-      min-height: 0;
+    .hero__content {
+      grid-template-columns: minmax(0, 1fr);
     }
 
-    .hero__copy,
-    .hero__sheet,
-    .profile__head,
+    .profile__eyebrow,
     .profile__body,
     .work__title,
     .work__intro,
+    .index__level,
+    .index__list,
     .contact__head,
     .contact__body {
       grid-column: 1 / -1;
     }
 
-    .hero__sheet-link :global(img) {
-      max-height: 70svh;
+    .index__row {
+      grid-template-columns: 2.5rem minmax(0, 1fr) 5rem;
+    }
+
+    .index__type,
+    .index__arrow {
+      display: none;
     }
 
     .values,
@@ -381,10 +566,28 @@ const meta = [
   }
 
   @media (max-width: 560px) {
-    .hero__meta,
+    .profile__meta,
     .values,
     .work__grid {
       grid-template-columns: minmax(0, 1fr);
+    }
+
+    .profile__meta > div + div {
+      padding-left: 0;
+      border-left: 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    .index__row {
+      grid-template-columns: 2.5rem minmax(0, 1fr);
+    }
+
+    .index__course {
+      display: none;
+    }
+
+    .index__title {
+      font-size: 1.5rem;
     }
   }
 </style>

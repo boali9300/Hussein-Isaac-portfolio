@@ -41,23 +41,23 @@ const rows = [
 }
 
 <style>
+  /* Ruled cells like a sheet title block. Each cell draws its left rule and is
+     pulled 1px left, so the rule at the start of every row is clipped away. */
   .title-block {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    overflow: hidden;
     border-top: 1px solid var(--rule-strong);
   }
 
   .title-block__row {
     display: flex;
     flex-direction: column;
-    gap: var(--s-1);
-    padding: var(--s-3) var(--s-3) var(--s-3) 0;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .title-block__row:nth-child(even) {
-    padding-left: var(--s-3);
+    gap: var(--s-2);
+    margin-left: -1px;
+    padding: var(--s-3) var(--s-4) var(--s-4) var(--s-3);
     border-left: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
   }
 
   .title-block dd {
@@ -66,14 +66,15 @@ const rows = [
     align-self: flex-start;
   }
 
+  @media (max-width: 900px) {
+    .title-block {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
   @media (max-width: 480px) {
     .title-block {
       grid-template-columns: minmax(0, 1fr);
-    }
-
-    .title-block__row:nth-child(even) {
-      padding-left: 0;
-      border-left: 0;
     }
   }
 </style>

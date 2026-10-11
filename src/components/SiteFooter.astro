@@ -1,4 +1,5 @@
 ---
+/** The site footer, drawn as a sheet title block. */
 import { site } from '../data/site';
 import { shows } from '../lib/review';
 import { url } from '../lib/url';
@@ -8,55 +9,114 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer band-ink">
-  <div class="container site-footer__inner">
-    <a class="site-footer__name" href={url('/')}>{site.name}</a>
-    <p class="label">{site.discipline}</p>
-    {
-      shows(site.email) && (
-        <p class="site-footer__contact">
-          <Pending fact={site.email}>
-            <a href={`mailto:${site.email.value}`}>{site.email.value}</a>
-          </Pending>
-        </p>
-      )
-    }
-    <p class="label site-footer__legal">© {year} {site.name}. Drawings, images and text — all rights reserved.</p>
+  <div class="container">
+    <div class="site-footer__block">
+      <a class="site-footer__name" href={url('/')}>{site.name}</a>
+      <div class="site-footer__cell">
+        <p class="label">Discipline</p>
+        <p>{site.discipline}</p>
+      </div>
+      {
+        shows(site.location) && (
+          <div class="site-footer__cell">
+            <p class="label">Based in</p>
+            <p>
+              <Pending fact={site.location}>{site.location.value}</Pending>
+            </p>
+          </div>
+        )
+      }
+      {
+        shows(site.email) && (
+          <div class="site-footer__cell">
+            <p class="label">Contact</p>
+            <p>
+              <Pending fact={site.email}>
+                <a href={`mailto:${site.email.value}`}>{site.email.value}</a>
+              </Pending>
+            </p>
+          </div>
+        )
+      }
+    </div>
+    <p class="label site-footer__legal">
+      <span>© {year} {site.name}</span>
+      <span>Drawings, images and text — all rights reserved</span>
+    </p>
   </div>
 </footer>
 
 <style>
   .site-footer {
-    padding-block: var(--s-7) var(--s-5);
+    padding-block: var(--s-8) var(--s-5);
   }
 
-  .site-footer__inner {
+  .site-footer__block {
     display: grid;
-    grid-template-columns: 1fr auto;
-    gap: var(--s-3) var(--s-5);
-    align-items: baseline;
+    grid-template-columns: 2fr repeat(3, minmax(0, 1fr));
+    border-top: 1px solid var(--on-ink-rule);
+    border-bottom: 1px solid var(--on-ink-rule);
   }
 
   .site-footer__name {
-    font-size: var(--text-h3);
-    font-weight: 600;
-    letter-spacing: -0.01em;
+    font-family: var(--font-serif);
+    font-size: var(--text-h2);
+    line-height: 1;
     text-decoration: none;
+    padding: var(--s-4) var(--s-4) var(--s-4) 0;
   }
 
-  .site-footer__contact a {
+  .site-footer__cell {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-2);
+    padding: var(--s-4);
+    border-left: 1px solid var(--on-ink-rule);
+    font-size: var(--text-small);
+  }
+
+  .site-footer__cell a {
     text-decoration-color: var(--accent);
+    overflow-wrap: anywhere;
   }
 
   .site-footer__legal {
-    grid-column: 1 / -1;
-    margin-top: var(--s-6);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--s-2) var(--s-5);
     padding-top: var(--s-4);
-    border-top: 1px solid var(--on-ink-rule);
   }
 
-  @media (max-width: 720px) {
-    .site-footer__inner {
-      grid-template-columns: 1fr;
+  @media (max-width: 900px) {
+    .site-footer__block {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .site-footer__name {
+      grid-column: 1 / -1;
+      border-bottom: 1px solid var(--on-ink-rule);
+    }
+
+    .site-footer__cell:nth-child(2) {
+      border-left: 0;
+      padding-left: 0;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .site-footer__block {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .site-footer__cell {
+      border-left: 0;
+      padding-left: 0;
+      border-top: 1px solid var(--on-ink-rule);
+    }
+
+    .site-footer__cell:nth-child(2) {
+      border-top: 0;
     }
   }
 </style>
