@@ -1,0 +1,526 @@
+{
+  "source": "_source/Casale.pdf",
+  "outDir": "images",
+  "crops": [
+    {
+      "name": "plan-first-floor.png",
+      "mode": "raster",
+      "page": 1,
+      "rect": [
+        100,
+        198,
+        505,
+        452
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true,
+      "erase": [
+        [
+          228,
+          440,
+          310,
+          457
+        ]
+      ]
+    },
+    {
+      "name": "plan-second-floor.png",
+      "mode": "raster",
+      "page": 1,
+      "rect": [
+        96,
+        448,
+        501,
+        696
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true,
+      "erase": [
+        [
+          228,
+          440,
+          335,
+          462
+        ],
+        [
+          209,
+          678,
+          302,
+          696
+        ]
+      ]
+    },
+    {
+      "name": "section-a-a.png",
+      "mode": "raster",
+      "page": 2,
+      "rect": [
+        65,
+        96,
+        563,
+        207
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "section-b-b.png",
+      "mode": "raster",
+      "page": 2,
+      "rect": [
+        115,
+        243,
+        472,
+        326
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "circulation-diagram.png",
+      "mode": "raster",
+      "page": 2,
+      "rect": [
+        132,
+        405,
+        448,
+        580
+      ],
+      "dpi": 400,
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "detail-wall-section.png",
+      "mode": "raster",
+      "page": 3,
+      "rect": [
+        137,
+        100,
+        300,
+        372
+      ],
+      "dpi": 450,
+      "pad": 16
+    },
+    {
+      "name": "detail-roof-section.png",
+      "mode": "raster",
+      "page": 3,
+      "rect": [
+        315,
+        100,
+        458,
+        182
+      ],
+      "dpi": 450,
+      "pad": 16
+    },
+    {
+      "name": "axon.png",
+      "mode": "raster",
+      "page": 3,
+      "rect": [
+        163,
+        432,
+        470,
+        680
+      ],
+      "dpi": 400,
+      "pad": 16
+    },
+    {
+      "name": "site-model-1.png",
+      "mode": "raster",
+      "page": 4,
+      "rect": [
+        77,
+        145,
+        283,
+        281
+      ],
+      "color": true,
+      "trim": false
+    },
+    {
+      "name": "site-model-2.png",
+      "mode": "raster",
+      "page": 4,
+      "rect": [
+        306.5,
+        145.5,
+        536.5,
+        281
+      ],
+      "color": true,
+      "trim": false
+    },
+    {
+      "name": "site-model-3.png",
+      "mode": "raster",
+      "page": 4,
+      "rect": [
+        74.6,
+        303.3,
+        286.3,
+        455.9
+      ],
+      "color": true
+    },
+    {
+      "name": "site-model-4.png",
+      "mode": "raster",
+      "page": 4,
+      "rect": [
+        306.5,
+        318.5,
+        540,
+        453
+      ],
+      "color": true,
+      "trim": false
+    },
+    {
+      "name": "site-model-5.png",
+      "mode": "raster",
+      "page": 4,
+      "rect": [
+        72,
+        491,
+        283,
+        626
+      ],
+      "color": true,
+      "trim": false
+    },
+    {
+      "name": "site-model-6.png",
+      "mode": "raster",
+      "page": 4,
+      "rect": [
+        306.5,
+        491,
+        540,
+        625
+      ],
+      "color": true,
+      "trim": false
+    },
+    {
+      "name": "physical-model.png",
+      "mode": "embedded",
+      "page": 5,
+      "image": 1,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "render-courtyard.png",
+      "mode": "embedded",
+      "page": 6,
+      "image": 1,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "render-pergola.png",
+      "mode": "embedded",
+      "page": 6,
+      "image": 2,
+      "trim": false,
+      "color": true
+    }
+  ],
+  "_resolved": {
+    "plan-first-floor.png": {
+      "mode": "raster",
+      "page": 1,
+      "rect": [
+        100,
+        198,
+        505,
+        452
+      ],
+      "dpi": 400,
+      "output": [
+        2210,
+        1411
+      ],
+      "gray": false,
+      "bytes": 982653
+    },
+    "plan-second-floor.png": {
+      "mode": "raster",
+      "page": 1,
+      "rect": [
+        96,
+        448,
+        501,
+        696
+      ],
+      "dpi": 400,
+      "output": [
+        2220,
+        1390
+      ],
+      "gray": false,
+      "bytes": 261481
+    },
+    "section-a-a.png": {
+      "mode": "raster",
+      "page": 2,
+      "rect": [
+        65,
+        96,
+        563,
+        207
+      ],
+      "dpi": 400,
+      "output": [
+        2769,
+        614
+      ],
+      "gray": false,
+      "bytes": 95969
+    },
+    "section-b-b.png": {
+      "mode": "raster",
+      "page": 2,
+      "rect": [
+        115,
+        243,
+        472,
+        326
+      ],
+      "dpi": 400,
+      "output": [
+        1976,
+        445
+      ],
+      "gray": false,
+      "bytes": 74410
+    },
+    "circulation-diagram.png": {
+      "mode": "raster",
+      "page": 2,
+      "rect": [
+        132,
+        405,
+        448,
+        580
+      ],
+      "dpi": 400,
+      "output": [
+        1738,
+        946
+      ],
+      "gray": false,
+      "bytes": 607176
+    },
+    "detail-wall-section.png": {
+      "mode": "raster",
+      "page": 3,
+      "rect": [
+        137,
+        100,
+        300,
+        372
+      ],
+      "dpi": 450,
+      "output": [
+        985,
+        1667
+      ],
+      "gray": true,
+      "bytes": 91891
+    },
+    "detail-roof-section.png": {
+      "mode": "raster",
+      "page": 3,
+      "rect": [
+        315,
+        100,
+        458,
+        182
+      ],
+      "dpi": 450,
+      "output": [
+        905,
+        480
+      ],
+      "gray": true,
+      "bytes": 21747
+    },
+    "axon.png": {
+      "mode": "raster",
+      "page": 3,
+      "rect": [
+        163,
+        432,
+        470,
+        680
+      ],
+      "dpi": 400,
+      "output": [
+        1678,
+        1363
+      ],
+      "gray": true,
+      "bytes": 269812
+    },
+    "site-model-1.png": {
+      "mode": "raster",
+      "page": 4,
+      "rect": [
+        77,
+        145,
+        283,
+        281
+      ],
+      "dpi": 644,
+      "output": [
+        1843,
+        1216
+      ],
+      "gray": false,
+      "bytes": 5476107
+    },
+    "site-model-2.png": {
+      "mode": "raster",
+      "page": 4,
+      "rect": [
+        306.5,
+        145.5,
+        536.5,
+        281
+      ],
+      "dpi": 579,
+      "output": [
+        1850,
+        1090
+      ],
+      "gray": false,
+      "bytes": 2692707
+    },
+    "site-model-3.png": {
+      "mode": "raster",
+      "page": 4,
+      "rect": [
+        74.6,
+        303.3,
+        286.3,
+        455.9
+      ],
+      "dpi": 638,
+      "output": [
+        1842,
+        1205
+      ],
+      "gray": false,
+      "bytes": 2402413
+    },
+    "site-model-4.png": {
+      "mode": "raster",
+      "page": 4,
+      "rect": [
+        306.5,
+        318.5,
+        540,
+        453
+      ],
+      "dpi": 586,
+      "output": [
+        1900,
+        1095
+      ],
+      "gray": false,
+      "bytes": 4026001
+    },
+    "site-model-5.png": {
+      "mode": "raster",
+      "page": 4,
+      "rect": [
+        72,
+        491,
+        283,
+        626
+      ],
+      "dpi": 581,
+      "output": [
+        1703,
+        1089
+      ],
+      "gray": false,
+      "bytes": 2362203
+    },
+    "site-model-6.png": {
+      "mode": "raster",
+      "page": 4,
+      "rect": [
+        306.5,
+        491,
+        540,
+        625
+      ],
+      "dpi": 620,
+      "output": [
+        2011,
+        1154
+      ],
+      "gray": false,
+      "bytes": 4318680
+    },
+    "physical-model.png": {
+      "mode": "embedded",
+      "page": 5,
+      "image": 1,
+      "nativePx": [
+        2897,
+        2973
+      ],
+      "densityDpi": 445.5,
+      "output": [
+        2897,
+        2973
+      ],
+      "gray": false,
+      "bytes": 14422485
+    },
+    "render-courtyard.png": {
+      "mode": "embedded",
+      "page": 6,
+      "image": 1,
+      "nativePx": [
+        3918,
+        2258
+      ],
+      "densityDpi": 601.1,
+      "output": [
+        3918,
+        2258
+      ],
+      "gray": false,
+      "bytes": 13721232
+    },
+    "render-pergola.png": {
+      "mode": "embedded",
+      "page": 6,
+      "image": 2,
+      "nativePx": [
+        3961,
+        1660
+      ],
+      "densityDpi": 609.8,
+      "output": [
+        3961,
+        1660
+      ],
+      "gray": false,
+      "bytes": 9978095
+    }
+  }
+}

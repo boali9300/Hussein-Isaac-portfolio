@@ -1,0 +1,145 @@
+---
+title: The Casale
+summary: An expansion of a working farm estate in Italy — guest housing, a winery and places to eat gathered around a water axis that runs from a fountain court down to a pool.
+type: Agritourism complex
+categories: [Housing, Mixed use]
+cover: ./images/render-courtyard.png
+coverAlt: Rendered view down a stone-paved court toward a two-story stone building with curved glazed bays and a curved balcony, between lower stone wings.
+coverCaption: Courtyard — rendered
+order: 2
+featured: false
+draft: false
+facts:
+  - { label: Course, value: 'ARC 355 — Architectural Studio' }
+  - { label: Instructor, value: "Mark O'Bryan" }
+  - { label: Program, value: 'Tourist housing, winery, wine tasting and dining, added to an existing estate' }
+  - { label: Site, value: 'An existing tourist estate in Italy with a cheese-making facility, a winery and a large farm' }
+  - { label: Studies, value: 'Plans, sections, circulation, wall and roof detail, site and physical models, renders' }
+---
+
+import Chapter from '../../../components/Chapter.astro';
+import Figure from '../../../components/Figure.astro';
+import FigureGrid from '../../../components/FigureGrid.astro';
+import Legend from '../../../components/Legend.astro';
+
+import planFirst from './images/plan-first-floor.png';
+import planSecond from './images/plan-second-floor.png';
+import secA from './images/section-a-a.png';
+import secB from './images/section-b-b.png';
+import circulation from './images/circulation-diagram.png';
+import wallDetail from './images/detail-wall-section.png';
+import roofDetail from './images/detail-roof-section.png';
+import axon from './images/axon.png';
+import siteModel1 from './images/site-model-1.png';
+import siteModel2 from './images/site-model-2.png';
+import siteModel3 from './images/site-model-3.png';
+import siteModel4 from './images/site-model-4.png';
+import siteModel5 from './images/site-model-5.png';
+import siteModel6 from './images/site-model-6.png';
+import physicalModel from './images/physical-model.png';
+import renderCourtyard from './images/render-courtyard.png';
+import renderPergola from './images/render-pergola.png';
+
+export const half = '(min-width: 1440px) 640px, (min-width: 641px) 46vw, 100vw';
+
+<Chapter n="01" title="Brief and site">
+  The ARC 355 studio, taught by Mark O'Bryan, started from an existing tourist site in Italy. Its owners already ran a
+  cheese-making facility, a winery and a large farm, and wanted to grow the business with new programs and housing.
+  The brief asked for a complex of housing for tourists, together with programs rooted in the culture of the town and
+  tied to the existing estate.
+</Chapter>
+
+<FigureGrid cols={3}>
+  <Figure src={siteModel1} kind="render" sizes={half} caption="Site model — iteration 1" alt="Overhead photo of a site model: white massing blocks on a bare brown hilltop ringed by green crushed glass, with green sticks laid across the foreground." />
+  <Figure src={siteModel2} kind="render" sizes={half} caption="Site model — iteration 2" alt="Overhead photo of a sand site model with an L-shaped white block and a row of small blocks on the slope." />
+  <Figure src={siteModel3} kind="render" sizes={half} caption="Site model — iteration 3" alt="Overhead photo of a collaged paper site map with contour bands, a road, a pond and a field, with wooden massing blocks placed near the top of the hill." />
+  <Figure src={siteModel4} kind="render" sizes={half} caption="Site model — iteration 4" alt="Overhead photo of a dark site model with green clothespins as trees, a cluster of white and wooden blocks at the center, and sticks along the bottom edge." />
+  <Figure src={siteModel5} kind="render" sizes={half} caption="Site model — iteration 5" alt="Overhead photo of a sand site model with two white blocks joined end to end across the slope." />
+  <Figure src={siteModel6} kind="render" sizes={half} caption="Site model — iteration 6" alt="Overhead photo of a dark site model with green clothespins as trees around an L-shaped white block and a smaller block below it, with sticks along the bottom edge." />
+</FigureGrid>
+
+<Chapter n="02" title="A water axis through the complex">
+  On the ground floor, the guest rooms cluster around a hexagonal fountain court. A water channel runs from the
+  fountain down the site, past a planted garden, and ends at a large pool along the lower edge. Beside the axis stand
+  the new public buildings: a dining room, a hall of long tables, and the winery, with its kitchen, wine making, barrel
+  storage, wine tasting and lobby. The existing estate buildings sit to the east. On the upper floor, apartments with a
+  bedroom, kitchen, dining and living room sit above the public buildings, around a planted roof terrace, and a long
+  pergola shades the pool.
+</Chapter>
+
+<Figure
+  src={planFirst}
+  caption="First floor plan — section cuts A and B, elevations A, B and C marked"
+  alt="First floor plan: a cluster of guest rooms around a hexagonal fountain court, a water channel running diagonally to a planted garden, a large pool along the bottom, a dining room, a hall of long tables and a winery with kitchen, wine making, barrel storage, wine tasting and lobby, and the existing buildings at right."
+/>
+
+<Figure
+  src={planSecond}
+  caption="Second floor plan"
+  alt="Second floor plan: two apartments with bedroom, kitchen, dining and living room above the public buildings, a planted roof terrace between them, the roof outlines of the guest rooms with trees, and a long wavy pergola over the pool."
+/>
+
+<Chapter n="03" title="Sections">
+  Sections A-A and B-B cut along and across the water axis. Both set the finish floor at 0'-0" and the second floor at
+  +15'-6". Below grade, a sunken court with a pool reaches −11'-0", while shallow pools sit at ground level along the
+  channel.
+</Chapter>
+
+<Figure src={secA} caption="Section A-A — along the water axis" alt="Section A-A: guest rooms and the two-story public buildings at ground level, shallow pools along the channel, a sunken court with a pool at minus 11 feet, and the existing gabled buildings at right." />
+
+<Figure src={secB} caption="Section B-B — across the axis" alt="Section B-B across the site: a pergola and pool at left, the sunken court with its lower pool in the middle under a tree, and a two-story building with external stairs at right, on sloping ground." />
+
+<Chapter n="04" title="Circulation">
+  The main route follows the water axis from the fountain court to the arrival point, and continues along the
+  buildings and the pool. Secondary paths lead out to the guest rooms and the edges of the site. Private stairs between
+  the public buildings lead up to the apartments.
+</Chapter>
+
+<Legend
+  items={[
+    { color: '#ffff00', label: 'Main circulation' },
+    { color: '#0000ff', label: 'Secondary circulation' },
+    { color: '#ff0000', label: 'Private circulation' },
+  ]}
+/>
+
+<Figure src={circulation} caption="Circulation diagram" alt="First floor plan overlaid with arrows: yellow arrows along the water axis and between the buildings for main circulation, blue arrows leading outward to the rooms and the site edges for secondary circulation, and red arrows up the stairs between the public buildings for private circulation." />
+
+<Chapter n="05" title="Construction">
+  The wall section runs from footing to roof. A stone outer wall, laid on Type S mortar over metal furring, encloses
+  exterior gypsum sheathing, fiberglass insulation and a plywood interior finish. The roof combines local and
+  conventional materials: asphalt over a layer of clay mixed with hay, on plywood and timber framing, with a concrete
+  parapet at the edge. The ground floor is oak on a foam pad over a concrete slab, carried by a 6" concrete foundation
+  wall on a 36" × 36" × 14" strip footing.
+</Chapter>
+
+<FigureGrid cols={2}>
+  <Figure src={wallDetail} sizes={half} caption="Structural detail — wall section" alt="Wall section from roof to footing: asphalt and clay-with-hay roof on plywood and timber framing with a concrete parapet; a stone wall with mortar, metal furring, gypsum sheathing, fiberglass insulation and plywood finish; a glazed door; oak flooring on a concrete slab; and a reinforced concrete foundation wall on a strip footing." />
+  <Figure src={roofDetail} sizes={half} caption="Roof detail — Section A-A" alt="Roof section: asphalt over clay mixed with hay, on plywood, 4 by 2 timber framing at 1 foot centers and 8 by 4 timber framing at 2 feet 6 inches centers." />
+</FigureGrid>
+
+<Figure
+  src={axon}
+  width="narrow"
+  sizes="(min-width: 800px) 768px, 100vw"
+  caption="Axonometric view"
+  alt="Axonometric drawing of the complex with cast shadows: the guest-room cluster around a planted court, the pergola over the pool, the two-story public buildings with curved balconies and external stairs, and the existing gabled buildings in the foreground."
+/>
+
+<Chapter n="06" title="Model and renders">
+  A physical model of the final scheme, and renders of the stone-clad buildings, the courtyard and the pergola over
+  the pool.
+</Chapter>
+
+<Figure
+  src={physicalModel}
+  kind="render"
+  width="narrow"
+  sizes="(min-width: 800px) 768px, 100vw"
+  caption="Physical model"
+  alt="Photo of a white physical model at dusk, looking up the site: the pool and the planted garden with the water channel in the foreground, the guest-room cluster and the public buildings beyond."
+/>
+
+<Figure src={renderCourtyard} kind="render" caption="Courtyard" alt="Render of a stone-paved court leading to a two-story stone building with curved glazed bays and a curved steel balcony, between lower stone wings." />
+
+<Figure src={renderPergola} kind="render" caption="Pergola and garden" alt="Render of a timber pergola on concrete columns over a long pool, beside a lawn with stepping stones and a flowering tree, with the stone buildings beyond." />
