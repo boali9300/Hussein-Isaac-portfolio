@@ -1,0 +1,149 @@
+---
+/**
+ * One shared <dialog> for inspecting figures. Opens from any [data-zoom-src]
+ * button. Click the image (or press Z) to toggle between fit-to-screen and
+ * native size; Esc, the close button or the backdrop closes it.
+ */
+---
+
+<dialog class="lightbox" aria-label="Image viewer" data-lightbox>
+  <div class="lightbox__bar">
+    <p class="lightbox__caption label" data-lightbox-caption></p>
+    <div class="lightbox__actions">
+      <button class="lightbox__btn label" type="button" data-lightbox-zoom aria-pressed="false">Actual size</button>
+      <button class="lightbox__btn label" type="button" data-lightbox-close>Close</button>
+    </div>
+  </div>
+  <div class="lightbox__stage" data-lightbox-stage>
+    <img class="lightbox__img" alt="" data-lightbox-img />
+  </div>
+</dialog>
+
+<style>
+  .lightbox {
+    width: 100vw;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: var(--paper);
+    color: var(--ink);
+    display: none;
+    flex-direction: column;
+  }
+
+  .lightbox[open] {
+    display: flex;
+  }
+
+  .lightbox::backdrop {
+    background: var(--paper);
+  }
+
+  .lightbox__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-3);
+    min-height: var(--header-h);
+    padding-inline: var(--gutter);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .lightbox__caption {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .lightbox__actions {
+    display: flex;
+    gap: var(--s-2);
+    flex-shrink: 0;
+  }
+
+  .lightbox__btn {
+    padding: var(--s-2) var(--s-3);
+    background: none;
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .lightbox__btn:hover {
+    border-color: var(--rule-strong);
+  }
+
+  .lightbox__stage {
+    flex: 1;
+    overflow: auto;
+    display: grid;
+    place-items: center;
+    padding: var(--s-4) var(--gutter);
+    background: var(--sheet);
+    overscroll-behavior: contain;
+  }
+
+  .lightbox__img {
+    max-width: 100%;
+    max-height: calc(100dvh - var(--header-h) - 2 * var(--s-4));
+    width: auto;
+    height: auto;
+    cursor: zoom-in;
+  }
+
+  .lightbox.is-actual .lightbox__stage {
+    place-items: start;
+  }
+
+  .lightbox.is-actual .lightbox__img {
+    max-width: none;
+    max-height: none;
+    cursor: zoom-out;
+  }
+</style>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('[data-lightbox]');
+  if (dialog) {
+    const img = dialog.querySelector<HTMLImageElement>('[data-lightbox-img]')!;
+    const caption = dialog.querySelector<HTMLElement>('[data-lightbox-caption]')!;
+    const zoomBtn = dialog.querySelector<HTMLButtonElement>('[data-lightbox-zoom]')!;
+    const closeBtn = dialog.querySelector<HTMLButtonElement>('[data-lightbox-close]')!;
+    let opener: HTMLElement | null = null;
+
+    const setActual = (on: boolean) => {
+      dialog.classList.toggle('is-actual', on);
+      zoomBtn.setAttribute('aria-pressed', String(on));
+      zoomBtn.textContent = on ? 'Fit to screen' : 'Actual size';
+    };
+
+    document.addEventListener('click', (e) => {
+      const trigger = (e.target as HTMLElement).closest<HTMLElement>('[data-zoom-src]');
+      if (!trigger) return;
+      opener = trigger;
+      const { zoomSrc, zoomAlt, zoomCaption, zoomWidth, zoomHeight } = trigger.dataset;
+      img.src = zoomSrc!;
+      img.alt = zoomAlt ?? '';
+      img.width = Number(zoomWidth);
+      img.height = Number(zoomHeight);
+      caption.textContent = zoomCaption || zoomAlt || '';
+      setActual(false);
+      dialog.showModal();
+      closeBtn.focus();
+    });
+
+    img.addEventListener('click', () => setActual(!dialog.classList.contains('is-actual')));
+    zoomBtn.addEventListener('click', () => setActual(!dialog.classList.contains('is-actual')));
+    closeBtn.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('keydown', (e) => {
+      if (e.key === 'z' || e.key === 'Z') setActual(!dialog.classList.contains('is-actual'));
+    });
+    dialog.addEventListener('close', () => {
+      img.removeAttribute('src');
+      opener?.focus();
+    });
+  }
+</script>

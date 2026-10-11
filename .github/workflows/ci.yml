@@ -1,0 +1,28 @@
+# Checks every pull request: type check, build and link check under the
+# GitHub Pages base path. Builds in review mode so draft projects are covered.
+# Nothing is deployed from here.
+name: CI
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Type check and build (review mode)
+        run: npm run build
+        env:
+          PUBLIC_REVIEW: 'true'
+      - name: Check links and assets
+        run: npm run check:links

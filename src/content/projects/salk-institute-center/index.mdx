@@ -1,0 +1,171 @@
+---
+title: Salk Institute Center
+summary: Housing for scientists at the Salk Institute — a two-story house designed around a shared wall, then aggregated into a terraced community of 24 homes on a hilltop above the Pacific.
+type: Collective housing
+categories: [Housing, Technical study]
+cover: ./images/render-back-elevation.png
+coverAlt: Rendered back elevation of the housing — two tiers of houses with sloped roofs stepping along a retaining wall, with a glazed central building between the wings.
+coverCaption: Back elevation — rendered
+heroImage: ./images/site-plan.png
+heroAlt: Site plan of the Salk Institute Center housing — two wings of terraced house rows following the contours, with a parking court at the top of the site.
+heroCaption: Salk Institute Center — site plan
+order: 1
+featured: true
+draft: false
+facts:
+  - { label: Course, value: 'ARC 253 — Architectural Studio' }
+  - { label: Instructor, value: 'Clyde Carpenter' }
+  - { label: Program, value: '24 shared-wall houses with communal spaces' }
+  - { label: Site, value: 'Hilltop above the Pacific Ocean, near the Salk Institute laboratories' }
+  - { label: Studies, value: 'Unit design, aggregation, site section, integrated lighting' }
+pending:
+  - { label: Location, value: 'La Jolla, San Diego, California', note: Inferred from the aerial photo — please confirm }
+---
+
+import Chapter from '../../../components/Chapter.astro';
+import Figure from '../../../components/Figure.astro';
+import FigureGrid from '../../../components/FigureGrid.astro';
+import Legend from '../../../components/Legend.astro';
+import DataTable from '../../../components/DataTable.astro';
+
+import aerial from './images/site-aerial.png';
+import planFirst from './images/unit-plan-first-floor.png';
+import planSecond from './images/unit-plan-second-floor.png';
+import elevFront from './images/unit-elevation-front.png';
+import elevBack from './images/unit-elevation-back.png';
+import secA from './images/unit-section-a.png';
+import secB from './images/unit-section-b.png';
+import secC from './images/unit-section-c.png';
+import secD from './images/unit-section-d.png';
+import sitePlan from './images/site-plan.png';
+import siteSection from './images/site-section-1.png';
+import topView from './images/render-top-view.png';
+import lightFirst from './images/lighting-plan-first-floor.png';
+import lightSecond from './images/lighting-plan-second-floor.png';
+import lightSection from './images/lighting-section-a-a.png';
+import rcpFirst from './images/lighting-rcp-first-floor.png';
+import rcpSecond from './images/lighting-rcp-second-floor.png';
+
+export const half = '(min-width: 1440px) 640px, (min-width: 641px) 46vw, 100vw';
+
+<Chapter n="01" title="Brief and site">
+  The ARC 253 studio, taught by Clyde Carpenter, asked for houses for the scientists who work at the Salk Institute.
+  Each house had to share a common wall with its neighbor. The houses were then aggregated into a group of 24, with
+  communal spaces for the residents and a strategy for setting the whole community on the site: a hilltop overlooking
+  the ocean.
+</Chapter>
+
+<Figure
+  src={aerial}
+  kind="render"
+  alt="Aerial photograph of the coastal bluffs above Black's Beach, with the Salk Institute for Biological Studies at the lower right and the Torrey Pines Gliderport mesa at the top."
+  caption="Site context — the bluffs above the Pacific, with the Salk Institute at lower right."
+  credit="Imagery © Google"
+/>
+
+<Chapter n="02" title="A house built around a shared wall">
+  The unit is a two-story house. The ground floor holds the living room, kitchen and dining area around a central
+  stair; the upper floor holds the bedrooms and bathrooms. The plans and elevations show the houses in pairs, joined by
+  the shared wall the brief required, with the cuts for sections A–D marked through the plan.
+</Chapter>
+
+<FigureGrid cols={2}>
+  <Figure src={planFirst} sizes={half} caption="First floor plan" alt="First floor plan of two adjoining houses sharing a wall, showing living areas, kitchen, dining table and stair, with section cuts A, B and D marked." />
+  <Figure src={planSecond} sizes={half} caption="Second floor plan" alt="Second floor plan of the paired houses, showing bedrooms, bathrooms and the stair, with section cuts A, B and C marked." />
+</FigureGrid>
+
+<FigureGrid cols={2}>
+  <Figure src={elevFront} sizes={half} caption="Front elevation" alt="Front elevation of two adjoining houses with tall vertical glazing over a stippled base." />
+  <Figure src={elevBack} sizes={half} caption="Back elevation" alt="Back elevation of two adjoining houses with stippled bands at each floor and a central projecting element." />
+</FigureGrid>
+
+<Chapter n="03" title="Sections">
+  Sections A–D cut through the house in both directions. They show the stepped, mono-pitched roofs that give each
+  part of the house its own ceiling height, the tall volume at the center of the plan, and the stair that links the two
+  levels.
+</Chapter>
+
+<FigureGrid cols={2}>
+  <Figure src={secA} sizes={half} caption="Section A" alt="Section A through the house: a mono-pitched roof rising over a two-story volume, with a lower wing and outdoor seating at left." />
+  <Figure src={secB} sizes={half} caption="Section B" alt="Section B through the house: the roof slopes down from a tall rear wall over two levels, with the stair at right." />
+</FigureGrid>
+
+<FigureGrid cols={2} template="3fr 2fr">
+  <Figure src={secC} sizes={half} caption="Section C" alt="Section C through the house: a low wing at left rising to a two-story volume under a single sloped roof." />
+  <Figure src={secD} sizes={half} caption="Section D" alt="Section D, a cross-section through the stair, showing the flights between the two floors." />
+</FigureGrid>
+
+<Chapter n="04" title="Twenty-four homes on the slope">
+  The 24 houses are aggregated into two wings of parallel rows that follow the contour lines down the hillside. A
+  communal area sits where the wings meet, and the top of the site is given to the entry road, a parking court and
+  planted islands. The plan is oriented to the laboratories inland and to the Pacific Ocean below.
+</Chapter>
+
+<Figure
+  src={sitePlan}
+  width="narrow"
+  sizes="(min-width: 800px) 768px, 100vw"
+  caption="Site plan — contours from 220 to 350, sections 1 and 2 marked"
+  alt="Site plan: two wings of terraced house rows bending along contour lines, a central communal area between them, and a parking court with planted islands at the top. Arrows point to the laboratories and to the Pacific Ocean."
+/>
+
+<Chapter n="05" title="Living on the slope">
+  Section 1 cuts through both tiers of houses. The upper row sits at ground level; the lower row steps down the
+  hillside below it, held by terraced retaining walls. The levels marked on the section are, from top to bottom: ground
+  level, the living rooms of the top units, the finished floor of the community pavilion, the second and first floors of
+  the bottom units, and the swimming pool.
+</Chapter>
+
+<Figure
+  src={siteSection}
+  caption="Section 1 — through the upper and lower rows"
+  alt="Site section showing the upper row of houses at ground level and the lower row stepping down the hillside, with level lines from ground level down to the swimming pool."
+/>
+
+<Figure
+  src={topView}
+  kind="render"
+  width="narrow"
+  sizes="(min-width: 800px) 768px, 100vw"
+  caption="Top view — the arrival court, with the two wings of houses facing the ocean"
+  alt="Aerial rendering of the housing: two curved wings of sloped-roof houses around a central entry, with parking and planted islands in the foreground and the ocean beyond."
+/>
+
+<Chapter n="06" title="Lighting strategy">
+  An integrated lighting study of the house. The plans and Section A-A map which spaces are lit by daylight, which need
+  ambient lighting and which need task lighting. Reflected ceiling plans then place the fixtures, and a schedule sets
+  the luminaire type and the required illuminance for each space.
+</Chapter>
+
+<Legend
+  items={[
+    { color: '#aeb7ff', label: 'Illuminated by daylight' },
+    { color: '#fff897', label: 'Requires ambient lighting' },
+    { color: '#ff9598', label: 'Requires task lighting' },
+  ]}
+/>
+
+<Figure src={lightFirst} caption="First floor plan — lighting zones" alt="First floor lighting plan, 42 ft 2 in by 24 ft, shaded blue where daylight reaches, yellow where ambient lighting is needed, with red dots at task-lighting points over the kitchen counter, dining table and bathroom." />
+
+<Figure src={lightSecond} caption="Second floor plan — lighting zones" alt="Second floor lighting plan with daylight and ambient-lighting zones, and task-lighting points at the work surfaces and bathrooms." />
+
+<Figure src={lightSection} caption="Section A-A — daylight, ambient and task lighting" alt="Section A-A through the house showing daylight entering through the tall glazed stair hall and the double-height living space, ambient-light cones from ceiling fixtures and task lights over the kitchen counter and desk." />
+
+<FigureGrid cols={2}>
+  <Figure src={rcpFirst} sizes={half} caption="Reflected ceiling plan — first floor" alt="Reflected ceiling plan of the first floor showing two-lamp prismatic wraparound fixtures and pendant diffusing spheres, with notes where the space is open to the level above." />
+  <Figure src={rcpSecond} sizes={half} caption="Reflected ceiling plan — second floor" alt="Reflected ceiling plan of the second floor showing typical two-lamp prismatic wraparound fixtures and pendant diffusing spheres in the bathrooms." />
+</FigureGrid>
+
+<DataTable
+  caption="Ambient lighting schedule"
+  head={['Space', 'Area (sq ft)', 'Luminaires', 'Lamps each', 'Luminaire type', 'Required (fc)']}
+  numeric={[1, 2, 3]}
+  rows={[
+    ['Bedrooms', 140, 1, 2, 'Fluorescent — two-lamp, prismatic wraparound', '10–50'],
+    ['Living room', 165, 2, 2, 'Fluorescent — two-lamp, prismatic wraparound', '10–50'],
+    ['Kitchen', 110, 1, 2, 'Fluorescent — two-lamp, prismatic wraparound', '10–50'],
+    ['Dining', 110, 1, 2, 'Fluorescent — two-lamp, prismatic wraparound', '10–40'],
+    ['Bathrooms', 30, 1, 1, 'Pendant diffusing sphere, incandescent lamp', '10–30'],
+  ]}
+  note="Task lighting: desks require 30–40 fc; the kitchen sink and stove require 10–30 fc."
+/>

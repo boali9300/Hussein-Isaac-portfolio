@@ -1,0 +1,52 @@
+---
+/** A drawing key rebuilt as text, so it stays legible and accessible. */
+interface Props {
+  title?: string;
+  /** Swatch colors are sampled from the drawing they explain. */
+  items: { color: string; label: string }[];
+}
+
+const { title = 'Key', items } = Astro.props;
+---
+
+<div class="legend" data-reveal>
+  <p class="label">{title}</p>
+  <ul>
+    {
+      items.map((item) => (
+        <li>
+          <span class="legend__swatch" style={`background:${item.color}`} aria-hidden="true" />
+          {item.label}
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--s-2) var(--s-5);
+  }
+
+  .legend ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-2) var(--s-5);
+    font-size: var(--text-small);
+  }
+
+  .legend li {
+    display: flex;
+    align-items: center;
+    gap: var(--s-2);
+  }
+
+  .legend__swatch {
+    width: 1.75rem;
+    height: 0.875rem;
+    box-shadow: inset 0 0 0 1px var(--rule);
+  }
+</style>

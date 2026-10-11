@@ -1,0 +1,61 @@
+/*
+ * Design tokens — the single source for color, type, spacing and motion.
+ * Pages and components use these variables only; no one-off values.
+ */
+:root {
+  /* Color */
+  --paper: #f4f1ea; /* page ground */
+  --sheet: #ffffff; /* drawing panels */
+  --ink: #151515;
+  --graphite: #5e5a54; /* secondary text — 6.1:1 on paper */
+  --rule: rgba(21, 21, 21, 0.14);
+  --rule-strong: rgba(21, 21, 21, 0.85);
+  --accent: #c4561c; /* rules, active nav, focus — non-text UI only */
+  --accent-text: #9e410f; /* accent text — 5.9:1 on paper */
+  --on-ink: #f4f1ea; /* text on dark bands */
+  --on-ink-muted: #b9b4aa;
+  --on-ink-rule: rgba(244, 241, 234, 0.2);
+  --pending: #fff1b8; /* review-mode highlight only */
+
+  /* Type */
+  --font-sans: 'Inter Tight Variable', 'Inter Tight', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  --text-display: clamp(3.5rem, 9vw, 8.5rem);
+  --text-h1: clamp(2.5rem, 5vw, 4.5rem);
+  --text-h2: clamp(1.75rem, 3vw, 2.75rem);
+  --text-h3: 1.25rem;
+  --text-lead: clamp(1.125rem, 1.6vw, 1.375rem);
+  --text-body: 1.0625rem;
+  --text-small: 0.9375rem;
+  --text-label: 0.75rem;
+  --leading-tight: 0.95;
+  --leading-heading: 1.08;
+  --leading-body: 1.6;
+  --tracking-display: -0.045em;
+  --tracking-heading: -0.025em;
+  --tracking-label: 0.1em;
+
+  /* Space (4 · 8 · 16 · 24 · 32 · 48 · 64 · 96 · 144) */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 1rem;
+  --s-4: 1.5rem;
+  --s-5: 2rem;
+  --s-6: 3rem;
+  --s-7: 4rem;
+  --s-8: 6rem;
+  --s-9: 9rem;
+  --section: clamp(var(--s-7), 10vw, var(--s-9));
+
+  /* Layout */
+  --max: 1440px;
+  --gutter: clamp(16px, 4.5vw, 64px);
+  --col-gap: clamp(16px, 2.2vw, 32px);
+  --measure: 66ch;
+  --header-h: 4rem;
+
+  /* Motion */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur: 700ms;
+  --dur-fast: 200ms;
+}

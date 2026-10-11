@@ -1,0 +1,140 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Figure from '../../components/Figure.astro';
+import TitleBlock from '../../components/TitleBlock.astro';
+import { getProjects } from '../../lib/review';
+import { url } from '../../lib/url';
+
+export const getStaticPaths = (async () => {
+  const projects = await getProjects();
+  return projects.map((project, i) => ({
+    params: { slug: project.id },
+    props: { project, index: i, next: projects[i + 1] ?? (projects.length > 1 ? projects[0] : undefined) },
+  }));
+}) satisfies GetStaticPaths;
+
+const { project, index, next } = Astro.props;
+const { title, summary, type, cover, coverAlt, coverCaption, facts, pending } = project.data;
+const { Content } = await render(project);
+const n = String(index + 1).padStart(2, '0');
+---
+
+<Base title={title} description={summary} image={cover} imageAlt={coverAlt}>
+  <article class="case">
+    <header class="container case__header grid">
+      <nav class="case__crumbs label" aria-label="Breadcrumb">
+        <a href={url('/#work')}>Work</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">{title}</span>
+      </nav>
+      <div class="case__intro">
+        <p class="label label--accent">Project {n} · {type}</p>
+        <h1 class="h1">{title}</h1>
+        <p class="lead">{summary}</p>
+      </div>
+      <div class="case__facts">
+        <TitleBlock facts={facts} pending={pending} />
+      </div>
+    </header>
+
+    <div class="case__hero">
+      <div class="container">
+        <Figure src={cover} alt={coverAlt} kind="render" priority caption={coverCaption} />
+      </div>
+    </div>
+
+    <div class="container case__body">
+      <Content />
+    </div>
+
+    <footer class="container case__footer">
+      <a class="link-arrow" href={url('/#work')}><span aria-hidden="true">←</span> All work</a>
+      {
+        next && (
+          <a class="case__next" href={url(`/work/${next.id}/`)}>
+            <span class="label">Next project</span>
+            <span class="h2">{next.data.title}</span>
+          </a>
+        )
+      }
+    </footer>
+  </article>
+</Base>
+
+<style>
+  .case__header {
+    padding-top: var(--s-6);
+    padding-bottom: var(--s-7);
+    row-gap: var(--s-5);
+  }
+
+  .case__crumbs {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: var(--s-2);
+  }
+
+  .case__crumbs a {
+    text-decoration: none;
+  }
+
+  .case__crumbs a:hover {
+    color: var(--ink);
+  }
+
+  .case__intro {
+    grid-column: 1 / span 7;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-4);
+  }
+
+  .case__facts {
+    grid-column: 9 / -1;
+    align-self: end;
+  }
+
+  .case__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-6);
+    padding-top: var(--section);
+    padding-bottom: var(--section);
+  }
+
+  .case__body > :global(.chapter:not(:first-child)) {
+    margin-top: var(--s-7);
+  }
+
+  .case__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: var(--s-5);
+    padding-top: var(--s-5);
+    padding-bottom: var(--section);
+    border-top: 1px solid var(--rule-strong);
+  }
+
+  .case__next {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: var(--s-2);
+    text-decoration: none;
+    text-align: right;
+  }
+
+  .case__next:hover .h2 {
+    color: var(--accent-text);
+  }
+
+  @media (max-width: 900px) {
+    .case__intro,
+    .case__facts {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

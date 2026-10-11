@@ -1,0 +1,26 @@
+---
+/**
+ * Wraps content that depends on a Fact. Confirmed facts render plainly;
+ * unconfirmed facts render highlighted in review builds and not at all in
+ * production. Use `shows(fact)` around block-level structure as well.
+ */
+import { shows, type Fact } from '../lib/review';
+
+interface Props {
+  fact: Fact<unknown>;
+}
+
+const { fact } = Astro.props;
+const title = `Awaiting confirmation${fact.note ? ` — ${fact.note}` : ''}`;
+---
+
+{
+  shows(fact) &&
+    (fact.confirmed ? (
+      <slot />
+    ) : (
+      <span data-pending title={title}>
+        <slot />
+      </span>
+    ))
+}

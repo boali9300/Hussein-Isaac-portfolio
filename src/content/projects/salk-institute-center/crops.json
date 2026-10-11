@@ -1,0 +1,521 @@
+{
+  "source": "_source/Salk.pdf",
+  "outDir": "images",
+  "crops": [
+    {
+      "name": "site-aerial.png",
+      "mode": "embedded",
+      "page": 1,
+      "image": 1,
+      "trim": false,
+      "color": true
+    },
+    {
+      "name": "unit-plan-first-floor.png",
+      "mode": "embedded",
+      "page": 2,
+      "image": 1,
+      "px": [
+        0,
+        0,
+        362,
+        428
+      ],
+      "pad": 12
+    },
+    {
+      "name": "unit-plan-second-floor.png",
+      "mode": "embedded",
+      "page": 2,
+      "image": 1,
+      "px": [
+        365,
+        0,
+        738,
+        430
+      ],
+      "pad": 12
+    },
+    {
+      "name": "unit-elevation-front.png",
+      "mode": "embedded",
+      "page": 2,
+      "image": 1,
+      "px": [
+        30,
+        452,
+        368,
+        704
+      ],
+      "pad": 12
+    },
+    {
+      "name": "unit-elevation-back.png",
+      "mode": "embedded",
+      "page": 2,
+      "image": 1,
+      "px": [
+        412,
+        452,
+        738,
+        704
+      ],
+      "pad": 12
+    },
+    {
+      "name": "unit-section-a.png",
+      "mode": "embedded",
+      "page": 3,
+      "image": 1,
+      "px": [
+        0,
+        20,
+        449,
+        292
+      ],
+      "pad": 12
+    },
+    {
+      "name": "unit-section-b.png",
+      "mode": "embedded",
+      "page": 3,
+      "image": 6,
+      "pad": 12
+    },
+    {
+      "name": "unit-section-c.png",
+      "mode": "embedded",
+      "page": 3,
+      "image": 1,
+      "px": [
+        0,
+        292,
+        449,
+        566
+      ],
+      "pad": 12
+    },
+    {
+      "name": "unit-section-d.png",
+      "mode": "embedded",
+      "page": 3,
+      "image": 5,
+      "px": [
+        0,
+        320,
+        384,
+        562
+      ],
+      "pad": 12
+    },
+    {
+      "name": "site-plan.png",
+      "mode": "raster",
+      "page": 4,
+      "rect": [
+        110,
+        135,
+        470,
+        668
+      ],
+      "pad": 16,
+      "color": true
+    },
+    {
+      "name": "render-back-elevation.png",
+      "mode": "embedded",
+      "page": 5,
+      "image": 1,
+      "color": true
+    },
+    {
+      "name": "site-section-1.png",
+      "mode": "embedded",
+      "page": 5,
+      "image": 3,
+      "px": [
+        0,
+        0,
+        920,
+        318
+      ],
+      "pad": 12
+    },
+    {
+      "name": "render-top-view.png",
+      "mode": "embedded",
+      "page": 6,
+      "image": 2,
+      "color": true
+    },
+    {
+      "name": "lighting-plan-first-floor.png",
+      "mode": "vector",
+      "page": 7,
+      "rect": [
+        128,
+        120,
+        474,
+        275
+      ],
+      "pad": 24,
+      "color": true,
+      "erase": [
+        [
+          440,
+          116,
+          476,
+          168
+        ]
+      ]
+    },
+    {
+      "name": "lighting-plan-second-floor.png",
+      "mode": "vector",
+      "page": 7,
+      "rect": [
+        156,
+        298,
+        458,
+        419
+      ],
+      "pad": 24,
+      "color": true
+    },
+    {
+      "name": "lighting-section-a-a.png",
+      "mode": "vector",
+      "page": 7,
+      "rect": [
+        74,
+        474,
+        528,
+        684
+      ],
+      "pad": 24,
+      "color": true
+    },
+    {
+      "name": "lighting-rcp-first-floor.png",
+      "mode": "vector",
+      "page": 8,
+      "rect": [
+        150,
+        90,
+        458,
+        237
+      ],
+      "pad": 24,
+      "color": true
+    },
+    {
+      "name": "lighting-rcp-second-floor.png",
+      "mode": "vector",
+      "page": 8,
+      "rect": [
+        150,
+        270,
+        458,
+        414
+      ],
+      "pad": 24,
+      "color": true
+    }
+  ],
+  "_resolved": {
+    "site-aerial.png": {
+      "mode": "embedded",
+      "page": 1,
+      "image": 1,
+      "nativePx": [
+        1167,
+        798
+      ],
+      "densityDpi": 179.1,
+      "output": [
+        1167,
+        798
+      ],
+      "gray": false,
+      "bytes": 2303200
+    },
+    "unit-plan-first-floor.png": {
+      "mode": "embedded",
+      "page": 2,
+      "image": 1,
+      "nativePx": [
+        704,
+        738
+      ],
+      "densityDpi": 120.1,
+      "output": [
+        370,
+        427
+      ],
+      "gray": true,
+      "bytes": 77575
+    },
+    "unit-plan-second-floor.png": {
+      "mode": "embedded",
+      "page": 2,
+      "image": 1,
+      "nativePx": [
+        704,
+        738
+      ],
+      "densityDpi": 120.1,
+      "output": [
+        371,
+        411
+      ],
+      "gray": true,
+      "bytes": 51301
+    },
+    "unit-elevation-front.png": {
+      "mode": "embedded",
+      "page": 2,
+      "image": 1,
+      "nativePx": [
+        704,
+        738
+      ],
+      "densityDpi": 120.1,
+      "output": [
+        326,
+        248
+      ],
+      "gray": true,
+      "bytes": 38189
+    },
+    "unit-elevation-back.png": {
+      "mode": "embedded",
+      "page": 2,
+      "image": 1,
+      "nativePx": [
+        704,
+        738
+      ],
+      "densityDpi": 120.1,
+      "output": [
+        325,
+        248
+      ],
+      "gray": true,
+      "bytes": 37950
+    },
+    "unit-section-a.png": {
+      "mode": "embedded",
+      "page": 3,
+      "image": 1,
+      "nativePx": [
+        566,
+        449
+      ],
+      "densityDpi": 120,
+      "output": [
+        420,
+        249
+      ],
+      "gray": true,
+      "bytes": 49897
+    },
+    "unit-section-b.png": {
+      "mode": "embedded",
+      "page": 3,
+      "image": 6,
+      "nativePx": [
+        277,
+        385
+      ],
+      "densityDpi": 120.2,
+      "output": [
+        391,
+        249
+      ],
+      "gray": true,
+      "bytes": 34094
+    },
+    "unit-section-c.png": {
+      "mode": "embedded",
+      "page": 3,
+      "image": 1,
+      "nativePx": [
+        566,
+        449
+      ],
+      "densityDpi": 120,
+      "output": [
+        391,
+        249
+      ],
+      "gray": true,
+      "bytes": 28038
+    },
+    "unit-section-d.png": {
+      "mode": "embedded",
+      "page": 3,
+      "image": 5,
+      "nativePx": [
+        562,
+        384
+      ],
+      "densityDpi": 120.1,
+      "output": [
+        179,
+        237
+      ],
+      "gray": true,
+      "bytes": 17733
+    },
+    "site-plan.png": {
+      "mode": "raster",
+      "page": 4,
+      "rect": [
+        110,
+        135,
+        470,
+        668
+      ],
+      "dpi": 262,
+      "output": [
+        1205,
+        1937
+      ],
+      "gray": false,
+      "bytes": 1573797
+    },
+    "render-back-elevation.png": {
+      "mode": "embedded",
+      "page": 5,
+      "image": 1,
+      "nativePx": [
+        299,
+        1096
+      ],
+      "densityDpi": 71.3,
+      "output": [
+        1061,
+        285
+      ],
+      "gray": false,
+      "bytes": 390871
+    },
+    "site-section-1.png": {
+      "mode": "embedded",
+      "page": 5,
+      "image": 3,
+      "nativePx": [
+        356,
+        920
+      ],
+      "densityDpi": 120.2,
+      "output": [
+        866,
+        316
+      ],
+      "gray": false,
+      "bytes": 128433
+    },
+    "render-top-view.png": {
+      "mode": "embedded",
+      "page": 6,
+      "image": 2,
+      "nativePx": [
+        511,
+        698
+      ],
+      "densityDpi": 147,
+      "output": [
+        675,
+        459
+      ],
+      "gray": false,
+      "bytes": 563459
+    },
+    "lighting-plan-first-floor.png": {
+      "mode": "vector",
+      "page": 7,
+      "rect": [
+        128,
+        120,
+        474,
+        275
+      ],
+      "dpi": 450,
+      "output": [
+        2150,
+        925
+      ],
+      "gray": false,
+      "bytes": 129306
+    },
+    "lighting-plan-second-floor.png": {
+      "mode": "vector",
+      "page": 7,
+      "rect": [
+        156,
+        298,
+        458,
+        419
+      ],
+      "dpi": 450,
+      "output": [
+        1894,
+        767
+      ],
+      "gray": false,
+      "bytes": 68227
+    },
+    "lighting-section-a-a.png": {
+      "mode": "vector",
+      "page": 7,
+      "rect": [
+        74,
+        474,
+        528,
+        684
+      ],
+      "dpi": 450,
+      "output": [
+        2824,
+        1296
+      ],
+      "gray": false,
+      "bytes": 189290
+    },
+    "lighting-rcp-first-floor.png": {
+      "mode": "vector",
+      "page": 8,
+      "rect": [
+        150,
+        90,
+        458,
+        237
+      ],
+      "dpi": 450,
+      "output": [
+        1906,
+        905
+      ],
+      "gray": false,
+      "bytes": 84275
+    },
+    "lighting-rcp-second-floor.png": {
+      "mode": "vector",
+      "page": 8,
+      "rect": [
+        150,
+        270,
+        458,
+        414
+      ],
+      "dpi": 450,
+      "output": [
+        1906,
+        887
+      ],
+      "gray": false,
+      "bytes": 102646
+    }
+  }
+}

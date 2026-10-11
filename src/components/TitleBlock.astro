@@ -1,0 +1,79 @@
+---
+/**
+ * Project metadata styled like a drawing title block. Confirmed facts render
+ * plainly; pending ones only in review builds, highlighted.
+ */
+import { REVIEW } from '../lib/review';
+
+interface Row {
+  label: string;
+  value: string;
+  note?: string;
+}
+
+interface Props {
+  facts: Row[];
+  pending?: Row[];
+}
+
+const { facts, pending = [] } = Astro.props;
+const rows = [
+  ...facts.map((r) => ({ ...r, pending: false })),
+  ...(REVIEW ? pending.map((r) => ({ ...r, pending: true })) : []),
+];
+---
+
+{
+  rows.length > 0 && (
+    <dl class="title-block">
+      {rows.map((row) => (
+        <div class="title-block__row">
+          <dt class="label">{row.label}</dt>
+          {row.pending ? (
+            <dd data-pending title={`Awaiting confirmation${row.note ? ` — ${row.note}` : ''}`}>{row.value}</dd>
+          ) : (
+            <dd>{row.value}</dd>
+          )}
+        </div>
+      ))}
+    </dl>
+  )
+}
+
+<style>
+  .title-block {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid var(--rule-strong);
+  }
+
+  .title-block__row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-1);
+    padding: var(--s-3) var(--s-3) var(--s-3) 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .title-block__row:nth-child(even) {
+    padding-left: var(--s-3);
+    border-left: 1px solid var(--rule);
+  }
+
+  .title-block dd {
+    font-size: var(--text-small);
+    line-height: 1.45;
+    align-self: flex-start;
+  }
+
+  @media (max-width: 480px) {
+    .title-block {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .title-block__row:nth-child(even) {
+      padding-left: 0;
+      border-left: 0;
+    }
+  }
+</style>

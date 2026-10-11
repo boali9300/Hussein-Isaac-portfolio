@@ -1,0 +1,162 @@
+---
+/**
+ * One architectural image. Drawings sit on a white sheet and are served lossless
+ * (WebP, PNG fallback); renders and photos as AVIF with a JPEG fallback. Images are never enlarged past
+ * their native size (layout "constrained"). Click to inspect in the lightbox.
+ */
+import type { ImageMetadata } from 'astro';
+import { Picture, getImage } from 'astro:assets';
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  caption?: string;
+  credit?: string;
+  kind?: 'drawing' | 'render';
+  /** `sizes` attribute; defaults to the full content width. */
+  sizes?: string;
+  priority?: boolean;
+  zoom?: boolean;
+  /** full = content width; narrow = centered, for tall drawings. */
+  width?: 'full' | 'narrow';
+  class?: string;
+}
+
+const {
+  src,
+  alt,
+  caption,
+  credit,
+  kind = 'drawing',
+  sizes = `(min-width: 1440px) 1312px, calc(100vw - 2 * clamp(16px, 4.5vw, 64px))`,
+  priority = false,
+  zoom = true,
+  width = 'full',
+  class: className,
+} = Astro.props;
+
+const isDrawing = kind === 'drawing';
+const full = zoom
+  ? await getImage({
+      src,
+      width: src.width,
+      format: isDrawing ? 'webp' : 'avif',
+      ...(isDrawing ? {} : { quality: 90 }),
+    })
+  : undefined;
+---
+
+<figure class:list={['figure', `figure--${kind}`, `figure--${width}`, className]} data-reveal>
+  <div class="figure__frame">
+    {
+      zoom && full ? (
+        <button
+          class="figure__zoom"
+          type="button"
+          data-zoom-src={full.src}
+          data-zoom-width={src.width}
+          data-zoom-height={src.height}
+          data-zoom-alt={alt}
+          data-zoom-caption={caption}
+          aria-label={`Enlarge image: ${alt}`}
+        >
+          {isDrawing ? (
+            <Picture src={src} alt={alt} width={src.width} formats={['webp']} fallbackFormat="png" sizes={sizes} priority={priority} />
+          ) : (
+            <Picture
+              src={src}
+              alt={alt}
+              width={src.width}
+              formats={['avif']}
+              fallbackFormat="jpg"
+              quality={82}
+              sizes={sizes}
+              priority={priority}
+            />
+          )}
+        </button>
+      ) : isDrawing ? (
+        <Picture src={src} alt={alt} width={src.width} formats={['webp']} fallbackFormat="png" sizes={sizes} priority={priority} />
+      ) : (
+        <Picture
+          src={src}
+          alt={alt}
+          width={src.width}
+          formats={['avif']}
+          fallbackFormat="jpg"
+          quality={82}
+          sizes={sizes}
+          priority={priority}
+        />
+      )
+    }
+  </div>
+  {
+    (caption || credit) && (
+      <figcaption class="figure__caption">
+        {caption && <span>{caption}</span>}
+        {credit && <span class="figure__credit">{credit}</span>}
+      </figcaption>
+    )
+  }
+</figure>
+
+<style>
+  .figure {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+    min-width: 0;
+  }
+
+  .figure--narrow {
+    width: 100%;
+    max-width: 48rem;
+    margin-inline: auto;
+  }
+
+  .figure__frame {
+    flex: 1;
+    display: grid;
+    place-items: center;
+  }
+
+  .figure--drawing .figure__frame {
+    background: var(--sheet);
+    padding: clamp(var(--s-3), 3vw, var(--s-6));
+    box-shadow: inset 0 0 0 1px var(--rule);
+  }
+
+  .figure__zoom {
+    display: block;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: zoom-in;
+    max-width: 100%;
+  }
+
+  .figure__zoom :global(img) {
+    transition: opacity var(--dur-fast) var(--ease);
+  }
+
+  .figure__zoom:hover :global(img) {
+    opacity: 0.92;
+  }
+
+  .figure__caption {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--s-1) var(--s-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-label);
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    color: var(--graphite);
+  }
+
+  .figure__credit {
+    font-style: normal;
+  }
+</style>

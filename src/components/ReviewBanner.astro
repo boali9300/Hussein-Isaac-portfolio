@@ -1,0 +1,31 @@
+---
+/** Shown only in review builds (dev, or PUBLIC_REVIEW=true). */
+---
+
+<aside class="review-banner" aria-label="Review build notice">
+  <p class="container">
+    <span class="review-banner__tag">Review build</span>
+    Highlighted items await confirmation and are removed from the production build. Draft projects are visible here only.
+  </p>
+</aside>
+
+<style>
+  .review-banner {
+    background: var(--pending);
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--font-mono);
+    font-size: var(--text-label);
+    line-height: 1.5;
+  }
+
+  .review-banner p {
+    padding-block: var(--s-2);
+  }
+
+  .review-banner__tag {
+    font-weight: 500;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    margin-right: var(--s-2);
+  }
+</style>

@@ -1,0 +1,189 @@
+---
+import { nav, site } from '../data/site';
+import { url } from '../lib/url';
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href={url('/')}>{site.name}</a>
+
+    <button
+      class="site-header__toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      data-nav-toggle
+    >
+      <span class="visually-hidden">Menu</span>
+      <span class="site-header__bars" aria-hidden="true"></span>
+    </button>
+
+    <nav id="site-nav" class="site-header__nav" aria-label="Main">
+      <ul>
+        {
+          nav.map((item) => (
+            <li>
+              <a href={url(item.href)}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-h);
+  }
+
+  .site-header__brand {
+    font-family: var(--font-mono);
+    font-size: var(--text-label);
+    font-weight: 500;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .site-header__nav ul {
+    display: flex;
+    gap: var(--s-5);
+  }
+
+  .site-header__nav a {
+    position: relative;
+    font-family: var(--font-mono);
+    font-size: var(--text-label);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    text-decoration: none;
+    padding-block: var(--s-2);
+  }
+
+  .site-header__nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--dur-fast) var(--ease);
+  }
+
+  .site-header__nav a:hover::after,
+  .site-header__nav a[aria-current='page']::after {
+    transform: scaleX(1);
+  }
+
+  .site-header__toggle {
+    display: none;
+  }
+
+  @media (max-width: 720px) {
+    .site-header__toggle {
+      display: grid;
+      place-items: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      margin-right: calc(var(--s-2) * -1);
+      background: none;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .site-header__bars,
+    .site-header__bars::before {
+      display: block;
+      width: 1.25rem;
+      height: 1px;
+      background: var(--ink);
+      transition: transform var(--dur-fast) var(--ease);
+    }
+
+    .site-header__bars {
+      position: relative;
+      transform: translateY(-3px);
+    }
+
+    .site-header__bars::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+    }
+
+    [aria-expanded='true'] .site-header__bars {
+      transform: rotate(45deg);
+    }
+
+    [aria-expanded='true'] .site-header__bars::before {
+      transform: translateY(-6px) rotate(-90deg);
+    }
+
+    .site-header__nav {
+      position: absolute;
+      top: var(--header-h);
+      left: 0;
+      right: 0;
+      background: var(--paper);
+      border-bottom: 1px solid var(--rule);
+      display: none;
+    }
+
+    .site-header__nav.is-open {
+      display: block;
+    }
+
+    .site-header__nav ul {
+      flex-direction: column;
+      gap: 0;
+      padding: var(--s-2) var(--gutter) var(--s-4);
+    }
+
+    .site-header__nav a {
+      display: block;
+      padding-block: var(--s-3);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .site-header__nav a::after {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
+  const navEl = document.getElementById('site-nav');
+  if (toggle && navEl) {
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      navEl.classList.toggle('is-open', open);
+    };
+    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+    navEl.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).closest('a')) setOpen(false);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+  }
+</script>

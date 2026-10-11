@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://boali9300.github.io/Hussein-Isaac-portfolio/sitemap-index.xml

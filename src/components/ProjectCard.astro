@@ -1,0 +1,126 @@
+---
+/**
+ * A project in a list. `feature` spans the full width (used when a project is
+ * featured, or when it is the only one); `card` is the grid variant.
+ */
+import type { CollectionEntry } from 'astro:content';
+import { Picture } from 'astro:assets';
+import { url } from '../lib/url';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  index: number;
+  variant?: 'feature' | 'card';
+  headingLevel?: 'h2' | 'h3';
+}
+
+const { project, index, variant = 'card', headingLevel: H = 'h3' } = Astro.props;
+const { title, summary, type, cover, draft } = project.data;
+const href = url(`/work/${project.id}/`);
+const n = String(index + 1).padStart(2, '0');
+---
+
+<article class:list={['project-card', `project-card--${variant}`]} data-reveal>
+  <a class="project-card__media" href={href} tabindex="-1" aria-hidden="true">
+    <Picture
+      src={cover}
+      alt=""
+      width={cover.width}
+      formats={['avif']}
+      fallbackFormat="jpg"
+      quality={82}
+      sizes={variant === 'feature'
+        ? '(min-width: 1440px) 1312px, calc(100vw - 2 * clamp(16px, 4.5vw, 64px))'
+        : '(min-width: 900px) 640px, 100vw'}
+    />
+  </a>
+  <div class="project-card__meta">
+    <div class="project-card__id">
+      <p class="label label--accent">{n}</p>
+      <H class="project-card__title h2">
+        <a href={href}>{title}</a>
+      </H>
+      <p class="label">
+        {type}
+        {draft && <span data-pending title="Draft — visible in review builds only"> · Draft</span>}
+      </p>
+    </div>
+    <div class="project-card__text">
+      <p class="project-card__summary muted">{summary}</p>
+      <a class="link-arrow" href={href} aria-label={`View case study: ${title}`}>
+        View case study <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</article>
+
+<style>
+  .project-card {
+    display: grid;
+    gap: var(--s-5);
+  }
+
+  .project-card__media {
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+
+  .project-card__media :global(img) {
+    transition: transform 1.2s var(--ease);
+  }
+
+  .project-card:hover .project-card__media :global(img) {
+    transform: scale(1.015);
+  }
+
+  .project-card__meta,
+  .project-card__id,
+  .project-card__text {
+    display: grid;
+    gap: var(--s-3);
+    align-content: start;
+  }
+
+  .project-card__text {
+    gap: var(--s-4);
+  }
+
+  .project-card--feature .project-card__meta {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--col-gap);
+    row-gap: var(--s-4);
+  }
+
+  .project-card--feature .project-card__id {
+    grid-column: 1 / span 5;
+  }
+
+  .project-card--feature .project-card__text {
+    grid-column: 7 / -1;
+  }
+
+  .project-card--feature .project-card__summary {
+    font-size: var(--text-lead);
+    line-height: 1.5;
+  }
+
+  .project-card__title a {
+    text-decoration: none;
+  }
+
+  .project-card__title a:hover {
+    color: var(--accent-text);
+  }
+
+  .project-card .link-arrow {
+    justify-self: start;
+  }
+
+  @media (max-width: 900px) {
+    .project-card--feature .project-card__id,
+    .project-card--feature .project-card__text {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

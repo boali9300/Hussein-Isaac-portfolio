@@ -1,0 +1,47 @@
+---
+/**
+ * Lays out Figures side by side. Sheets in a row share a height; each drawing
+ * keeps its own aspect ratio and is centered on its sheet — never cropped.
+ */
+interface Props {
+  cols?: 1 | 2 | 3;
+  /** Column template override, e.g. "3fr 2fr" for unequal pairs. */
+  template?: string;
+}
+
+const { cols = 2, template } = Astro.props;
+const style = template ? `--fg-template: ${template}` : undefined;
+---
+
+<div class:list={['figure-grid', `figure-grid--${cols}`]} style={style}>
+  <slot />
+</div>
+
+<style>
+  .figure-grid {
+    display: grid;
+    gap: var(--col-gap);
+    align-items: stretch;
+  }
+
+  .figure-grid--2 {
+    grid-template-columns: var(--fg-template, repeat(2, minmax(0, 1fr)));
+  }
+
+  .figure-grid--3 {
+    grid-template-columns: var(--fg-template, repeat(3, minmax(0, 1fr)));
+  }
+
+  @media (max-width: 900px) {
+    .figure-grid--3 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .figure-grid--2,
+    .figure-grid--3 {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

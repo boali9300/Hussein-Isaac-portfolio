@@ -1,0 +1,62 @@
+---
+import { site } from '../data/site';
+import { shows } from '../lib/review';
+import { url } from '../lib/url';
+import Pending from './Pending.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer band-ink">
+  <div class="container site-footer__inner">
+    <a class="site-footer__name" href={url('/')}>{site.name}</a>
+    <p class="label">{site.discipline}</p>
+    {
+      shows(site.email) && (
+        <p class="site-footer__contact">
+          <Pending fact={site.email}>
+            <a href={`mailto:${site.email.value}`}>{site.email.value}</a>
+          </Pending>
+        </p>
+      )
+    }
+    <p class="label site-footer__legal">© {year} {site.name}. Drawings, images and text — all rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding-block: var(--s-7) var(--s-5);
+  }
+
+  .site-footer__inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--s-3) var(--s-5);
+    align-items: baseline;
+  }
+
+  .site-footer__name {
+    font-size: var(--text-h3);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+
+  .site-footer__contact a {
+    text-decoration-color: var(--accent);
+  }
+
+  .site-footer__legal {
+    grid-column: 1 / -1;
+    margin-top: var(--s-6);
+    padding-top: var(--s-4);
+    border-top: 1px solid var(--on-ink-rule);
+  }
+
+  @media (max-width: 720px) {
+    .site-footer__inner {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,18 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# source PDFs and raw extracts (never deployed)
+_source/
+
+# logs / env
+npm-debug.log*
+.env*
+.DS_Store
+Thumbs.db
+
+# local tool config
+.claude/

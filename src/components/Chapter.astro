@@ -1,0 +1,47 @@
+---
+/** A numbered chapter heading with its text, on the 12-column grid. */
+interface Props {
+  n: string;
+  title: string;
+  id?: string;
+}
+
+const { n, title, id } = Astro.props;
+const anchor = id ?? title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+---
+
+<section class="chapter grid" id={anchor} aria-labelledby={`${anchor}-title`} data-reveal>
+  <header class="chapter__head">
+    <p class="label label--accent">{n}</p>
+    <h2 class="h2" id={`${anchor}-title`}>{title}</h2>
+  </header>
+  <div class="chapter__body prose">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .chapter {
+    row-gap: var(--s-4);
+    padding-top: var(--s-5);
+    border-top: 1px solid var(--rule-strong);
+  }
+
+  .chapter__head {
+    grid-column: 1 / span 5;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+  }
+
+  .chapter__body {
+    grid-column: 7 / -1;
+  }
+
+  @media (max-width: 900px) {
+    .chapter__head,
+    .chapter__body {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

@@ -1,0 +1,366 @@
+---
+import { Picture } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Pending from '../components/Pending.astro';
+import { site } from '../data/site';
+import { getProjects, shows } from '../lib/review';
+import { url } from '../lib/url';
+
+const projects = await getProjects();
+const featured = projects.filter((p) => p.data.featured);
+const others = projects.filter((p) => !p.data.featured);
+const hero = featured.find((p) => p.data.heroImage);
+
+// From Hussein's previous site — his own words on his approach.
+const values = [
+  { title: 'Human-centered design', text: 'Spaces shaped around everyday use, comfort, dignity, and experience.' },
+  { title: 'Context and culture', text: 'Design informed by local character, history, identity, and community.' },
+  { title: 'Technical clarity', text: 'Ideas translated into coordinated, understandable, and buildable information.' },
+  { title: 'Learning and growth', text: 'Curiosity, mentorship, and continuous improvement through practice.' },
+];
+
+const meta = [
+  { label: 'Education', fact: site.education },
+  { label: 'Based in', fact: site.location },
+  { label: 'Languages', fact: site.languages },
+].filter((m) => shows(m.fact));
+---
+
+<Base>
+  <section class="hero container grid" aria-labelledby="hero-title">
+    <div class="hero__copy">
+      <p class="label">{site.discipline}</p>
+      <h1 class="display" id="hero-title">Hussein<br />Isaac</h1>
+      <p class="lead">{site.tagline}</p>
+      <div class="hero__actions">
+        <a class="link-arrow" href={url('/#work')}>Selected work <span aria-hidden="true">↓</span></a>
+        <a class="link-arrow" href={url('/#contact')}>Contact <span aria-hidden="true">→</span></a>
+      </div>
+      {
+        meta.length > 0 && (
+          <dl class="hero__meta">
+            {meta.map((m) => (
+              <div>
+                <dt class="label">{m.label}</dt>
+                <dd>
+                  <Pending fact={m.fact}>{m.fact.value}</Pending>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        )
+      }
+    </div>
+
+    {
+      hero?.data.heroImage && (
+        <figure class="hero__sheet">
+          <a class="hero__sheet-link" href={url(`/work/${hero.id}/`)}>
+            <Picture
+              src={hero.data.heroImage}
+              alt={hero.data.heroAlt ?? ''}
+              width={hero.data.heroImage.width}
+              formats={['webp']}
+              fallbackFormat="png"
+              sizes="(min-width: 1440px) 520px, (min-width: 901px) 36vw, 90vw"
+              loading="eager"
+            />
+          </a>
+          {hero.data.heroCaption && <figcaption class="label">{hero.data.heroCaption}</figcaption>}
+        </figure>
+      )
+    }
+  </section>
+
+  <section class="section container" id="profile" aria-labelledby="profile-title">
+    <div class="grid profile">
+      <div class="profile__head" data-reveal>
+        <p class="label label--accent">01 — Profile</p>
+        <h2 class="h2" id="profile-title">Clear ideas. Precise drawings. Buildable work.</h2>
+      </div>
+      <div class="profile__body prose" data-reveal>
+        <p class="lead">
+          Born in Iraq and shaped by life across the Middle East and the United States, I bring a cross-cultural
+          perspective to architecture.
+        </p>
+        <p class="muted">
+          My experiences have strengthened my interest in designing places that support safety, belonging, and everyday
+          life — while respecting the character and needs of the communities they serve. I believe architecture can
+          improve everyday life by bringing together thoughtful ideas, clear technical thinking, and an understanding of
+          context.
+        </p>
+      </div>
+      <ul class="values" data-reveal>
+        {
+          values.map((v, i) => (
+            <li>
+              <span class="label label--accent">{String(i + 1).padStart(2, '0')}</span>
+              <h3 class="h3">{v.title}</h3>
+              <p class="muted">{v.text}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  {
+    projects.length > 0 && (
+      <section class="section container" id="work" aria-labelledby="work-title">
+        <div class="grid work__head" data-reveal>
+          <div class="work__title">
+            <p class="label label--accent">02 — Selected work</p>
+            <h2 class="h2" id="work-title">Projects presented as complete case studies.</h2>
+          </div>
+          <p class="work__intro muted">
+            Each project follows the work from brief to detail: site, plans and sections, renderings and technical
+            studies.
+          </p>
+        </div>
+
+        <div class="work__list">
+          {featured.map((project) => (
+            <ProjectCard project={project} index={projects.indexOf(project)} variant="feature" />
+          ))}
+          {
+            others.length > 0 && (
+              <div class="work__grid">
+                {others.map((project) => (
+                  <ProjectCard project={project} index={projects.indexOf(project)} />
+                ))}
+              </div>
+            )
+          }
+        </div>
+      </section>
+    )
+  }
+
+  <section class="contact band-ink" id="contact" aria-labelledby="contact-title">
+    <div class="container grid">
+      <div class="contact__head" data-reveal>
+        <p class="label">03 — Contact</p>
+        <h2 class="h1" id="contact-title">Let’s talk about the work.</h2>
+      </div>
+      <div class="contact__body" data-reveal>
+        <p class="lead">Available for architecture, documentation, coordination, and design opportunities.</p>
+        {
+          shows(site.email) && (
+            <p class="contact__email">
+              <Pending fact={site.email}>
+                <a href={`mailto:${site.email.value}`}>{site.email.value}</a>
+              </Pending>
+            </p>
+          )
+        }
+        {
+          site.linkedin && shows(site.linkedin) && (
+            <a class="link-arrow" href={site.linkedin.value} rel="me">
+              LinkedIn <span aria-hidden="true">↗</span>
+            </a>
+          )
+        }
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* Hero */
+  .hero {
+    min-height: min(calc(100svh - var(--header-h)), 60rem);
+    padding-block: var(--s-6);
+    row-gap: var(--s-6);
+    align-items: center;
+  }
+
+  .hero__copy {
+    grid-column: 1 / span 7;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-5);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-5);
+  }
+
+  .hero__meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, auto));
+    justify-content: start;
+    gap: var(--s-3) var(--s-6);
+    margin-top: var(--s-4);
+    padding-top: var(--s-4);
+    border-top: 1px solid var(--rule);
+    font-size: var(--text-small);
+  }
+
+  .hero__meta dt {
+    margin-bottom: var(--s-1);
+  }
+
+  .hero__sheet {
+    grid-column: 8 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+  }
+
+  .hero__sheet-link {
+    display: grid;
+    place-items: center;
+    background: var(--sheet);
+    box-shadow: inset 0 0 0 1px var(--rule);
+    padding: clamp(var(--s-3), 2.5vw, var(--s-5));
+  }
+
+  .hero__sheet-link :global(img) {
+    max-height: min(calc(100svh - var(--header-h) - 12rem), 48rem);
+    width: auto;
+  }
+
+  /* Profile */
+  .profile {
+    row-gap: var(--s-7);
+  }
+
+  .profile__head {
+    grid-column: 1 / span 5;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-4);
+  }
+
+  .profile__body {
+    grid-column: 7 / -1;
+  }
+
+  .profile__body .lead {
+    max-width: none;
+  }
+
+  .values {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--col-gap);
+  }
+
+  .values li {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-2);
+    padding-top: var(--s-3);
+    border-top: 1px solid var(--rule-strong);
+  }
+
+  .values p {
+    font-size: var(--text-small);
+  }
+
+  /* Work */
+  .work__head {
+    row-gap: var(--s-4);
+    margin-bottom: var(--s-7);
+    align-items: end;
+  }
+
+  .work__title {
+    grid-column: 1 / span 6;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-4);
+  }
+
+  .work__intro {
+    grid-column: 8 / -1;
+    max-width: 40ch;
+  }
+
+  .work__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-8);
+  }
+
+  .work__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--s-7) var(--col-gap);
+  }
+
+  /* Contact */
+  .contact {
+    padding-block: var(--section);
+  }
+
+  .contact .grid {
+    row-gap: var(--s-5);
+    align-items: end;
+  }
+
+  .contact__head {
+    grid-column: 1 / span 6;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-4);
+  }
+
+  .contact__body {
+    grid-column: 8 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: var(--s-4);
+  }
+
+  .contact__email {
+    font-size: var(--text-h3);
+    letter-spacing: -0.01em;
+  }
+
+  .contact__email a {
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.3em;
+    overflow-wrap: anywhere;
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      min-height: 0;
+    }
+
+    .hero__copy,
+    .hero__sheet,
+    .profile__head,
+    .profile__body,
+    .work__title,
+    .work__intro,
+    .contact__head,
+    .contact__body {
+      grid-column: 1 / -1;
+    }
+
+    .hero__sheet-link :global(img) {
+      max-height: 70svh;
+    }
+
+    .values,
+    .work__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 560px) {
+    .hero__meta,
+    .values,
+    .work__grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

@@ -1,0 +1,91 @@
+---
+/** A schedule or data table transcribed from a drawing sheet. */
+interface Props {
+  caption: string;
+  head: string[];
+  rows: (string | number)[][];
+  /** Indexes of numeric columns (right-aligned, tabular figures). */
+  numeric?: number[];
+  note?: string;
+}
+
+const { caption, head, rows, numeric = [], note } = Astro.props;
+const align = (i: number) => (numeric.includes(i) ? 'num' : undefined);
+---
+
+<div class="data-table" data-reveal>
+  <div class="data-table__scroll" tabindex="0" role="region" aria-label={caption}>
+    <table>
+      <caption class="label">{caption}</caption>
+      <thead>
+        <tr>{head.map((h, i) => <th scope="col" class={align(i)}>{h}</th>)}</tr>
+      </thead>
+      <tbody>
+        {
+          rows.map((row) => (
+            <tr>
+              {row.map((cell, i) =>
+                i === 0 ? (
+                  <th scope="row">{cell}</th>
+                ) : (
+                  <td class={align(i)}>{cell}</td>
+                ),
+              )}
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  {note && <p class="data-table__note muted">{note}</p>}
+</div>
+
+<style>
+  .data-table__scroll {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    min-width: 36rem;
+    border-collapse: collapse;
+    font-size: var(--text-small);
+  }
+
+  caption {
+    text-align: left;
+    padding-bottom: var(--s-3);
+  }
+
+  th,
+  td {
+    text-align: left;
+    vertical-align: top;
+    padding: var(--s-2) var(--s-3) var(--s-2) 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  thead th {
+    font-family: var(--font-mono);
+    font-size: var(--text-label);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--graphite);
+    border-bottom-color: var(--rule-strong);
+  }
+
+  tbody th {
+    font-weight: 500;
+  }
+
+  .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .data-table__note {
+    margin-top: var(--s-3);
+    font-size: var(--text-small);
+    max-width: var(--measure);
+  }
+</style>
