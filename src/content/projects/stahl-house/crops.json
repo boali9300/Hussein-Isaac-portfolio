@@ -14,7 +14,9 @@
       ],
       "dpi": 400,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "cutout",
+      "thicken": 1
     },
     {
       "name": "render-night.png",
@@ -58,7 +60,8 @@
       ],
       "dpi": 450,
       "trim": false,
-      "color": true
+      "color": true,
+      "background": "cutout"
     },
     {
       "name": "plan-first-floor.png",
@@ -72,7 +75,9 @@
       ],
       "dpi": 600,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "clear",
+      "thicken": 1
     },
     {
       "name": "plan-rcp.png",
@@ -86,7 +91,9 @@
       ],
       "dpi": 600,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "clear",
+      "thicken": 1
     },
     {
       "name": "plan-roof.png",
@@ -100,7 +107,9 @@
       ],
       "dpi": 600,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "clear",
+      "thicken": 1
     },
     {
       "name": "elevation-north.png",
@@ -114,7 +123,9 @@
       ],
       "dpi": 500,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "clear",
+      "thicken": 1
     },
     {
       "name": "elevation-south.png",
@@ -128,7 +139,9 @@
       ],
       "dpi": 500,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "clear",
+      "thicken": 1
     },
     {
       "name": "elevation-east.png",
@@ -142,7 +155,9 @@
       ],
       "dpi": 500,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "clear",
+      "thicken": 1
     },
     {
       "name": "elevation-west.png",
@@ -156,7 +171,9 @@
       ],
       "dpi": 500,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "clear",
+      "thicken": 1
     },
     {
       "name": "section-1.png",
@@ -184,7 +201,9 @@
       ],
       "dpi": 450,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "clear",
+      "thicken": 1
     },
     {
       "name": "wall-sections.png",
@@ -198,7 +217,9 @@
       ],
       "dpi": 500,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "clear",
+      "thicken": 1
     },
     {
       "name": "detail-beam-column.png",
@@ -211,7 +232,9 @@
         636
       ],
       "dpi": 500,
-      "pad": 16
+      "pad": 16,
+      "background": "clear",
+      "thicken": 1
     },
     {
       "name": "detail-foundation.png",
@@ -224,7 +247,9 @@
         662
       ],
       "dpi": 500,
-      "pad": 16
+      "pad": 16,
+      "background": "clear",
+      "thicken": 1
     }
   ],
   "_resolved": {
@@ -243,7 +268,7 @@
         1236
       ],
       "gray": false,
-      "bytes": 427552
+      "bytes": 420172
     },
     "render-night.png": {
       "mode": "raster",
@@ -309,7 +334,7 @@
         1150
       ],
       "gray": false,
-      "bytes": 1277404
+      "bytes": 1435963
     },
     "plan-first-floor.png": {
       "mode": "vector",
@@ -326,7 +351,7 @@
         1529
       ],
       "gray": false,
-      "bytes": 207316
+      "bytes": 241056
     },
     "plan-rcp.png": {
       "mode": "vector",
@@ -343,7 +368,7 @@
         1526
       ],
       "gray": false,
-      "bytes": 116177
+      "bytes": 128038
     },
     "plan-roof.png": {
       "mode": "vector",
@@ -360,7 +385,7 @@
         1561
       ],
       "gray": false,
-      "bytes": 63608
+      "bytes": 73583
     },
     "elevation-north.png": {
       "mode": "vector",
@@ -377,7 +402,7 @@
         951
       ],
       "gray": false,
-      "bytes": 217393
+      "bytes": 225108
     },
     "elevation-south.png": {
       "mode": "vector",
@@ -394,7 +419,7 @@
         750
       ],
       "gray": false,
-      "bytes": 203095
+      "bytes": 209817
     },
     "elevation-east.png": {
       "mode": "vector",
@@ -411,7 +436,7 @@
         833
       ],
       "gray": false,
-      "bytes": 142394
+      "bytes": 150653
     },
     "elevation-west.png": {
       "mode": "vector",
@@ -428,7 +453,7 @@
         744
       ],
       "gray": false,
-      "bytes": 116467
+      "bytes": 129903
     },
     "section-1.png": {
       "mode": "raster",
@@ -462,7 +487,7 @@
         1659
       ],
       "gray": false,
-      "bytes": 236456
+      "bytes": 261089
     },
     "wall-sections.png": {
       "mode": "vector",
@@ -479,7 +504,7 @@
         1715
       ],
       "gray": false,
-      "bytes": 319956
+      "bytes": 368523
     },
     "detail-beam-column.png": {
       "mode": "vector",
@@ -496,7 +521,7 @@
         1118
       ],
       "gray": true,
-      "bytes": 53582
+      "bytes": 78279
     },
     "detail-foundation.png": {
       "mode": "vector",
@@ -513,7 +538,7 @@
         1412
       ],
       "gray": true,
-      "bytes": 63523
+      "bytes": 97573
     }
   }
 }

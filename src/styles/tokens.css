@@ -5,7 +5,6 @@
 :root {
   /* Color */
   --paper: #f4f1ea; /* page ground */
-  --sheet: #ffffff; /* drawing panels */
   --ink: #151515;
   --graphite: #5e5a54; /* secondary text — 6.1:1 on paper */
   --rule: rgba(21, 21, 21, 0.14);

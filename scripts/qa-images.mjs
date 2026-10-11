@@ -16,6 +16,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import * as mupdf from 'mupdf';
 import sharp from 'sharp';
+import { thicken } from './lib/background.mjs';
 
 const cropsPath = process.argv[2];
 if (!cropsPath) {
@@ -170,6 +171,12 @@ for (const crop of spec.crops) {
   if (crop.trim !== false) refImg = sharp(await refImg.trim({ background: '#ffffff', threshold: 12 }).png().toBuffer());
   const pad = (crop.pad ?? 0) * refScale;
   if (pad) refImg = refImg.extend({ top: pad, bottom: pad, left: pad, right: pad, background: '#ffffff' });
+  if (crop.thicken) {
+    // Compare against the reference with the same deliberate line weight.
+    const raw = await refImg.removeAlpha().raw().toBuffer({ resolveWithObject: true });
+    const heavy = thicken(raw.data, raw.info.width, raw.info.height, crop.thicken * refScale);
+    refImg = sharp(heavy, { raw: { width: raw.info.width, height: raw.info.height, channels: 3 } });
+  }
   const refPng = await refImg.png().toBuffer();
   const refMeta = await sharp(refPng).metadata();
 
@@ -183,7 +190,8 @@ for (const crop of spec.crops) {
   const tw = 256;
   const th = Math.max(1, Math.round((tw * outMeta.height) / outMeta.width));
   const grey = (buf) => sharp(buf).resize(tw, th, { fit: 'fill' }).greyscale().raw().toBuffer();
-  const a = await grey(await sharp(outFile).png().toBuffer());
+  // Transparent sheets (crop.background) are compared as printed on white.
+  const a = await grey(await sharp(outFile).flatten({ background: '#ffffff' }).png().toBuffer());
   const b = await grey(refPng);
   let sum = 0;
   for (let i = 0; i < a.length; i++) sum += Math.abs(a[i] - b[i]);

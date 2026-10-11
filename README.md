@@ -36,6 +36,10 @@ each project's frontmatter (`facts` vs `pending`, `draft: true/false`).
 3. Create `src/content/projects/<slug>/crops.json` listing the figures to extract
    (see the Salk project for the three modes: `embedded`, `raster`, `vector`), then run
    `npm run extract -- src/content/projects/<slug>/crops.json`.
+   Figures on a white sheet get `"background": "clear"` (2D drawings: all white becomes
+   transparent) or `"cutout"` (3D views and photos: only the backdrop touching the edges),
+   plus `"thicken": 1` for large drawings whose fine lines fade when scaled down. To apply
+   these to images that were already extracted: `node scripts/apply-background.mjs <crops.json>`.
 4. Verify against the PDF: `npm run qa:images -- src/content/projects/<slug>/crops.json`
    builds a side-by-side contact sheet in `_source/<file>/qa/`.
 5. Write `src/content/projects/<slug>/index.mdx` with the shared components

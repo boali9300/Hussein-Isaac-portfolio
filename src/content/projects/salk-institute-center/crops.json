@@ -21,7 +21,8 @@
         362,
         428
       ],
-      "pad": 12
+      "pad": 12,
+      "background": "clear"
     },
     {
       "name": "unit-plan-second-floor.png",
@@ -34,7 +35,8 @@
         738,
         430
       ],
-      "pad": 12
+      "pad": 12,
+      "background": "clear"
     },
     {
       "name": "unit-elevation-front.png",
@@ -47,7 +49,8 @@
         368,
         704
       ],
-      "pad": 12
+      "pad": 12,
+      "background": "clear"
     },
     {
       "name": "unit-elevation-back.png",
@@ -60,7 +63,8 @@
         738,
         704
       ],
-      "pad": 12
+      "pad": 12,
+      "background": "clear"
     },
     {
       "name": "unit-section-a.png",
@@ -73,14 +77,16 @@
         449,
         292
       ],
-      "pad": 12
+      "pad": 12,
+      "background": "clear"
     },
     {
       "name": "unit-section-b.png",
       "mode": "embedded",
       "page": 3,
       "image": 6,
-      "pad": 12
+      "pad": 12,
+      "background": "clear"
     },
     {
       "name": "unit-section-c.png",
@@ -93,7 +99,8 @@
         449,
         566
       ],
-      "pad": 12
+      "pad": 12,
+      "background": "clear"
     },
     {
       "name": "unit-section-d.png",
@@ -106,7 +113,8 @@
         384,
         562
       ],
-      "pad": 12
+      "pad": 12,
+      "background": "clear"
     },
     {
       "name": "site-plan.png",
@@ -119,14 +127,16 @@
         668
       ],
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "clear"
     },
     {
       "name": "render-back-elevation.png",
       "mode": "embedded",
       "page": 5,
       "image": 1,
-      "color": true
+      "color": true,
+      "background": "cutout"
     },
     {
       "name": "site-section-1.png",
@@ -139,14 +149,16 @@
         920,
         318
       ],
-      "pad": 12
+      "pad": 12,
+      "background": "clear"
     },
     {
       "name": "render-top-view.png",
       "mode": "embedded",
       "page": 6,
       "image": 2,
-      "color": true
+      "color": true,
+      "background": "cutout"
     },
     {
       "name": "lighting-plan-first-floor.png",
@@ -167,7 +179,9 @@
           476,
           168
         ]
-      ]
+      ],
+      "background": "clear",
+      "thicken": 1
     },
     {
       "name": "lighting-plan-second-floor.png",
@@ -180,7 +194,9 @@
         419
       ],
       "pad": 24,
-      "color": true
+      "color": true,
+      "background": "clear",
+      "thicken": 1
     },
     {
       "name": "lighting-section-a-a.png",
@@ -193,7 +209,9 @@
         684
       ],
       "pad": 24,
-      "color": true
+      "color": true,
+      "background": "clear",
+      "thicken": 1
     },
     {
       "name": "lighting-rcp-first-floor.png",
@@ -206,7 +224,9 @@
         237
       ],
       "pad": 24,
-      "color": true
+      "color": true,
+      "background": "clear",
+      "thicken": 1
     },
     {
       "name": "lighting-rcp-second-floor.png",
@@ -219,7 +239,9 @@
         414
       ],
       "pad": 24,
-      "color": true
+      "color": true,
+      "background": "clear",
+      "thicken": 1
     }
   ],
   "_resolved": {
@@ -253,7 +275,7 @@
         427
       ],
       "gray": true,
-      "bytes": 77575
+      "bytes": 100331
     },
     "unit-plan-second-floor.png": {
       "mode": "embedded",
@@ -269,7 +291,7 @@
         411
       ],
       "gray": true,
-      "bytes": 51301
+      "bytes": 67059
     },
     "unit-elevation-front.png": {
       "mode": "embedded",
@@ -285,7 +307,7 @@
         248
       ],
       "gray": true,
-      "bytes": 38189
+      "bytes": 49936
     },
     "unit-elevation-back.png": {
       "mode": "embedded",
@@ -301,7 +323,7 @@
         248
       ],
       "gray": true,
-      "bytes": 37950
+      "bytes": 49838
     },
     "unit-section-a.png": {
       "mode": "embedded",
@@ -317,7 +339,7 @@
         249
       ],
       "gray": true,
-      "bytes": 49897
+      "bytes": 65069
     },
     "unit-section-b.png": {
       "mode": "embedded",
@@ -333,7 +355,7 @@
         249
       ],
       "gray": true,
-      "bytes": 34094
+      "bytes": 44975
     },
     "unit-section-c.png": {
       "mode": "embedded",
@@ -349,7 +371,7 @@
         249
       ],
       "gray": true,
-      "bytes": 28038
+      "bytes": 37305
     },
     "unit-section-d.png": {
       "mode": "embedded",
@@ -365,7 +387,7 @@
         237
       ],
       "gray": true,
-      "bytes": 17733
+      "bytes": 23695
     },
     "site-plan.png": {
       "mode": "raster",
@@ -382,7 +404,7 @@
         1937
       ],
       "gray": false,
-      "bytes": 1573797
+      "bytes": 1765856
     },
     "render-back-elevation.png": {
       "mode": "embedded",
@@ -398,7 +420,7 @@
         285
       ],
       "gray": false,
-      "bytes": 390871
+      "bytes": 424199
     },
     "site-section-1.png": {
       "mode": "embedded",
@@ -414,7 +436,7 @@
         316
       ],
       "gray": false,
-      "bytes": 128433
+      "bytes": 135215
     },
     "render-top-view.png": {
       "mode": "embedded",
@@ -430,7 +452,7 @@
         459
       ],
       "gray": false,
-      "bytes": 563459
+      "bytes": 614282
     },
     "lighting-plan-first-floor.png": {
       "mode": "vector",
@@ -447,7 +469,7 @@
         925
       ],
       "gray": false,
-      "bytes": 129306
+      "bytes": 142808
     },
     "lighting-plan-second-floor.png": {
       "mode": "vector",
@@ -464,7 +486,7 @@
         767
       ],
       "gray": false,
-      "bytes": 68227
+      "bytes": 73822
     },
     "lighting-section-a-a.png": {
       "mode": "vector",
@@ -481,7 +503,7 @@
         1296
       ],
       "gray": false,
-      "bytes": 189290
+      "bytes": 202159
     },
     "lighting-rcp-first-floor.png": {
       "mode": "vector",
@@ -498,7 +520,7 @@
         905
       ],
       "gray": false,
-      "bytes": 84275
+      "bytes": 96992
     },
     "lighting-rcp-second-floor.png": {
       "mode": "vector",
@@ -515,7 +537,7 @@
         887
       ],
       "gray": false,
-      "bytes": 102646
+      "bytes": 123421
     }
   }
 }

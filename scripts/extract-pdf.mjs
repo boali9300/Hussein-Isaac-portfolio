@@ -12,13 +12,15 @@
 //   "vector"    a page region drawn with vectors, rendered at high DPI (default
 //               450) so linework and annotations stay sharp when zoomed.
 // Common options: `erase` (rects in PDF points, painted white, used only to remove
-// sheet labels), `trim` (auto-trim white margins, default true), `pad` (px).
+// sheet labels), `trim` (auto-trim white margins, default true), `pad` (px),
+// `background` / `thicken` (transparent sheet, heavier lines; see lib/background.mjs).
 // The resolved metadata (source px, dpi, output size) is written back into
 // crops.json under `_resolved`, so every output can be reproduced and audited.
 import fs from 'node:fs';
 import path from 'node:path';
 import * as mupdf from 'mupdf';
 import sharp from 'sharp';
+import { applyBackground } from './lib/background.mjs';
 
 const cropsPath = process.argv[2];
 if (!cropsPath) {
@@ -183,7 +185,8 @@ for (const crop of spec.crops) {
   if (pad) s = s.extend({ top: pad, bottom: pad, left: pad, right: pad, background: '#ffffff' });
   const flat = await s.removeAlpha().raw().toBuffer({ resolveWithObject: true });
   const gray = crop.color !== true && isNeutral(flat.data, flat.info.channels);
-  let out = sharp(flat.data, { raw: flat.info });
+  const final = applyBackground(flat, crop);
+  let out = sharp(final.data, { raw: final.info });
   if (gray) out = out.toColourspace('b-w');
   await out.png({ compressionLevel: 9 }).toFile(file);
   const { width, height } = await sharp(file).metadata();

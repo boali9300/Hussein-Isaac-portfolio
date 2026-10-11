@@ -68,7 +68,7 @@ const full = zoom
               alt={alt}
               width={src.width}
               formats={['avif']}
-              fallbackFormat="jpg"
+              fallbackFormat="webp"
               quality={82}
               sizes={sizes}
               priority={priority}
@@ -83,7 +83,7 @@ const full = zoom
           alt={alt}
           width={src.width}
           formats={['avif']}
-          fallbackFormat="jpg"
+          fallbackFormat="webp"
           quality={82}
           sizes={sizes}
           priority={priority}
@@ -121,10 +121,9 @@ const full = zoom
     place-items: center;
   }
 
+  /* Drawings have transparent sheets and sit directly on the page paper. */
   .figure--drawing .figure__frame {
-    background: var(--sheet);
     padding: clamp(var(--s-3), 3vw, var(--s-6));
-    box-shadow: inset 0 0 0 1px var(--rule);
   }
 
   .figure__zoom {

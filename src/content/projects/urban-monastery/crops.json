@@ -83,7 +83,9 @@
         243
       ],
       "dpi": 400,
-      "pad": 16
+      "pad": 16,
+      "background": "clear",
+      "thicken": 1
     },
     {
       "name": "elevation-b.png",
@@ -96,7 +98,9 @@
         378
       ],
       "dpi": 400,
-      "pad": 16
+      "pad": 16,
+      "background": "clear",
+      "thicken": 1
     },
     {
       "name": "axon.png",
@@ -110,7 +114,8 @@
       ],
       "dpi": 500,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "cutout"
     },
     {
       "name": "model-photo.png",
@@ -160,7 +165,9 @@
       ],
       "dpi": 350,
       "pad": 24,
-      "color": true
+      "color": true,
+      "background": "clear",
+      "thicken": 1
     },
     {
       "name": "sound-section.png",
@@ -174,7 +181,9 @@
       ],
       "dpi": 400,
       "pad": 24,
-      "color": true
+      "color": true,
+      "background": "clear",
+      "thicken": 1
     }
   ],
   "_resolved": {
@@ -278,7 +287,7 @@
         383
       ],
       "gray": true,
-      "bytes": 47879
+      "bytes": 69638
     },
     "elevation-b.png": {
       "mode": "raster",
@@ -295,7 +304,7 @@
         369
       ],
       "gray": true,
-      "bytes": 41278
+      "bytes": 65728
     },
     "axon.png": {
       "mode": "raster",
@@ -312,7 +321,7 @@
         1383
       ],
       "gray": false,
-      "bytes": 3909928
+      "bytes": 4272782
     },
     "model-photo.png": {
       "mode": "embedded",
@@ -379,7 +388,7 @@
         2467
       ],
       "gray": false,
-      "bytes": 419024
+      "bytes": 560714
     },
     "sound-section.png": {
       "mode": "vector",
@@ -396,7 +405,7 @@
         1481
       ],
       "gray": false,
-      "bytes": 203731
+      "bytes": 250832
     }
   }
 }

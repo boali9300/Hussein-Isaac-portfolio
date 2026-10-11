@@ -78,7 +78,8 @@
       ],
       "dpi": 350,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "clear"
     },
     {
       "name": "program-diagram.png",
@@ -92,7 +93,8 @@
       ],
       "dpi": 350,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "clear"
     },
     {
       "name": "design-layout.png",
@@ -148,7 +150,8 @@
       ],
       "dpi": 450,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "cutout"
     },
     {
       "name": "congregation-plan.png",
@@ -162,7 +165,8 @@
       ],
       "dpi": 400,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "clear"
     },
     {
       "name": "congregation-section.png",
@@ -176,7 +180,8 @@
       ],
       "dpi": 400,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "clear"
     },
     {
       "name": "congregation-render-1.png",
@@ -206,7 +211,8 @@
       ],
       "dpi": 400,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "clear"
     },
     {
       "name": "playground-section.png",
@@ -220,7 +226,8 @@
       ],
       "dpi": 400,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "clear"
     },
     {
       "name": "playground-render.png",
@@ -236,7 +243,8 @@
       "page": 10,
       "image": 2,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "cutout"
     },
     {
       "name": "park-plan.png",
@@ -250,7 +258,8 @@
       ],
       "dpi": 400,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "clear"
     },
     {
       "name": "park-section.png",
@@ -264,7 +273,8 @@
       ],
       "dpi": 400,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "clear"
     },
     {
       "name": "park-render.png",
@@ -280,7 +290,8 @@
       "page": 12,
       "image": 2,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "cutout"
     },
     {
       "name": "workshop-plan.png",
@@ -294,7 +305,8 @@
       ],
       "dpi": 400,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "clear"
     },
     {
       "name": "workshop-section.png",
@@ -308,7 +320,8 @@
       ],
       "dpi": 400,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "clear"
     },
     {
       "name": "workshop-render-1.png",
@@ -338,7 +351,8 @@
       ],
       "dpi": 400,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "clear"
     },
     {
       "name": "storage-section.png",
@@ -352,7 +366,8 @@
       ],
       "dpi": 400,
       "pad": 16,
-      "color": true
+      "color": true,
+      "background": "clear"
     },
     {
       "name": "storage-render-1.png",
@@ -471,7 +486,7 @@
         389
       ],
       "gray": false,
-      "bytes": 50882
+      "bytes": 55821
     },
     "program-diagram.png": {
       "mode": "vector",
@@ -488,7 +503,7 @@
         1356
       ],
       "gray": false,
-      "bytes": 126717
+      "bytes": 138823
     },
     "design-layout.png": {
       "mode": "vector",
@@ -556,7 +571,7 @@
         1519
       ],
       "gray": false,
-      "bytes": 2089699
+      "bytes": 2292356
     },
     "congregation-plan.png": {
       "mode": "vector",
@@ -573,7 +588,7 @@
         1523
       ],
       "gray": false,
-      "bytes": 199912
+      "bytes": 218601
     },
     "congregation-section.png": {
       "mode": "vector",
@@ -590,7 +605,7 @@
         952
       ],
       "gray": false,
-      "bytes": 201891
+      "bytes": 218970
     },
     "congregation-render-1.png": {
       "mode": "embedded",
@@ -639,7 +654,7 @@
         1565
       ],
       "gray": false,
-      "bytes": 373140
+      "bytes": 399989
     },
     "playground-section.png": {
       "mode": "vector",
@@ -656,7 +671,7 @@
         664
       ],
       "gray": false,
-      "bytes": 158163
+      "bytes": 172873
     },
     "playground-render.png": {
       "mode": "embedded",
@@ -688,7 +703,7 @@
         2260
       ],
       "gray": false,
-      "bytes": 4368536
+      "bytes": 4794008
     },
     "park-plan.png": {
       "mode": "vector",
@@ -705,7 +720,7 @@
         1151
       ],
       "gray": false,
-      "bytes": 457245
+      "bytes": 493150
     },
     "park-section.png": {
       "mode": "vector",
@@ -722,7 +737,7 @@
         386
       ],
       "gray": false,
-      "bytes": 315294
+      "bytes": 340659
     },
     "park-render.png": {
       "mode": "embedded",
@@ -754,7 +769,7 @@
         2863
       ],
       "gray": false,
-      "bytes": 6599050
+      "bytes": 7118551
     },
     "workshop-plan.png": {
       "mode": "vector",
@@ -771,7 +786,7 @@
         1498
       ],
       "gray": false,
-      "bytes": 659855
+      "bytes": 704271
     },
     "workshop-section.png": {
       "mode": "vector",
@@ -788,7 +803,7 @@
         484
       ],
       "gray": false,
-      "bytes": 231421
+      "bytes": 251659
     },
     "workshop-render-1.png": {
       "mode": "embedded",
@@ -837,7 +852,7 @@
         1394
       ],
       "gray": false,
-      "bytes": 275142
+      "bytes": 307697
     },
     "storage-section.png": {
       "mode": "vector",
@@ -854,7 +869,7 @@
         467
       ],
       "gray": false,
-      "bytes": 204732
+      "bytes": 221875
     },
     "storage-render-1.png": {
       "mode": "embedded",

@@ -25,7 +25,7 @@ interface Props {
 const { title, description = site.description, image, imageAlt } = Astro.props;
 const pageTitle = title ? `${title} — ${site.name}` : site.title;
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImage = image ? await getImage({ src: image, format: 'jpg', width: 1200, quality: 85 }) : undefined;
+const ogImage = image ? await getImage({ src: image, format: 'jpg', width: 1200, quality: 85, background: '#f4f1ea' }) : undefined;
 const ogImageUrl = ogImage ? new URL(ogImage.src, Astro.site).href : undefined;
 
 const personLd = {
