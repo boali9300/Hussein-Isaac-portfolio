@@ -1,7 +1,6 @@
 ---
 import { Picture } from 'astro:assets';
 import Base from '../layouts/Base.astro';
-import ProjectCard from '../components/ProjectCard.astro';
 import Pending from '../components/Pending.astro';
 import { site } from '../data/site';
 import { photoFormats } from '../lib/images';
@@ -17,8 +16,6 @@ const groups = levels
     return {
       ...level,
       list,
-      featured: list.filter((p) => p.data.featured),
-      others: list.filter((p) => !p.data.featured),
     };
   })
   .filter((g) => g.list.length > 0);
@@ -147,9 +144,9 @@ const meta = [
         <nav class="index" aria-label="Project index" data-reveal>
           <p class="label">Index of projects</p>
           {groups.map((group) => (
-            <div class="index__group">
+            <div class="index__group" id={group.id}>
               <p class="index__level label">
-                <a href={url(`/#${group.id}`)}>{group.label}</a>
+                {group.label}
               </p>
               <ol class="index__list">
                 {group.list.map((project) => (
@@ -168,30 +165,6 @@ const meta = [
           ))}
         </nav>
 
-        <div class="work__groups">
-          {groups.map((group) => (
-            <section class="work__group" id={group.id} aria-labelledby={`${group.id}-title`}>
-              <header class="work__group-head" data-reveal>
-                <h3 class="h2" id={`${group.id}-title`}>{group.label}</h3>
-                <p class="label">
-                  {group.list.length} {group.list.length === 1 ? 'project' : 'projects'}
-                </p>
-              </header>
-              <div class="work__list">
-                {group.featured.map((project) => (
-                  <ProjectCard project={project} index={numberInLevel(projects, project) - 1} variant="feature" />
-                ))}
-                {group.others.length > 0 && (
-                  <div class="work__grid">
-                    {group.others.map((project) => (
-                      <ProjectCard project={project} index={numberInLevel(projects, project) - 1} />
-                    ))}
-                  </div>
-                )}
-              </div>
-            </section>
-          ))}
-        </div>
       </section>
     )
   }
@@ -410,7 +383,6 @@ const meta = [
     display: flex;
     flex-direction: column;
     gap: var(--s-3);
-    margin-bottom: var(--section);
   }
 
   .index__group {
@@ -423,14 +395,6 @@ const meta = [
   .index__level {
     grid-column: 1 / span 3;
     padding-top: var(--s-3);
-  }
-
-  .index__level a {
-    text-decoration: none;
-  }
-
-  .index__level a:hover {
-    color: var(--accent-text);
   }
 
   .index__list {
@@ -479,34 +443,6 @@ const meta = [
   .index__row:hover .index__arrow {
     opacity: 1;
     transform: none;
-  }
-
-  .work__groups {
-    display: flex;
-    flex-direction: column;
-    gap: var(--section);
-  }
-
-  .work__group-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: var(--s-4);
-    padding-top: var(--s-4);
-    margin-bottom: var(--s-6);
-    border-top: 1px solid var(--rule-strong);
-  }
-
-  .work__list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--s-8);
-  }
-
-  .work__grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--s-8) var(--col-gap);
   }
 
   /* Contact */
